@@ -1,0 +1,16 @@
+.\output\inv_mems_secondary_transport.o: Source\MEMS\inv_mems_secondary_transport.c
+.\output\inv_mems_secondary_transport.o: Source\MEMS\inv_mems_transport.h
+.\output\inv_mems_secondary_transport.o: Source\MEMS\mltypes.h
+.\output\inv_mems_secondary_transport.o: Source\MEMS\inv_mems_defines.h
+.\output\inv_mems_secondary_transport.o: D:\ProgramFilesFolder\Keil_V5\MDK_Core\ARM\ARMCC\Bin\..\include\string.h
+.\output\inv_mems_secondary_transport.o: D:\ProgramFilesFolder\Keil_V5\MDK_Core\ARM\ARMCC\Bin\..\include\stdlib.h
+.\output\inv_mems_secondary_transport.o: Source\MEMS\mltypes.h
+.\output\inv_mems_secondary_transport.o: Source\MEMS\inv_mems_drv_hook.h
+.\output\inv_mems_secondary_transport.o: Source\MEMS\int_types.h
+.\output\inv_mems_secondary_transport.o: D:\ProgramFilesFolder\Keil_V5\MDK_Core\ARM\ARMCC\Bin\..\include\stdint.h
+.\output\inv_mems_secondary_transport.o: Source\MEMS\dmp3Driver.h
+.\output\inv_mems_secondary_transport.o: Source\MEMS\inv_mems_drv_hook.h
+.\output\inv_mems_secondary_transport.o: Source\MEMS\inv_mems_base_driver.h
+.\output\inv_mems_secondary_transport.o: Source\MEMS\invn_types.h
+.\output\inv_mems_secondary_transport.o: D:\ProgramFilesFolder\Keil_V5\MDK_Core\ARM\ARMCC\Bin\..\include\errno.h
+.\output\inv_mems_secondary_transport.o: Source\MEMS\inv_mems_secondary_transport.h

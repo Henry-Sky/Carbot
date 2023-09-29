@@ -1,0 +1,9 @@
+.\output\ml_math_func.o: Source\MEMS\ml_math_func.c
+.\output\ml_math_func.o: Source\MEMS\mlmath.h
+.\output\ml_math_func.o: D:\ProgramFilesFolder\Keil_V5\MDK_Core\ARM\ARMCC\Bin\..\include\math.h
+.\output\ml_math_func.o: Source\MEMS\ml_math_func.h
+.\output\ml_math_func.o: Source\MEMS\invn_types.h
+.\output\ml_math_func.o: Source\MEMS\int_types.h
+.\output\ml_math_func.o: D:\ProgramFilesFolder\Keil_V5\MDK_Core\ARM\ARMCC\Bin\..\include\stdint.h
+.\output\ml_math_func.o: D:\ProgramFilesFolder\Keil_V5\MDK_Core\ARM\ARMCC\Bin\..\include\errno.h
+.\output\ml_math_func.o: D:\ProgramFilesFolder\Keil_V5\MDK_Core\ARM\ARMCC\Bin\..\include\string.h

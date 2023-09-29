@@ -1,0 +1,14 @@
+.\output\dmp3default_20648.o: Source\MEMS\dmp3Default_20648.c
+.\output\dmp3default_20648.o: Source\MEMS\dmp3Driver.h
+.\output\dmp3default_20648.o: Source\MEMS\int_types.h
+.\output\dmp3default_20648.o: D:\ProgramFilesFolder\Keil_V5\MDK_Core\ARM\ARMCC\Bin\..\include\stdint.h
+.\output\dmp3default_20648.o: Source\MEMS\dmp3Default_20648.h
+.\output\dmp3default_20648.o: Source\MEMS\mltypes.h
+.\output\dmp3default_20648.o: Source\MEMS\inv_mems_defines.h
+.\output\dmp3default_20648.o: D:\ProgramFilesFolder\Keil_V5\MDK_Core\ARM\ARMCC\Bin\..\include\string.h
+.\output\dmp3default_20648.o: D:\ProgramFilesFolder\Keil_V5\MDK_Core\ARM\ARMCC\Bin\..\include\stdlib.h
+.\output\dmp3default_20648.o: Source\MEMS\mltypes.h
+.\output\dmp3default_20648.o: Source\MEMS\inv_mems_drv_hook.h
+.\output\dmp3default_20648.o: Source\MEMS\invn_types.h
+.\output\dmp3default_20648.o: D:\ProgramFilesFolder\Keil_V5\MDK_Core\ARM\ARMCC\Bin\..\include\errno.h
+.\output\dmp3default_20648.o: Source\MEMS\dmp3Default_20648.txt
