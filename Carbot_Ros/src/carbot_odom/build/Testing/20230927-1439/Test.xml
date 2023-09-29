@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Site BuildName="(empty)"
+	BuildStamp="20230927-1439-Experimental"
+	Name="SurfacePro"
+	Generator="ctest-3.22.1"
+	CompilerName="/usr/bin/g++"
+	CompilerVersion="11.4.0"
+	OSName="Linux"
+	Hostname="SurfacePro"
+	OSRelease="6.4.12-surface"
+	OSVersion="#1 SMP PREEMPT_DYNAMIC Fri Aug 25 22:33:48 UTC 2023"
+	OSPlatform="x86_64"
+	Is64Bits="1"
+	VendorString="GenuineIntel"
+	VendorID="Intel Corporation"
+	FamilyID="6"
+	ModelID="142"
+	ProcessorCacheSize="6144"
+	NumberOfLogicalCPU="8"
+	NumberOfPhysicalCPU="4"
+	TotalVirtualMemory="2047"
+	TotalPhysicalMemory="7856"
+	LogicalProcessorsPerPhysical="2"
+	ProcessorClockFrequency="2400.13"
+	>
+	<Testing>
+		<StartDateTime>Sep 27 23:55 CST</StartDateTime>
+		<StartTestTime>1695830102</StartTestTime>
+		<TestList/>
+		<EndDateTime>Sep 27 23:55 CST</EndDateTime>
+		<EndTestTime>1695830102</EndTestTime>
+		<ElapsedMinutes>0</ElapsedMinutes>
+	</Testing>
+</Site>

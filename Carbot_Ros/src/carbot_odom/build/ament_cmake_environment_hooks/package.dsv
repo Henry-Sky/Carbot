@@ -1,0 +1,4 @@
+source;share/carbot_odom/local_setup.bash
+source;share/carbot_odom/local_setup.dsv
+source;share/carbot_odom/local_setup.sh
+source;share/carbot_odom/local_setup.zsh
