@@ -1,2 +1,28 @@
 # SIT_Carbot
 基于 Ros2 Humble 的智能物流小车
+
+## 上位机:树莓派4B or 旭日x3派
+    对接下位机库: Carbot_lib
+    改动: 对零号车型适配
+    计划: 添加Cvbot_lib, 对调用opencv摄像头识别进行基本封装
+
+## 下位机:STM32(亚博智能的ros扩展板)
+    厂家驱动: Rosmaster
+    改动: 将原保留位0号车型改为项目Carbot车型硬件(车轮直径80mm,电机转速330rpm,详情参考module下的3d模型文件) 
+    计划: 向上位机发送电机累计编码器脉冲数据便于计算odom，对陀螺仪添加串行pid，添加控制小车移动距离的pid
+
+## 中间件:Ros2 humble
+    ### carbot_driver: 
+        - 订阅Twist并向下位机发送移动指令
+
+    ### carbot_key_ctrl:
+        - 监听linux终端键盘
+        - 发布Twist控制消息
+
+    ### carbot_odom: 
+        - 订阅Twist获取速度信息
+        - 计算里程计(获取速度后对时间积分)并发布
+        - 计划添加直接从编码器脉冲计算里程的方法
+
+    ### carbot_imu:
+        - 获取陀螺仪数据并发布
