@@ -1,0 +1,25 @@
+[3.256s] Invoking command in '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_odom': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_imu:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_driver:/opt/ros/humble /usr/bin/cmake --build /home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_odom -- -j4 -l4
+[3.558s] [ 50%] [32mBuilding CXX object CMakeFiles/carbot_odom.dir/src/carbot_odom_data.cpp.o[0m
+[38.869s] [100%] [32m[1mLinking CXX executable carbot_odom[0m
+[41.099s] [100%] Built target carbot_odom
+[41.135s] Invoked command in '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_odom' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_imu:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_driver:/opt/ros/humble /usr/bin/cmake --build /home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_odom -- -j4 -l4
+[41.287s] Invoking command in '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_odom': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_imu:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_driver:/opt/ros/humble /usr/bin/cmake --install /home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_odom
+[41.313s] -- Install configuration: ""
+[41.315s] -- Installing: /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/lib/carbot_odom/carbot_odom
+[41.345s] -- Set runtime path of "/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/lib/carbot_odom/carbot_odom" to ""
+[41.345s] -- Up-to-date: /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/ament_index/resource_index/package_run_dependencies/carbot_odom
+[41.346s] -- Up-to-date: /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/ament_index/resource_index/parent_prefix_path/carbot_odom
+[41.346s] -- Up-to-date: /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/carbot_odom/environment/ament_prefix_path.sh
+[41.347s] -- Up-to-date: /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/carbot_odom/environment/ament_prefix_path.dsv
+[41.347s] -- Up-to-date: /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/carbot_odom/environment/path.sh
+[41.348s] -- Up-to-date: /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/carbot_odom/environment/path.dsv
+[41.348s] -- Up-to-date: /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/carbot_odom/local_setup.bash
+[41.349s] -- Up-to-date: /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/carbot_odom/local_setup.sh
+[41.349s] -- Up-to-date: /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/carbot_odom/local_setup.zsh
+[41.350s] -- Up-to-date: /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/carbot_odom/local_setup.dsv
+[41.350s] -- Installing: /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/carbot_odom/package.dsv
+[41.350s] -- Up-to-date: /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/ament_index/resource_index/packages/carbot_odom
+[41.351s] -- Up-to-date: /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/carbot_odom/cmake/carbot_odomConfig.cmake
+[41.371s] -- Up-to-date: /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/carbot_odom/cmake/carbot_odomConfig-version.cmake
+[41.372s] -- Up-to-date: /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/carbot_odom/package.xml
+[41.373s] Invoked command in '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_odom' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_imu:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_driver:/opt/ros/humble /usr/bin/cmake --install /home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_odom

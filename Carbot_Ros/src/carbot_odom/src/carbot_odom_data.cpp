@@ -1,10 +1,13 @@
+#include <iostream>
 #include <rclcpp/rclcpp.hpp>
 #include <tf2/LinearMath/Quaternion.h>
 #include <tf2_ros/transform_broadcaster.h>
 #include "geometry_msgs/msg/twist.hpp"
 #include "nav_msgs/msg/odometry.hpp"
 
+using namespace std;
 using std::placeholders::_1;
+
 
 
 class OdomPublisher:public rclcpp ::Node{
@@ -38,6 +41,7 @@ class OdomPublisher:public rclcpp ::Node{
     public:
         // 类的构造函数
         OdomPublisher(): Node("base_node"){
+            cout<<"carbot_odom start";
             // 参数创建           
             this->declare_parameter<double>("linear_scale_x",1.0);
             this->declare_parameter<double>("linear_scale_y",1.0);
@@ -50,7 +54,7 @@ class OdomPublisher:public rclcpp ::Node{
             // 创建tf实例
             tf_broadcaster_ = std::make_unique<tf2_ros::TransformBroadcaster>(*this);
             // 订阅者实例
-            subscription_ = this->create_subscription<geometry_msgs::msg::Twist>("vel_raw",50,std::bind(&OdomPublisher::twist_to_odom,this,_1));
+            subscription_ = this->create_subscription<geometry_msgs::msg::Twist>("cmd_vel",50,std::bind(&OdomPublisher::twist_to_odom,this,_1));
             // 发布者实例
             odom_publisher_ = this->create_publisher<nav_msgs::msg::Odometry>("/odom_raw", 50);
         }

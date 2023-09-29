@@ -1,0 +1,26 @@
+[5.619s] Invoking command in '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/src/carbot_key_ctrl': PYTHONPATH=/home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_key_ctrl/prefix_override:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/carbot_key_ctrl build --build-base /home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_key_ctrl/build install --record /home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_key_ctrl/install.log --single-version-externally-managed
+[6.877s] running egg_info
+[6.880s] writing ../../build/carbot_key_ctrl/carbot_key_ctrl.egg-info/PKG-INFO
+[6.882s] writing dependency_links to ../../build/carbot_key_ctrl/carbot_key_ctrl.egg-info/dependency_links.txt
+[6.884s] writing entry points to ../../build/carbot_key_ctrl/carbot_key_ctrl.egg-info/entry_points.txt
+[6.885s] writing requirements to ../../build/carbot_key_ctrl/carbot_key_ctrl.egg-info/requires.txt
+[6.886s] writing top-level names to ../../build/carbot_key_ctrl/carbot_key_ctrl.egg-info/top_level.txt
+[6.898s] reading manifest file '../../build/carbot_key_ctrl/carbot_key_ctrl.egg-info/SOURCES.txt'
+[6.903s] writing manifest file '../../build/carbot_key_ctrl/carbot_key_ctrl.egg-info/SOURCES.txt'
+[6.904s] running build
+[6.905s] running build_py
+[6.906s] copying carbot_key_ctrl/carbot_key_ctrl.py -> /home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_key_ctrl/build/lib/carbot_key_ctrl
+[6.909s] running install
+[6.910s] /usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+[6.912s]   warnings.warn(
+[6.913s] running install_lib
+[6.917s] copying /home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_key_ctrl/build/lib/carbot_key_ctrl/carbot_key_ctrl.py -> /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl/lib/python3.10/site-packages/carbot_key_ctrl
+[6.921s] byte-compiling /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl/lib/python3.10/site-packages/carbot_key_ctrl/carbot_key_ctrl.py to carbot_key_ctrl.cpython-310.pyc
+[6.926s] running install_data
+[6.929s] running install_egg_info
+[6.938s] removing '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl/lib/python3.10/site-packages/carbot_key_ctrl-0.0.0-py3.10.egg-info' (and everything under it)
+[6.940s] Copying ../../build/carbot_key_ctrl/carbot_key_ctrl.egg-info to /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl/lib/python3.10/site-packages/carbot_key_ctrl-0.0.0-py3.10.egg-info
+[6.954s] running install_scripts
+[7.084s] Installing carbot_key_ctrl script to /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl/lib/carbot_key_ctrl
+[7.087s] writing list of installed files to '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_key_ctrl/install.log'
+[7.299s] Invoked command in '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/src/carbot_key_ctrl' returned '0': PYTHONPATH=/home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_key_ctrl/prefix_override:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/carbot_key_ctrl build --build-base /home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_key_ctrl/build install --record /home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_key_ctrl/install.log --single-version-externally-managed

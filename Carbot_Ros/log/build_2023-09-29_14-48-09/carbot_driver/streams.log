@@ -1,0 +1,39 @@
+[6.352s] Invoking command in '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/src/carbot_driver': PYTHONPATH=/home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_driver/prefix_override:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_driver/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/carbot_driver build --build-base /home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_driver/build install --record /home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_driver/install.log --single-version-externally-managed
+[8.177s] running egg_info
+[8.195s] creating ../../build/carbot_driver/carbot_driver.egg-info
+[8.198s] writing ../../build/carbot_driver/carbot_driver.egg-info/PKG-INFO
+[8.198s] writing dependency_links to ../../build/carbot_driver/carbot_driver.egg-info/dependency_links.txt
+[8.199s] writing entry points to ../../build/carbot_driver/carbot_driver.egg-info/entry_points.txt
+[8.208s] writing requirements to ../../build/carbot_driver/carbot_driver.egg-info/requires.txt
+[8.211s] writing top-level names to ../../build/carbot_driver/carbot_driver.egg-info/top_level.txt
+[8.211s] writing manifest file '../../build/carbot_driver/carbot_driver.egg-info/SOURCES.txt'
+[8.226s] reading manifest file '../../build/carbot_driver/carbot_driver.egg-info/SOURCES.txt'
+[8.234s] writing manifest file '../../build/carbot_driver/carbot_driver.egg-info/SOURCES.txt'
+[8.250s] running build
+[8.257s] running build_py
+[8.258s] creating /home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_driver/build
+[8.262s] creating /home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_driver/build/lib
+[8.263s] creating /home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_driver/build/lib/carbot_driver
+[8.273s] copying carbot_driver/carbot_driver.py -> /home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_driver/build/lib/carbot_driver
+[8.273s] copying carbot_driver/__init__.py -> /home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_driver/build/lib/carbot_driver
+[8.274s] running install
+[8.275s] /usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+[8.275s]   warnings.warn(
+[8.276s] running install_lib
+[8.276s] creating /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_driver/lib/python3.10/site-packages/carbot_driver
+[8.277s] copying /home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_driver/build/lib/carbot_driver/carbot_driver.py -> /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_driver/lib/python3.10/site-packages/carbot_driver
+[8.278s] copying /home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_driver/build/lib/carbot_driver/__init__.py -> /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_driver/lib/python3.10/site-packages/carbot_driver
+[8.279s] byte-compiling /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_driver/lib/python3.10/site-packages/carbot_driver/carbot_driver.py to carbot_driver.cpython-310.pyc
+[8.280s] byte-compiling /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_driver/lib/python3.10/site-packages/carbot_driver/__init__.py to __init__.cpython-310.pyc
+[8.281s] running install_data
+[8.281s] creating /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_driver/share/ament_index
+[8.282s] creating /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_driver/share/ament_index/resource_index
+[8.283s] creating /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_driver/share/ament_index/resource_index/packages
+[8.291s] copying resource/carbot_driver -> /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_driver/share/ament_index/resource_index/packages
+[8.292s] copying package.xml -> /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_driver/share/carbot_driver
+[8.293s] running install_egg_info
+[8.322s] Copying ../../build/carbot_driver/carbot_driver.egg-info to /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_driver/lib/python3.10/site-packages/carbot_driver-0.0.0-py3.10.egg-info
+[8.337s] running install_scripts
+[8.484s] Installing carbot_driver script to /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_driver/lib/carbot_driver
+[8.489s] writing list of installed files to '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_driver/install.log'
+[8.769s] Invoked command in '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/src/carbot_driver' returned '0': PYTHONPATH=/home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_driver/prefix_override:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_driver/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/carbot_driver build --build-base /home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_driver/build install --record /home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_driver/install.log --single-version-externally-managed
