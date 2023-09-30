@@ -1,0 +1,22 @@
+[3.311s] Invoking command in '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_odom': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_imu:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_driver:/opt/ros/humble /usr/bin/cmake --build /home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_odom -- -j4 -l4
+[3.622s] [100%] Built target carbot_odom
+[3.701s] Invoked command in '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_odom' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_imu:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_driver:/opt/ros/humble /usr/bin/cmake --build /home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_odom -- -j4 -l4
+[3.958s] Invoking command in '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_odom': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_imu:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_driver:/opt/ros/humble /usr/bin/cmake --install /home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_odom
+[3.993s] -- Install configuration: ""
+[3.997s] -- Up-to-date: /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/lib/carbot_odom/carbot_odom
+[4.001s] -- Up-to-date: /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/ament_index/resource_index/package_run_dependencies/carbot_odom
+[4.003s] -- Up-to-date: /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/ament_index/resource_index/parent_prefix_path/carbot_odom
+[4.006s] -- Up-to-date: /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/carbot_odom/environment/ament_prefix_path.sh
+[4.008s] -- Up-to-date: /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/carbot_odom/environment/ament_prefix_path.dsv
+[4.011s] -- Up-to-date: /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/carbot_odom/environment/path.sh
+[4.013s] -- Up-to-date: /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/carbot_odom/environment/path.dsv
+[4.015s] -- Up-to-date: /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/carbot_odom/local_setup.bash
+[4.018s] -- Up-to-date: /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/carbot_odom/local_setup.sh
+[4.019s] -- Up-to-date: /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/carbot_odom/local_setup.zsh
+[4.022s] -- Up-to-date: /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/carbot_odom/local_setup.dsv
+[4.024s] -- Installing: /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/carbot_odom/package.dsv
+[4.027s] -- Up-to-date: /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/ament_index/resource_index/packages/carbot_odom
+[4.031s] -- Up-to-date: /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/carbot_odom/cmake/carbot_odomConfig.cmake
+[4.032s] -- Up-to-date: /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/carbot_odom/cmake/carbot_odomConfig-version.cmake
+[4.032s] -- Up-to-date: /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/carbot_odom/package.xml
+[4.057s] Invoked command in '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_odom' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_imu:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_driver:/opt/ros/humble /usr/bin/cmake --install /home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_odom

@@ -9,7 +9,7 @@ setup.py
 ../../build/carbot_imu/carbot_imu.egg-info/top_level.txt
 ../../build/carbot_imu/carbot_imu.egg-info/zip-safe
 carbot_imu/__init__.py
-carbot_imu/carbot_imu_date.py
+carbot_imu/carbot_imu_data.py
 resource/carbot_imu
 test/test_copyright.py
 test/test_flake8.py

@@ -1,0 +1,218 @@
+[0.000000] (-) TimerEvent: {}
+[0.004375] (carbot_driver) JobQueued: {'identifier': 'carbot_driver', 'dependencies': OrderedDict()}
+[0.004623] (carbot_imu) JobQueued: {'identifier': 'carbot_imu', 'dependencies': OrderedDict()}
+[0.004791] (carbot_key_ctrl) JobQueued: {'identifier': 'carbot_key_ctrl', 'dependencies': OrderedDict()}
+[0.004954] (carbot_odom) JobQueued: {'identifier': 'carbot_odom', 'dependencies': OrderedDict()}
+[0.007133] (carbot_driver) JobStarted: {'identifier': 'carbot_driver'}
+[0.070272] (carbot_imu) JobStarted: {'identifier': 'carbot_imu'}
+[0.103561] (-) TimerEvent: {}
+[0.130556] (carbot_key_ctrl) JobStarted: {'identifier': 'carbot_key_ctrl'}
+[0.179311] (carbot_odom) JobStarted: {'identifier': 'carbot_odom'}
+[0.203828] (-) TimerEvent: {}
+[0.304722] (-) TimerEvent: {}
+[0.405648] (-) TimerEvent: {}
+[0.506423] (-) TimerEvent: {}
+[0.607329] (-) TimerEvent: {}
+[0.709597] (-) TimerEvent: {}
+[0.813135] (-) TimerEvent: {}
+[0.914400] (-) TimerEvent: {}
+[1.015806] (-) TimerEvent: {}
+[1.117820] (-) TimerEvent: {}
+[1.218761] (-) TimerEvent: {}
+[1.320193] (-) TimerEvent: {}
+[1.421139] (-) TimerEvent: {}
+[1.522078] (-) TimerEvent: {}
+[1.628169] (-) TimerEvent: {}
+[1.734627] (-) TimerEvent: {}
+[1.835581] (-) TimerEvent: {}
+[1.937093] (-) TimerEvent: {}
+[2.038426] (-) TimerEvent: {}
+[2.139266] (-) TimerEvent: {}
+[2.240797] (-) TimerEvent: {}
+[2.342081] (-) TimerEvent: {}
+[2.443844] (-) TimerEvent: {}
+[2.547337] (-) TimerEvent: {}
+[2.649341] (-) TimerEvent: {}
+[2.752493] (-) TimerEvent: {}
+[2.853496] (-) TimerEvent: {}
+[2.954882] (-) TimerEvent: {}
+[3.055967] (-) TimerEvent: {}
+[3.157729] (-) TimerEvent: {}
+[3.262033] (-) TimerEvent: {}
+[3.363465] (-) TimerEvent: {}
+[3.464482] (-) TimerEvent: {}
+[3.567250] (-) TimerEvent: {}
+[3.668460] (-) TimerEvent: {}
+[3.769875] (-) TimerEvent: {}
+[3.870748] (-) TimerEvent: {}
+[3.971668] (-) TimerEvent: {}
+[4.072565] (-) TimerEvent: {}
+[4.173555] (-) TimerEvent: {}
+[4.274699] (-) TimerEvent: {}
+[4.375658] (-) TimerEvent: {}
+[4.476792] (-) TimerEvent: {}
+[4.578276] (-) TimerEvent: {}
+[4.679971] (-) TimerEvent: {}
+[4.728316] (carbot_odom) JobProgress: {'identifier': 'carbot_odom', 'progress': 'cmake'}
+[4.731803] (carbot_odom) JobProgress: {'identifier': 'carbot_odom', 'progress': 'build'}
+[4.734320] (carbot_odom) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_odom', '--', '-j4', '-l4'], 'cwd': '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_odom', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'henry'), ('SSH_CLIENT', '192.168.0.100 50263 22'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/henry/.vscode-server/bin/abd2f3db4bdb28f9e95536dfa84d8479f1eb312d/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib'), ('BROWSER', '/home/henry/.vscode-server/bin/abd2f3db4bdb28f9e95536dfa84d8479f1eb312d/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/henry'), ('TERM_PROGRAM_VERSION', '1.82.2'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-5fbd69b5-5c7d-405d-a699-3c9af60a8a6c.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/henry/.vscode-server/bin/abd2f3db4bdb28f9e95536dfa84d8479f1eb312d/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/home/henry/.vscode-server/bin/abd2f3db4bdb28f9e95536dfa84d8479f1eb312d/node'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'henry'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/henry/.vscode-server/bin/abd2f3db4bdb28f9e95536dfa84d8479f1eb312d/bin/remote-cli:/home/henry/.local/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-bc0d7e12ad.sock'), ('TERM_PROGRAM', 'vscode'), ('AMENT_PREFIX_PATH', '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_imu:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_driver:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_odom'), ('SSH_CONNECTION', '192.168.0.100 50263 192.168.0.64 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl/lib/python3.10/site-packages:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_imu/lib/python3.10/site-packages:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_driver/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_imu:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_driver:/opt/ros/humble')]), 'shell': False}
+[4.781111] (-) TimerEvent: {}
+[4.883629] (-) TimerEvent: {}
+[4.985895] (-) TimerEvent: {}
+[5.089067] (-) TimerEvent: {}
+[5.191060] (-) TimerEvent: {}
+[5.249910] (carbot_odom) StdoutLine: {'line': b'[100%] Built target carbot_odom\n'}
+[5.291378] (-) TimerEvent: {}
+[5.368129] (carbot_odom) CommandEnded: {'returncode': 0}
+[5.391594] (-) TimerEvent: {}
+[5.492771] (-) TimerEvent: {}
+[5.599880] (-) TimerEvent: {}
+[5.699234] (carbot_odom) JobProgress: {'identifier': 'carbot_odom', 'progress': 'install'}
+[5.700026] (-) TimerEvent: {}
+[5.780088] (carbot_odom) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_odom'], 'cwd': '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_odom', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'henry'), ('SSH_CLIENT', '192.168.0.100 50263 22'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/henry/.vscode-server/bin/abd2f3db4bdb28f9e95536dfa84d8479f1eb312d/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib'), ('BROWSER', '/home/henry/.vscode-server/bin/abd2f3db4bdb28f9e95536dfa84d8479f1eb312d/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/henry'), ('TERM_PROGRAM_VERSION', '1.82.2'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-5fbd69b5-5c7d-405d-a699-3c9af60a8a6c.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/henry/.vscode-server/bin/abd2f3db4bdb28f9e95536dfa84d8479f1eb312d/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/home/henry/.vscode-server/bin/abd2f3db4bdb28f9e95536dfa84d8479f1eb312d/node'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'henry'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/henry/.vscode-server/bin/abd2f3db4bdb28f9e95536dfa84d8479f1eb312d/bin/remote-cli:/home/henry/.local/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-bc0d7e12ad.sock'), ('TERM_PROGRAM', 'vscode'), ('AMENT_PREFIX_PATH', '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_imu:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_driver:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_odom'), ('SSH_CONNECTION', '192.168.0.100 50263 192.168.0.64 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl/lib/python3.10/site-packages:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_imu/lib/python3.10/site-packages:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_driver/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_imu:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_driver:/opt/ros/humble')]), 'shell': False}
+[5.800240] (-) TimerEvent: {}
+[5.853046] (carbot_odom) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[5.865653] (carbot_odom) StdoutLine: {'line': b'-- Up-to-date: /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/lib/carbot_odom/carbot_odom\n'}
+[5.868373] (carbot_odom) StdoutLine: {'line': b'-- Up-to-date: /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/ament_index/resource_index/package_run_dependencies/carbot_odom\n'}
+[5.869696] (carbot_odom) StdoutLine: {'line': b'-- Up-to-date: /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/ament_index/resource_index/parent_prefix_path/carbot_odom\n'}
+[5.870972] (carbot_odom) StdoutLine: {'line': b'-- Up-to-date: /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/carbot_odom/environment/ament_prefix_path.sh\n'}
+[5.872269] (carbot_odom) StdoutLine: {'line': b'-- Up-to-date: /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/carbot_odom/environment/ament_prefix_path.dsv\n'}
+[5.873518] (carbot_odom) StdoutLine: {'line': b'-- Up-to-date: /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/carbot_odom/environment/path.sh\n'}
+[5.874742] (carbot_odom) StdoutLine: {'line': b'-- Up-to-date: /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/carbot_odom/environment/path.dsv\n'}
+[5.876051] (carbot_odom) StdoutLine: {'line': b'-- Up-to-date: /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/carbot_odom/local_setup.bash\n'}
+[5.877319] (carbot_odom) StdoutLine: {'line': b'-- Up-to-date: /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/carbot_odom/local_setup.sh\n'}
+[5.888648] (carbot_odom) StdoutLine: {'line': b'-- Up-to-date: /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/carbot_odom/local_setup.zsh\n'}
+[5.890003] (carbot_odom) StdoutLine: {'line': b'-- Up-to-date: /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/carbot_odom/local_setup.dsv\n'}
+[5.891261] (carbot_odom) StdoutLine: {'line': b'-- Installing: /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/carbot_odom/package.dsv\n'}
+[5.894011] (carbot_odom) StdoutLine: {'line': b'-- Up-to-date: /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/ament_index/resource_index/packages/carbot_odom\n'}
+[5.895734] (carbot_odom) StdoutLine: {'line': b'-- Up-to-date: /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/carbot_odom/cmake/carbot_odomConfig.cmake\n'}
+[5.897056] (carbot_odom) StdoutLine: {'line': b'-- Up-to-date: /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/carbot_odom/cmake/carbot_odomConfig-version.cmake\n'}
+[5.899759] (carbot_odom) StdoutLine: {'line': b'-- Up-to-date: /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/carbot_odom/package.xml\n'}
+[5.900380] (-) TimerEvent: {}
+[5.921717] (carbot_odom) CommandEnded: {'returncode': 0}
+[6.003934] (-) TimerEvent: {}
+[6.105733] (-) TimerEvent: {}
+[6.211870] (-) TimerEvent: {}
+[6.311620] (carbot_odom) JobEnded: {'identifier': 'carbot_odom', 'rc': 0}
+[6.314733] (-) TimerEvent: {}
+[6.415615] (-) TimerEvent: {}
+[6.517826] (-) TimerEvent: {}
+[6.620907] (-) TimerEvent: {}
+[6.723474] (-) TimerEvent: {}
+[6.825728] (-) TimerEvent: {}
+[6.926634] (-) TimerEvent: {}
+[7.029909] (-) TimerEvent: {}
+[7.133904] (-) TimerEvent: {}
+[7.237885] (-) TimerEvent: {}
+[7.293319] (carbot_imu) Command: {'cmd': ['/usr/bin/python3', 'setup.py', 'egg_info', '--egg-base', '../../build/carbot_imu', 'build', '--build-base', '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_imu/build', 'install', '--record', '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_imu/install.log', '--single-version-externally-managed'], 'cwd': '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/src/carbot_imu', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'henry', 'SSH_CLIENT': '192.168.0.100 50263 22', 'XDG_SESSION_TYPE': 'tty', 'GIT_ASKPASS': '/home/henry/.vscode-server/bin/abd2f3db4bdb28f9e95536dfa84d8479f1eb312d/extensions/git/dist/askpass.sh', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib', 'BROWSER': '/home/henry/.vscode-server/bin/abd2f3db4bdb28f9e95536dfa84d8479f1eb312d/bin/helpers/browser.sh', 'MOTD_SHOWN': 'pam', 'HOME': '/home/henry', 'TERM_PROGRAM_VERSION': '1.82.2', 'VSCODE_IPC_HOOK_CLI': '/run/user/1000/vscode-ipc-5fbd69b5-5c7d-405d-a699-3c9af60a8a6c.sock', 'ROS_PYTHON_VERSION': '3', 'VSCODE_GIT_ASKPASS_MAIN': '/home/henry/.vscode-server/bin/abd2f3db4bdb28f9e95536dfa84d8479f1eb312d/extensions/git/dist/askpass-main.js', 'VSCODE_GIT_ASKPASS_NODE': '/home/henry/.vscode-server/bin/abd2f3db4bdb28f9e95536dfa84d8479f1eb312d/node', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'COLCON_PREFIX_PATH': '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install', 'ROS_DISTRO': 'humble', 'LOGNAME': 'henry', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '1', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/home/henry/.vscode-server/bin/abd2f3db4bdb28f9e95536dfa84d8479f1eb312d/bin/remote-cli:/home/henry/.local/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'XDG_RUNTIME_DIR': '/run/user/1000', 'LANG': 'C.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1000/vscode-git-bc0d7e12ad.sock', 'TERM_PROGRAM': 'vscode', 'AMENT_PREFIX_PATH': '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_imu:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_driver:/opt/ros/humble', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'PWD': '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_imu', 'SSH_CONNECTION': '192.168.0.100 50263 192.168.0.64 22', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_imu/prefix_override:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_imu/lib/python3.10/site-packages:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl/lib/python3.10/site-packages:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_imu/lib/python3.10/site-packages:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_driver/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom'}, 'shell': False}
+[7.330397] (carbot_driver) Command: {'cmd': ['/usr/bin/python3', 'setup.py', 'egg_info', '--egg-base', '../../build/carbot_driver', 'build', '--build-base', '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_driver/build', 'install', '--record', '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_driver/install.log', '--single-version-externally-managed'], 'cwd': '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/src/carbot_driver', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'henry', 'SSH_CLIENT': '192.168.0.100 50263 22', 'XDG_SESSION_TYPE': 'tty', 'GIT_ASKPASS': '/home/henry/.vscode-server/bin/abd2f3db4bdb28f9e95536dfa84d8479f1eb312d/extensions/git/dist/askpass.sh', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib', 'BROWSER': '/home/henry/.vscode-server/bin/abd2f3db4bdb28f9e95536dfa84d8479f1eb312d/bin/helpers/browser.sh', 'MOTD_SHOWN': 'pam', 'HOME': '/home/henry', 'TERM_PROGRAM_VERSION': '1.82.2', 'VSCODE_IPC_HOOK_CLI': '/run/user/1000/vscode-ipc-5fbd69b5-5c7d-405d-a699-3c9af60a8a6c.sock', 'ROS_PYTHON_VERSION': '3', 'VSCODE_GIT_ASKPASS_MAIN': '/home/henry/.vscode-server/bin/abd2f3db4bdb28f9e95536dfa84d8479f1eb312d/extensions/git/dist/askpass-main.js', 'VSCODE_GIT_ASKPASS_NODE': '/home/henry/.vscode-server/bin/abd2f3db4bdb28f9e95536dfa84d8479f1eb312d/node', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'COLCON_PREFIX_PATH': '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install', 'ROS_DISTRO': 'humble', 'LOGNAME': 'henry', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '1', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/home/henry/.vscode-server/bin/abd2f3db4bdb28f9e95536dfa84d8479f1eb312d/bin/remote-cli:/home/henry/.local/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'XDG_RUNTIME_DIR': '/run/user/1000', 'LANG': 'C.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1000/vscode-git-bc0d7e12ad.sock', 'TERM_PROGRAM': 'vscode', 'AMENT_PREFIX_PATH': '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_imu:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_driver:/opt/ros/humble', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'PWD': '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_driver', 'SSH_CONNECTION': '192.168.0.100 50263 192.168.0.64 22', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_driver/prefix_override:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_driver/lib/python3.10/site-packages:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl/lib/python3.10/site-packages:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_imu/lib/python3.10/site-packages:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_driver/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom'}, 'shell': False}
+[7.342183] (-) TimerEvent: {}
+[7.445985] (-) TimerEvent: {}
+[7.549370] (-) TimerEvent: {}
+[7.651354] (-) TimerEvent: {}
+[7.753499] (-) TimerEvent: {}
+[7.854402] (-) TimerEvent: {}
+[7.955588] (-) TimerEvent: {}
+[8.058688] (-) TimerEvent: {}
+[8.117880] (carbot_key_ctrl) Command: {'cmd': ['/usr/bin/python3', 'setup.py', 'egg_info', '--egg-base', '../../build/carbot_key_ctrl', 'build', '--build-base', '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_key_ctrl/build', 'install', '--record', '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_key_ctrl/install.log', '--single-version-externally-managed'], 'cwd': '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/src/carbot_key_ctrl', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'henry', 'SSH_CLIENT': '192.168.0.100 50263 22', 'XDG_SESSION_TYPE': 'tty', 'GIT_ASKPASS': '/home/henry/.vscode-server/bin/abd2f3db4bdb28f9e95536dfa84d8479f1eb312d/extensions/git/dist/askpass.sh', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib', 'BROWSER': '/home/henry/.vscode-server/bin/abd2f3db4bdb28f9e95536dfa84d8479f1eb312d/bin/helpers/browser.sh', 'MOTD_SHOWN': 'pam', 'HOME': '/home/henry', 'TERM_PROGRAM_VERSION': '1.82.2', 'VSCODE_IPC_HOOK_CLI': '/run/user/1000/vscode-ipc-5fbd69b5-5c7d-405d-a699-3c9af60a8a6c.sock', 'ROS_PYTHON_VERSION': '3', 'VSCODE_GIT_ASKPASS_MAIN': '/home/henry/.vscode-server/bin/abd2f3db4bdb28f9e95536dfa84d8479f1eb312d/extensions/git/dist/askpass-main.js', 'VSCODE_GIT_ASKPASS_NODE': '/home/henry/.vscode-server/bin/abd2f3db4bdb28f9e95536dfa84d8479f1eb312d/node', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'COLCON_PREFIX_PATH': '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install', 'ROS_DISTRO': 'humble', 'LOGNAME': 'henry', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '1', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/home/henry/.vscode-server/bin/abd2f3db4bdb28f9e95536dfa84d8479f1eb312d/bin/remote-cli:/home/henry/.local/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'XDG_RUNTIME_DIR': '/run/user/1000', 'LANG': 'C.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1000/vscode-git-bc0d7e12ad.sock', 'TERM_PROGRAM': 'vscode', 'AMENT_PREFIX_PATH': '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_imu:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_driver:/opt/ros/humble', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'PWD': '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_key_ctrl', 'SSH_CONNECTION': '192.168.0.100 50263 192.168.0.64 22', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_key_ctrl/prefix_override:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl/lib/python3.10/site-packages:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl/lib/python3.10/site-packages:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_imu/lib/python3.10/site-packages:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_driver/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom'}, 'shell': False}
+[8.158879] (-) TimerEvent: {}
+[8.261769] (-) TimerEvent: {}
+[8.363496] (-) TimerEvent: {}
+[8.468765] (-) TimerEvent: {}
+[8.571164] (-) TimerEvent: {}
+[8.673137] (-) TimerEvent: {}
+[8.774070] (-) TimerEvent: {}
+[8.868622] (carbot_imu) StdoutLine: {'line': b'running egg_info\n'}
+[8.871839] (carbot_imu) StdoutLine: {'line': b'writing ../../build/carbot_imu/carbot_imu.egg-info/PKG-INFO\n'}
+[8.873164] (carbot_imu) StdoutLine: {'line': b'writing dependency_links to ../../build/carbot_imu/carbot_imu.egg-info/dependency_links.txt\n'}
+[8.874367] (carbot_imu) StdoutLine: {'line': b'writing entry points to ../../build/carbot_imu/carbot_imu.egg-info/entry_points.txt\n'}
+[8.874945] (-) TimerEvent: {}
+[8.876725] (carbot_imu) StdoutLine: {'line': b'writing requirements to ../../build/carbot_imu/carbot_imu.egg-info/requires.txt\n'}
+[8.877404] (carbot_imu) StdoutLine: {'line': b'writing top-level names to ../../build/carbot_imu/carbot_imu.egg-info/top_level.txt\n'}
+[8.885081] (carbot_imu) StdoutLine: {'line': b"reading manifest file '../../build/carbot_imu/carbot_imu.egg-info/SOURCES.txt'\n"}
+[8.890702] (carbot_imu) StdoutLine: {'line': b"writing manifest file '../../build/carbot_imu/carbot_imu.egg-info/SOURCES.txt'\n"}
+[8.893260] (carbot_imu) StdoutLine: {'line': b'running build\n'}
+[8.893923] (carbot_imu) StdoutLine: {'line': b'running build_py\n'}
+[8.894563] (carbot_imu) StdoutLine: {'line': b'copying carbot_imu/carbot_imu_data.py -> /home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_imu/build/lib/carbot_imu\n'}
+[8.895446] (carbot_imu) StderrLine: {'line': b'/usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.\n'}
+[8.896206] (carbot_imu) StderrLine: {'line': b'  warnings.warn(\n'}
+[8.897060] (carbot_imu) StdoutLine: {'line': b'running install\n'}
+[8.897571] (carbot_imu) StdoutLine: {'line': b'running install_lib\n'}
+[8.900269] (carbot_imu) StdoutLine: {'line': b'copying /home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_imu/build/lib/carbot_imu/carbot_imu_data.py -> /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_imu/lib/python3.10/site-packages/carbot_imu\n'}
+[8.904220] (carbot_imu) StdoutLine: {'line': b'byte-compiling /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_imu/lib/python3.10/site-packages/carbot_imu/carbot_imu_data.py to carbot_imu_data.cpython-310.pyc\n'}
+[8.907570] (carbot_imu) StdoutLine: {'line': b'running install_data\n'}
+[8.910253] (carbot_imu) StdoutLine: {'line': b'running install_egg_info\n'}
+[8.919126] (carbot_imu) StdoutLine: {'line': b"removing '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_imu/lib/python3.10/site-packages/carbot_imu-0.0.0-py3.10.egg-info' (and everything under it)\n"}
+[8.921475] (carbot_imu) StdoutLine: {'line': b'Copying ../../build/carbot_imu/carbot_imu.egg-info to /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_imu/lib/python3.10/site-packages/carbot_imu-0.0.0-py3.10.egg-info\n'}
+[8.929526] (carbot_imu) StdoutLine: {'line': b'running install_scripts\n'}
+[8.975183] (-) TimerEvent: {}
+[9.034791] (carbot_imu) StdoutLine: {'line': b'Installing carbot_imu_data script to /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_imu/lib/carbot_imu\n'}
+[9.040004] (carbot_imu) StdoutLine: {'line': b"writing list of installed files to '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_imu/install.log'\n"}
+[9.075567] (-) TimerEvent: {}
+[9.176960] (-) TimerEvent: {}
+[9.279279] (carbot_imu) CommandEnded: {'returncode': 0}
+[9.280877] (-) TimerEvent: {}
+[9.381605] (-) TimerEvent: {}
+[9.422653] (carbot_imu) JobEnded: {'identifier': 'carbot_imu', 'rc': 0}
+[9.481803] (-) TimerEvent: {}
+[9.583625] (-) TimerEvent: {}
+[9.659919] (carbot_driver) StdoutLine: {'line': b'running egg_info\n'}
+[9.664714] (carbot_driver) StdoutLine: {'line': b'writing ../../build/carbot_driver/carbot_driver.egg-info/PKG-INFO\n'}
+[9.667258] (carbot_driver) StdoutLine: {'line': b'writing dependency_links to ../../build/carbot_driver/carbot_driver.egg-info/dependency_links.txt\n'}
+[9.669810] (carbot_driver) StdoutLine: {'line': b'writing entry points to ../../build/carbot_driver/carbot_driver.egg-info/entry_points.txt\n'}
+[9.672080] (carbot_driver) StdoutLine: {'line': b'writing requirements to ../../build/carbot_driver/carbot_driver.egg-info/requires.txt\n'}
+[9.674159] (carbot_driver) StdoutLine: {'line': b'writing top-level names to ../../build/carbot_driver/carbot_driver.egg-info/top_level.txt\n'}
+[9.683864] (-) TimerEvent: {}
+[9.686124] (carbot_driver) StdoutLine: {'line': b"reading manifest file '../../build/carbot_driver/carbot_driver.egg-info/SOURCES.txt'\n"}
+[9.692990] (carbot_driver) StdoutLine: {'line': b"writing manifest file '../../build/carbot_driver/carbot_driver.egg-info/SOURCES.txt'\n"}
+[9.694746] (carbot_driver) StdoutLine: {'line': b'running build\n'}
+[9.695826] (carbot_driver) StdoutLine: {'line': b'running build_py\n'}
+[9.698543] (carbot_driver) StdoutLine: {'line': b'running install\n'}
+[9.700333] (carbot_driver) StderrLine: {'line': b'/usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.\n'}
+[9.701530] (carbot_driver) StderrLine: {'line': b'  warnings.warn(\n'}
+[9.704152] (carbot_driver) StdoutLine: {'line': b'running install_lib\n'}
+[9.713252] (carbot_driver) StdoutLine: {'line': b'running install_data\n'}
+[9.718553] (carbot_driver) StdoutLine: {'line': b'running install_egg_info\n'}
+[9.731458] (carbot_driver) StdoutLine: {'line': b"removing '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_driver/lib/python3.10/site-packages/carbot_driver-0.0.0-py3.10.egg-info' (and everything under it)\n"}
+[9.744670] (carbot_driver) StdoutLine: {'line': b'Copying ../../build/carbot_driver/carbot_driver.egg-info to /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_driver/lib/python3.10/site-packages/carbot_driver-0.0.0-py3.10.egg-info\n'}
+[9.769224] (carbot_driver) StdoutLine: {'line': b'running install_scripts\n'}
+[9.784059] (-) TimerEvent: {}
+[9.885034] (-) TimerEvent: {}
+[9.960164] (carbot_driver) StdoutLine: {'line': b'Installing carbot_driver script to /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_driver/lib/carbot_driver\n'}
+[9.969521] (carbot_driver) StdoutLine: {'line': b"writing list of installed files to '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_driver/install.log'\n"}
+[9.985297] (-) TimerEvent: {}
+[10.086975] (-) TimerEvent: {}
+[10.188511] (-) TimerEvent: {}
+[10.256903] (carbot_key_ctrl) StdoutLine: {'line': b'running egg_info\n'}
+[10.260328] (carbot_key_ctrl) StdoutLine: {'line': b'writing ../../build/carbot_key_ctrl/carbot_key_ctrl.egg-info/PKG-INFO\n'}
+[10.261681] (carbot_key_ctrl) StdoutLine: {'line': b'writing dependency_links to ../../build/carbot_key_ctrl/carbot_key_ctrl.egg-info/dependency_links.txt\n'}
+[10.264228] (carbot_key_ctrl) StdoutLine: {'line': b'writing entry points to ../../build/carbot_key_ctrl/carbot_key_ctrl.egg-info/entry_points.txt\n'}
+[10.266801] (carbot_key_ctrl) StdoutLine: {'line': b'writing requirements to ../../build/carbot_key_ctrl/carbot_key_ctrl.egg-info/requires.txt\n'}
+[10.267474] (carbot_key_ctrl) StdoutLine: {'line': b'writing top-level names to ../../build/carbot_key_ctrl/carbot_key_ctrl.egg-info/top_level.txt\n'}
+[10.280774] (carbot_key_ctrl) StdoutLine: {'line': b"reading manifest file '../../build/carbot_key_ctrl/carbot_key_ctrl.egg-info/SOURCES.txt'\n"}
+[10.286673] (carbot_key_ctrl) StdoutLine: {'line': b"writing manifest file '../../build/carbot_key_ctrl/carbot_key_ctrl.egg-info/SOURCES.txt'\n"}
+[10.288300] (carbot_key_ctrl) StdoutLine: {'line': b'running build\n'}
+[10.289224] (-) TimerEvent: {}
+[10.293015] (carbot_key_ctrl) StdoutLine: {'line': b'running build_py\n'}
+[10.293895] (carbot_key_ctrl) StdoutLine: {'line': b'running install\n'}
+[10.294819] (carbot_key_ctrl) StderrLine: {'line': b'/usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.\n'}
+[10.295544] (carbot_key_ctrl) StderrLine: {'line': b'  warnings.warn(\n'}
+[10.296152] (carbot_key_ctrl) StdoutLine: {'line': b'running install_lib\n'}
+[10.301777] (carbot_key_ctrl) StdoutLine: {'line': b'running install_data\n'}
+[10.312575] (carbot_driver) CommandEnded: {'returncode': 0}
+[10.314301] (carbot_key_ctrl) StdoutLine: {'line': b'running install_egg_info\n'}
+[10.336214] (carbot_key_ctrl) StdoutLine: {'line': b"removing '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl/lib/python3.10/site-packages/carbot_key_ctrl-0.0.0-py3.10.egg-info' (and everything under it)\n"}
+[10.337063] (carbot_key_ctrl) StdoutLine: {'line': b'Copying ../../build/carbot_key_ctrl/carbot_key_ctrl.egg-info to /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl/lib/python3.10/site-packages/carbot_key_ctrl-0.0.0-py3.10.egg-info\n'}
+[10.337804] (carbot_key_ctrl) StdoutLine: {'line': b'running install_scripts\n'}
+[10.389402] (-) TimerEvent: {}
+[10.491064] (-) TimerEvent: {}
+[10.501936] (carbot_driver) JobEnded: {'identifier': 'carbot_driver', 'rc': 0}
+[10.542278] (carbot_key_ctrl) StdoutLine: {'line': b'Installing carbot_key_ctrl script to /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl/lib/carbot_key_ctrl\n'}
+[10.551425] (carbot_key_ctrl) StdoutLine: {'line': b"writing list of installed files to '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_key_ctrl/install.log'\n"}
+[10.591294] (-) TimerEvent: {}
+[10.692183] (-) TimerEvent: {}
+[10.775610] (carbot_key_ctrl) CommandEnded: {'returncode': 0}
+[10.792342] (-) TimerEvent: {}
+[10.887746] (carbot_key_ctrl) JobEnded: {'identifier': 'carbot_key_ctrl', 'rc': 0}
+[10.898960] (-) TimerEvent: {}
+[10.911988] (-) EventReactorShutdown: {}

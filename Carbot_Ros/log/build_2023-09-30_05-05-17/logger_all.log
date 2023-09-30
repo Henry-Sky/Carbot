@@ -1,0 +1,293 @@
+[1.293s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[1.294s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=4, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0xffff83c90700>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0xffff846ad2d0>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0xffff846ad2d0>>)
+[1.428s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[1.429s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[1.429s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[1.429s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[1.429s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[1.429s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[1.429s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/henry/Workspace/SIT_Carbot/Carbot_Ros'
+[1.430s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[1.430s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[1.431s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[1.431s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[1.431s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[1.431s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[1.431s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[1.431s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[1.432s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[1.475s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[1.476s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[1.476s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[1.476s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[1.476s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[1.477s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[1.477s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[1.477s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[1.478s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[1.479s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[1.479s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[1.479s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[1.480s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[1.480s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[1.480s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[1.481s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[1.481s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[1.481s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[1.481s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[1.481s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[1.481s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[1.482s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[1.482s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[1.482s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[1.482s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[1.482s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[1.483s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[1.483s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[1.483s] Level 1:colcon.colcon_core.package_identification:_identify(src/carbot_driver) by extensions ['ignore', 'ignore_ament_install']
+[1.484s] Level 1:colcon.colcon_core.package_identification:_identify(src/carbot_driver) by extension 'ignore'
+[1.484s] Level 1:colcon.colcon_core.package_identification:_identify(src/carbot_driver) by extension 'ignore_ament_install'
+[1.484s] Level 1:colcon.colcon_core.package_identification:_identify(src/carbot_driver) by extensions ['colcon_pkg']
+[1.484s] Level 1:colcon.colcon_core.package_identification:_identify(src/carbot_driver) by extension 'colcon_pkg'
+[1.485s] Level 1:colcon.colcon_core.package_identification:_identify(src/carbot_driver) by extensions ['colcon_meta']
+[1.485s] Level 1:colcon.colcon_core.package_identification:_identify(src/carbot_driver) by extension 'colcon_meta'
+[1.485s] Level 1:colcon.colcon_core.package_identification:_identify(src/carbot_driver) by extensions ['ros']
+[1.485s] Level 1:colcon.colcon_core.package_identification:_identify(src/carbot_driver) by extension 'ros'
+[1.493s] DEBUG:colcon.colcon_core.package_identification:Package 'src/carbot_driver' with type 'ros.ament_python' and name 'carbot_driver'
+[1.494s] Level 1:colcon.colcon_core.package_identification:_identify(src/carbot_imu) by extensions ['ignore', 'ignore_ament_install']
+[1.494s] Level 1:colcon.colcon_core.package_identification:_identify(src/carbot_imu) by extension 'ignore'
+[1.494s] Level 1:colcon.colcon_core.package_identification:_identify(src/carbot_imu) by extension 'ignore_ament_install'
+[1.495s] Level 1:colcon.colcon_core.package_identification:_identify(src/carbot_imu) by extensions ['colcon_pkg']
+[1.495s] Level 1:colcon.colcon_core.package_identification:_identify(src/carbot_imu) by extension 'colcon_pkg'
+[1.495s] Level 1:colcon.colcon_core.package_identification:_identify(src/carbot_imu) by extensions ['colcon_meta']
+[1.495s] Level 1:colcon.colcon_core.package_identification:_identify(src/carbot_imu) by extension 'colcon_meta'
+[1.495s] Level 1:colcon.colcon_core.package_identification:_identify(src/carbot_imu) by extensions ['ros']
+[1.496s] Level 1:colcon.colcon_core.package_identification:_identify(src/carbot_imu) by extension 'ros'
+[1.502s] DEBUG:colcon.colcon_core.package_identification:Package 'src/carbot_imu' with type 'ros.ament_python' and name 'carbot_imu'
+[1.502s] Level 1:colcon.colcon_core.package_identification:_identify(src/carbot_key_ctrl) by extensions ['ignore', 'ignore_ament_install']
+[1.503s] Level 1:colcon.colcon_core.package_identification:_identify(src/carbot_key_ctrl) by extension 'ignore'
+[1.503s] Level 1:colcon.colcon_core.package_identification:_identify(src/carbot_key_ctrl) by extension 'ignore_ament_install'
+[1.503s] Level 1:colcon.colcon_core.package_identification:_identify(src/carbot_key_ctrl) by extensions ['colcon_pkg']
+[1.503s] Level 1:colcon.colcon_core.package_identification:_identify(src/carbot_key_ctrl) by extension 'colcon_pkg'
+[1.504s] Level 1:colcon.colcon_core.package_identification:_identify(src/carbot_key_ctrl) by extensions ['colcon_meta']
+[1.504s] Level 1:colcon.colcon_core.package_identification:_identify(src/carbot_key_ctrl) by extension 'colcon_meta'
+[1.504s] Level 1:colcon.colcon_core.package_identification:_identify(src/carbot_key_ctrl) by extensions ['ros']
+[1.504s] Level 1:colcon.colcon_core.package_identification:_identify(src/carbot_key_ctrl) by extension 'ros'
+[1.506s] DEBUG:colcon.colcon_core.package_identification:Package 'src/carbot_key_ctrl' with type 'ros.ament_python' and name 'carbot_key_ctrl'
+[1.507s] Level 1:colcon.colcon_core.package_identification:_identify(src/carbot_odom) by extensions ['ignore', 'ignore_ament_install']
+[1.507s] Level 1:colcon.colcon_core.package_identification:_identify(src/carbot_odom) by extension 'ignore'
+[1.507s] Level 1:colcon.colcon_core.package_identification:_identify(src/carbot_odom) by extension 'ignore_ament_install'
+[1.507s] Level 1:colcon.colcon_core.package_identification:_identify(src/carbot_odom) by extensions ['colcon_pkg']
+[1.508s] Level 1:colcon.colcon_core.package_identification:_identify(src/carbot_odom) by extension 'colcon_pkg'
+[1.508s] Level 1:colcon.colcon_core.package_identification:_identify(src/carbot_odom) by extensions ['colcon_meta']
+[1.508s] Level 1:colcon.colcon_core.package_identification:_identify(src/carbot_odom) by extension 'colcon_meta'
+[1.508s] Level 1:colcon.colcon_core.package_identification:_identify(src/carbot_odom) by extensions ['ros']
+[1.508s] Level 1:colcon.colcon_core.package_identification:_identify(src/carbot_odom) by extension 'ros'
+[1.510s] DEBUG:colcon.colcon_core.package_identification:Package 'src/carbot_odom' with type 'ros.ament_cmake' and name 'carbot_odom'
+[1.510s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[1.511s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[1.511s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[1.511s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[1.511s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[1.600s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[1.600s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[1.613s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 4 installed packages in /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install
+[1.621s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 185 installed packages in /opt/ros/humble
+[1.626s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[1.801s] Level 5:colcon.colcon_core.verb:set package 'carbot_driver' build argument 'cmake_args' from command line to 'None'
+[1.801s] Level 5:colcon.colcon_core.verb:set package 'carbot_driver' build argument 'cmake_target' from command line to 'None'
+[1.802s] Level 5:colcon.colcon_core.verb:set package 'carbot_driver' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.802s] Level 5:colcon.colcon_core.verb:set package 'carbot_driver' build argument 'cmake_clean_cache' from command line to 'False'
+[1.802s] Level 5:colcon.colcon_core.verb:set package 'carbot_driver' build argument 'cmake_clean_first' from command line to 'False'
+[1.802s] Level 5:colcon.colcon_core.verb:set package 'carbot_driver' build argument 'cmake_force_configure' from command line to 'False'
+[1.802s] Level 5:colcon.colcon_core.verb:set package 'carbot_driver' build argument 'ament_cmake_args' from command line to 'None'
+[1.802s] Level 5:colcon.colcon_core.verb:set package 'carbot_driver' build argument 'catkin_cmake_args' from command line to 'None'
+[1.802s] Level 5:colcon.colcon_core.verb:set package 'carbot_driver' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.803s] DEBUG:colcon.colcon_core.verb:Building package 'carbot_driver' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_driver', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_driver', 'merge_install': False, 'path': '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/src/carbot_driver', 'symlink_install': False, 'test_result_base': None}
+[1.807s] Level 5:colcon.colcon_core.verb:set package 'carbot_imu' build argument 'cmake_args' from command line to 'None'
+[1.807s] Level 5:colcon.colcon_core.verb:set package 'carbot_imu' build argument 'cmake_target' from command line to 'None'
+[1.807s] Level 5:colcon.colcon_core.verb:set package 'carbot_imu' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.807s] Level 5:colcon.colcon_core.verb:set package 'carbot_imu' build argument 'cmake_clean_cache' from command line to 'False'
+[1.807s] Level 5:colcon.colcon_core.verb:set package 'carbot_imu' build argument 'cmake_clean_first' from command line to 'False'
+[1.807s] Level 5:colcon.colcon_core.verb:set package 'carbot_imu' build argument 'cmake_force_configure' from command line to 'False'
+[1.807s] Level 5:colcon.colcon_core.verb:set package 'carbot_imu' build argument 'ament_cmake_args' from command line to 'None'
+[1.807s] Level 5:colcon.colcon_core.verb:set package 'carbot_imu' build argument 'catkin_cmake_args' from command line to 'None'
+[1.808s] Level 5:colcon.colcon_core.verb:set package 'carbot_imu' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.808s] DEBUG:colcon.colcon_core.verb:Building package 'carbot_imu' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_imu', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_imu', 'merge_install': False, 'path': '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/src/carbot_imu', 'symlink_install': False, 'test_result_base': None}
+[1.812s] Level 5:colcon.colcon_core.verb:set package 'carbot_key_ctrl' build argument 'cmake_args' from command line to 'None'
+[1.812s] Level 5:colcon.colcon_core.verb:set package 'carbot_key_ctrl' build argument 'cmake_target' from command line to 'None'
+[1.812s] Level 5:colcon.colcon_core.verb:set package 'carbot_key_ctrl' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.812s] Level 5:colcon.colcon_core.verb:set package 'carbot_key_ctrl' build argument 'cmake_clean_cache' from command line to 'False'
+[1.812s] Level 5:colcon.colcon_core.verb:set package 'carbot_key_ctrl' build argument 'cmake_clean_first' from command line to 'False'
+[1.812s] Level 5:colcon.colcon_core.verb:set package 'carbot_key_ctrl' build argument 'cmake_force_configure' from command line to 'False'
+[1.812s] Level 5:colcon.colcon_core.verb:set package 'carbot_key_ctrl' build argument 'ament_cmake_args' from command line to 'None'
+[1.813s] Level 5:colcon.colcon_core.verb:set package 'carbot_key_ctrl' build argument 'catkin_cmake_args' from command line to 'None'
+[1.813s] Level 5:colcon.colcon_core.verb:set package 'carbot_key_ctrl' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.813s] DEBUG:colcon.colcon_core.verb:Building package 'carbot_key_ctrl' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_key_ctrl', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl', 'merge_install': False, 'path': '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/src/carbot_key_ctrl', 'symlink_install': False, 'test_result_base': None}
+[1.817s] Level 5:colcon.colcon_core.verb:set package 'carbot_odom' build argument 'cmake_args' from command line to 'None'
+[1.817s] Level 5:colcon.colcon_core.verb:set package 'carbot_odom' build argument 'cmake_target' from command line to 'None'
+[1.817s] Level 5:colcon.colcon_core.verb:set package 'carbot_odom' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.817s] Level 5:colcon.colcon_core.verb:set package 'carbot_odom' build argument 'cmake_clean_cache' from command line to 'False'
+[1.817s] Level 5:colcon.colcon_core.verb:set package 'carbot_odom' build argument 'cmake_clean_first' from command line to 'False'
+[1.817s] Level 5:colcon.colcon_core.verb:set package 'carbot_odom' build argument 'cmake_force_configure' from command line to 'False'
+[1.818s] Level 5:colcon.colcon_core.verb:set package 'carbot_odom' build argument 'ament_cmake_args' from command line to 'None'
+[1.818s] Level 5:colcon.colcon_core.verb:set package 'carbot_odom' build argument 'catkin_cmake_args' from command line to 'None'
+[1.818s] Level 5:colcon.colcon_core.verb:set package 'carbot_odom' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.818s] DEBUG:colcon.colcon_core.verb:Building package 'carbot_odom' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_odom', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom', 'merge_install': False, 'path': '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/src/carbot_odom', 'symlink_install': False, 'test_result_base': None}
+[1.820s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[1.833s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[1.835s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/src/carbot_driver' with build type 'ament_python'
+[1.836s] Level 1:colcon.colcon_core.shell:create_environment_hook('carbot_driver', 'ament_prefix_path')
+[1.856s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[1.857s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_driver/share/carbot_driver/hook/ament_prefix_path.ps1'
+[1.860s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_driver/share/carbot_driver/hook/ament_prefix_path.dsv'
+[1.862s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_driver/share/carbot_driver/hook/ament_prefix_path.sh'
+[1.869s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.870s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.891s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/src/carbot_imu' with build type 'ament_python'
+[1.892s] Level 1:colcon.colcon_core.shell:create_environment_hook('carbot_imu', 'ament_prefix_path')
+[1.898s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_imu/share/carbot_imu/hook/ament_prefix_path.ps1'
+[1.901s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_imu/share/carbot_imu/hook/ament_prefix_path.dsv'
+[1.902s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_imu/share/carbot_imu/hook/ament_prefix_path.sh'
+[1.910s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.910s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.930s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/src/carbot_key_ctrl' with build type 'ament_python'
+[1.931s] Level 1:colcon.colcon_core.shell:create_environment_hook('carbot_key_ctrl', 'ament_prefix_path')
+[1.936s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl/share/carbot_key_ctrl/hook/ament_prefix_path.ps1'
+[1.940s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl/share/carbot_key_ctrl/hook/ament_prefix_path.dsv'
+[1.942s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl/share/carbot_key_ctrl/hook/ament_prefix_path.sh'
+[1.950s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.950s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.972s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/src/carbot_odom' with build type 'ament_cmake'
+[1.973s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/src/carbot_odom'
+[1.979s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.979s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[3.063s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/src/carbot_driver'
+[3.068s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[3.068s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[4.135s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/src/carbot_imu'
+[4.140s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[4.140s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[5.241s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/src/carbot_key_ctrl'
+[5.246s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[5.246s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[5.283s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_odom': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_imu:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_driver:/opt/ros/humble /usr/bin/cmake --build /home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_odom -- -j4 -l4
+[5.691s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_odom' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_imu:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_driver:/opt/ros/humble /usr/bin/cmake --build /home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_odom -- -j4 -l4
+[5.931s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_odom': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_imu:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_driver:/opt/ros/humble /usr/bin/cmake --install /home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_odom
+[6.017s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(carbot_odom)
+[6.029s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_odom' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_imu:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_driver:/opt/ros/humble /usr/bin/cmake --install /home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_odom
+[6.048s] Level 1:colcon.colcon_core.environment:checking '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom' for CMake module files
+[6.051s] Level 1:colcon.colcon_core.environment:checking '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom' for CMake config files
+[6.053s] Level 1:colcon.colcon_core.shell:create_environment_hook('carbot_odom', 'cmake_prefix_path')
+[6.060s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/carbot_odom/hook/cmake_prefix_path.ps1'
+[6.062s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/carbot_odom/hook/cmake_prefix_path.dsv'
+[6.065s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/carbot_odom/hook/cmake_prefix_path.sh'
+[6.070s] Level 1:colcon.colcon_core.environment:checking '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/lib'
+[6.072s] Level 1:colcon.colcon_core.environment:checking '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/bin'
+[6.072s] Level 1:colcon.colcon_core.environment:checking '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/lib/pkgconfig/carbot_odom.pc'
+[6.073s] Level 1:colcon.colcon_core.environment:checking '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/lib/python3.10/site-packages'
+[6.075s] Level 1:colcon.colcon_core.environment:checking '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/bin'
+[6.082s] INFO:colcon.colcon_core.shell:Creating package script '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/carbot_odom/package.ps1'
+[6.086s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/carbot_odom/package.dsv'
+[6.089s] INFO:colcon.colcon_core.shell:Creating package script '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/carbot_odom/package.sh'
+[6.093s] INFO:colcon.colcon_core.shell:Creating package script '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/carbot_odom/package.bash'
+[6.097s] INFO:colcon.colcon_core.shell:Creating package script '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/carbot_odom/package.zsh'
+[6.100s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/colcon-core/packages/carbot_odom)
+[6.271s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(carbot_odom)
+[6.299s] Level 1:colcon.colcon_core.environment:checking '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom' for CMake module files
+[6.307s] Level 1:colcon.colcon_core.environment:checking '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom' for CMake config files
+[6.309s] Level 1:colcon.colcon_core.shell:create_environment_hook('carbot_odom', 'cmake_prefix_path')
+[6.317s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/carbot_odom/hook/cmake_prefix_path.ps1'
+[6.321s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/carbot_odom/hook/cmake_prefix_path.dsv'
+[6.324s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/carbot_odom/hook/cmake_prefix_path.sh'
+[6.329s] Level 1:colcon.colcon_core.environment:checking '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/lib'
+[6.330s] Level 1:colcon.colcon_core.environment:checking '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/bin'
+[6.331s] Level 1:colcon.colcon_core.environment:checking '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/lib/pkgconfig/carbot_odom.pc'
+[6.333s] Level 1:colcon.colcon_core.environment:checking '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/lib/python3.10/site-packages'
+[6.335s] Level 1:colcon.colcon_core.environment:checking '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/bin'
+[6.343s] INFO:colcon.colcon_core.shell:Creating package script '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/carbot_odom/package.ps1'
+[6.355s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/carbot_odom/package.dsv'
+[6.359s] INFO:colcon.colcon_core.shell:Creating package script '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/carbot_odom/package.sh'
+[6.364s] INFO:colcon.colcon_core.shell:Creating package script '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/carbot_odom/package.bash'
+[6.368s] INFO:colcon.colcon_core.shell:Creating package script '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/carbot_odom/package.zsh'
+[6.371s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/colcon-core/packages/carbot_odom)
+[7.438s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/src/carbot_driver': PYTHONPATH=/home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_driver/prefix_override:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_driver/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/carbot_driver build --build-base /home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_driver/build install --record /home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_driver/install.log --single-version-externally-managed
+[7.471s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/src/carbot_imu': PYTHONPATH=/home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_imu/prefix_override:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_imu/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/carbot_imu build --build-base /home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_imu/build install --record /home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_imu/install.log --single-version-externally-managed
+[7.685s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/src/carbot_key_ctrl': PYTHONPATH=/home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_key_ctrl/prefix_override:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/carbot_key_ctrl build --build-base /home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_key_ctrl/build install --record /home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_key_ctrl/install.log --single-version-externally-managed
+[9.168s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/src/carbot_driver' returned '0': PYTHONPATH=/home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_driver/prefix_override:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_driver/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/carbot_driver build --build-base /home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_driver/build install --record /home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_driver/install.log --single-version-externally-managed
+[9.176s] Level 1:colcon.colcon_core.environment:checking '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_driver' for CMake module files
+[9.182s] Level 1:colcon.colcon_core.environment:checking '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_driver' for CMake config files
+[9.191s] Level 1:colcon.colcon_core.environment:checking '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_driver/lib'
+[9.192s] Level 1:colcon.colcon_core.environment:checking '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_driver/bin'
+[9.193s] Level 1:colcon.colcon_core.environment:checking '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_driver/lib/pkgconfig/carbot_driver.pc'
+[9.194s] Level 1:colcon.colcon_core.environment:checking '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_driver/lib/python3.10/site-packages'
+[9.195s] Level 1:colcon.colcon_core.shell:create_environment_hook('carbot_driver', 'pythonpath')
+[9.208s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_driver/share/carbot_driver/hook/pythonpath.ps1'
+[9.217s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_driver/share/carbot_driver/hook/pythonpath.dsv'
+[9.219s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_driver/share/carbot_driver/hook/pythonpath.sh'
+[9.224s] Level 1:colcon.colcon_core.environment:checking '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_driver/bin'
+[9.225s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(carbot_driver)
+[9.232s] INFO:colcon.colcon_core.shell:Creating package script '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_driver/share/carbot_driver/package.ps1'
+[9.235s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_driver/share/carbot_driver/package.dsv'
+[9.238s] INFO:colcon.colcon_core.shell:Creating package script '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_driver/share/carbot_driver/package.sh'
+[9.241s] INFO:colcon.colcon_core.shell:Creating package script '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_driver/share/carbot_driver/package.bash'
+[9.243s] INFO:colcon.colcon_core.shell:Creating package script '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_driver/share/carbot_driver/package.zsh'
+[9.246s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_driver/share/colcon-core/packages/carbot_driver)
+[9.264s] Level 1:colcon.colcon_core.environment:checking '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_imu' for CMake module files
+[9.265s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/src/carbot_imu' returned '0': PYTHONPATH=/home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_imu/prefix_override:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_imu/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/carbot_imu build --build-base /home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_imu/build install --record /home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_imu/install.log --single-version-externally-managed
+[9.267s] Level 1:colcon.colcon_core.environment:checking '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_imu' for CMake config files
+[9.271s] Level 1:colcon.colcon_core.environment:checking '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_imu/lib'
+[9.272s] Level 1:colcon.colcon_core.environment:checking '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_imu/bin'
+[9.272s] Level 1:colcon.colcon_core.environment:checking '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_imu/lib/pkgconfig/carbot_imu.pc'
+[9.274s] Level 1:colcon.colcon_core.environment:checking '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_imu/lib/python3.10/site-packages'
+[9.274s] Level 1:colcon.colcon_core.shell:create_environment_hook('carbot_imu', 'pythonpath')
+[9.280s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_imu/share/carbot_imu/hook/pythonpath.ps1'
+[9.283s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_imu/share/carbot_imu/hook/pythonpath.dsv'
+[9.290s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_imu/share/carbot_imu/hook/pythonpath.sh'
+[9.300s] Level 1:colcon.colcon_core.environment:checking '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_imu/bin'
+[9.301s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(carbot_imu)
+[9.313s] INFO:colcon.colcon_core.shell:Creating package script '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_imu/share/carbot_imu/package.ps1'
+[9.318s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_imu/share/carbot_imu/package.dsv'
+[9.324s] INFO:colcon.colcon_core.shell:Creating package script '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_imu/share/carbot_imu/package.sh'
+[9.329s] INFO:colcon.colcon_core.shell:Creating package script '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_imu/share/carbot_imu/package.bash'
+[9.334s] INFO:colcon.colcon_core.shell:Creating package script '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_imu/share/carbot_imu/package.zsh'
+[9.338s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_imu/share/colcon-core/packages/carbot_imu)
+[9.426s] Level 1:colcon.colcon_core.environment:checking '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl' for CMake module files
+[9.428s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/src/carbot_key_ctrl' returned '0': PYTHONPATH=/home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_key_ctrl/prefix_override:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/carbot_key_ctrl build --build-base /home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_key_ctrl/build install --record /home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_key_ctrl/install.log --single-version-externally-managed
+[9.431s] Level 1:colcon.colcon_core.environment:checking '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl' for CMake config files
+[9.434s] Level 1:colcon.colcon_core.environment:checking '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl/lib'
+[9.435s] Level 1:colcon.colcon_core.environment:checking '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl/bin'
+[9.436s] Level 1:colcon.colcon_core.environment:checking '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl/lib/pkgconfig/carbot_key_ctrl.pc'
+[9.437s] Level 1:colcon.colcon_core.environment:checking '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl/lib/python3.10/site-packages'
+[9.437s] Level 1:colcon.colcon_core.shell:create_environment_hook('carbot_key_ctrl', 'pythonpath')
+[9.446s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl/share/carbot_key_ctrl/hook/pythonpath.ps1'
+[9.449s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl/share/carbot_key_ctrl/hook/pythonpath.dsv'
+[9.453s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl/share/carbot_key_ctrl/hook/pythonpath.sh'
+[9.459s] Level 1:colcon.colcon_core.environment:checking '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl/bin'
+[9.460s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(carbot_key_ctrl)
+[9.468s] INFO:colcon.colcon_core.shell:Creating package script '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl/share/carbot_key_ctrl/package.ps1'
+[9.474s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl/share/carbot_key_ctrl/package.dsv'
+[9.479s] INFO:colcon.colcon_core.shell:Creating package script '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl/share/carbot_key_ctrl/package.sh'
+[9.484s] INFO:colcon.colcon_core.shell:Creating package script '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl/share/carbot_key_ctrl/package.bash'
+[9.488s] INFO:colcon.colcon_core.shell:Creating package script '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl/share/carbot_key_ctrl/package.zsh'
+[9.492s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl/share/colcon-core/packages/carbot_key_ctrl)
+[9.497s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[9.498s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[9.498s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[9.499s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[9.528s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.notify_send': Could not find 'notify-send'
+[9.529s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[9.530s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[9.530s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[9.535s] DEBUG:colcon.colcon_notification.desktop_notification.notify2:Failed to initialize notify2: org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.Notifications was not provided by any .service files
+[9.538s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[9.547s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/local_setup.ps1'
+[9.561s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/_local_setup_util_ps1.py'
+[9.570s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/setup.ps1'
+[9.579s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/local_setup.sh'
+[9.584s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/_local_setup_util_sh.py'
+[9.588s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/setup.sh'
+[9.595s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/local_setup.bash'
+[9.598s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/setup.bash'
+[9.604s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/local_setup.zsh'
+[9.607s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/setup.zsh'

@@ -8,6 +8,7 @@ class Carbot_Imu_Data(Node):
         super().__init__(name)
         # 实例化小车
         self.car = Carbot()
+        # 打开数据接收线程
         self.car.create_receive_threading()
         # 数据初始化
         self.ACC_X:float = 0.0                   # X轴加速度
@@ -26,6 +27,7 @@ class Carbot_Imu_Data(Node):
         self.Q1 :float = 0.0                     # 四元数Q1
         self.Q2 :float = 0.0                     # 四元数Q2
         self.Q3 :float = 0.0                     # 四元数Q3
+        # 创建发布者
         self.publisher_ = self.create_publisher(Imu, 'imu_data', 1)
 
         # 回调函数返回周期
@@ -33,6 +35,7 @@ class Carbot_Imu_Data(Node):
         self.timer = self.create_timer(time_period, self.timer_callback)
 
     def timer_callback(self):
+        # 更新数据
         self.ACC_X, self.ACC_Y, self.ACC_Z = self.car.get_accelerometer_data()
         self.GYRO_X, self.GYRO_Y, self.GYRO_Z = self.car.get_gyroscope_data()
         self.roll, self.pitch, self.yaw = self.car.get_imu_attitude_data()

@@ -20,7 +20,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-        	'carbot_imu_data = carbot_imu.carbot_im_data:main'
+        	'carbot_imu_data = carbot_imu.carbot_imu_data:main'
         ],
     },
 )

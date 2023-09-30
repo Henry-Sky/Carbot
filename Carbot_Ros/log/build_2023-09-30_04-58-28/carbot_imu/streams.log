@@ -1,0 +1,26 @@
+[6.233s] Invoking command in '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/src/carbot_imu': PYTHONPATH=/home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_imu/prefix_override:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_imu/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/carbot_imu build --build-base /home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_imu/build install --record /home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_imu/install.log --single-version-externally-managed
+[7.473s] running egg_info
+[7.476s] writing ../../build/carbot_imu/carbot_imu.egg-info/PKG-INFO
+[7.479s] writing dependency_links to ../../build/carbot_imu/carbot_imu.egg-info/dependency_links.txt
+[7.480s] writing entry points to ../../build/carbot_imu/carbot_imu.egg-info/entry_points.txt
+[7.484s] writing requirements to ../../build/carbot_imu/carbot_imu.egg-info/requires.txt
+[7.485s] writing top-level names to ../../build/carbot_imu/carbot_imu.egg-info/top_level.txt
+[7.490s] reading manifest file '../../build/carbot_imu/carbot_imu.egg-info/SOURCES.txt'
+[7.508s] writing manifest file '../../build/carbot_imu/carbot_imu.egg-info/SOURCES.txt'
+[7.509s] running build
+[7.511s] running build_py
+[7.513s] copying carbot_imu/carbot_imu_date.py -> /home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_imu/build/lib/carbot_imu
+[7.516s] running install
+[7.520s] /usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+[7.521s]   warnings.warn(
+[7.522s] running install_lib
+[7.533s] copying /home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_imu/build/lib/carbot_imu/carbot_imu_date.py -> /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_imu/lib/python3.10/site-packages/carbot_imu
+[7.542s] byte-compiling /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_imu/lib/python3.10/site-packages/carbot_imu/carbot_imu_date.py to carbot_imu_date.cpython-310.pyc
+[7.545s] running install_data
+[7.552s] running install_egg_info
+[7.565s] removing '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_imu/lib/python3.10/site-packages/carbot_imu-0.0.0-py3.10.egg-info' (and everything under it)
+[7.574s] Copying ../../build/carbot_imu/carbot_imu.egg-info to /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_imu/lib/python3.10/site-packages/carbot_imu-0.0.0-py3.10.egg-info
+[7.581s] running install_scripts
+[7.718s] Installing carbot_imu_data script to /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_imu/lib/carbot_imu
+[7.732s] writing list of installed files to '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_imu/install.log'
+[8.044s] Invoked command in '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/src/carbot_imu' returned '0': PYTHONPATH=/home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_imu/prefix_override:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_imu/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/carbot_imu build --build-base /home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_imu/build install --record /home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_imu/install.log --single-version-externally-managed
