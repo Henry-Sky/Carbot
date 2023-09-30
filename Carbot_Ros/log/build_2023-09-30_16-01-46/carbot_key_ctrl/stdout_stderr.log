@@ -1,0 +1,37 @@
+running egg_info
+creating ../../build/carbot_key_ctrl/carbot_key_ctrl.egg-info
+writing ../../build/carbot_key_ctrl/carbot_key_ctrl.egg-info/PKG-INFO
+writing dependency_links to ../../build/carbot_key_ctrl/carbot_key_ctrl.egg-info/dependency_links.txt
+writing entry points to ../../build/carbot_key_ctrl/carbot_key_ctrl.egg-info/entry_points.txt
+writing requirements to ../../build/carbot_key_ctrl/carbot_key_ctrl.egg-info/requires.txt
+writing top-level names to ../../build/carbot_key_ctrl/carbot_key_ctrl.egg-info/top_level.txt
+writing manifest file '../../build/carbot_key_ctrl/carbot_key_ctrl.egg-info/SOURCES.txt'
+reading manifest file '../../build/carbot_key_ctrl/carbot_key_ctrl.egg-info/SOURCES.txt'
+writing manifest file '../../build/carbot_key_ctrl/carbot_key_ctrl.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_key_ctrl/build
+creating /home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_key_ctrl/build/lib
+creating /home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_key_ctrl/build/lib/carbot_key_ctrl
+copying carbot_key_ctrl/carbot_key_ctrl.py -> /home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_key_ctrl/build/lib/carbot_key_ctrl
+copying carbot_key_ctrl/__init__.py -> /home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_key_ctrl/build/lib/carbot_key_ctrl
+running install
+/usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+  warnings.warn(
+running install_lib
+creating /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl/lib/python3.10/site-packages/carbot_key_ctrl
+copying /home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_key_ctrl/build/lib/carbot_key_ctrl/carbot_key_ctrl.py -> /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl/lib/python3.10/site-packages/carbot_key_ctrl
+copying /home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_key_ctrl/build/lib/carbot_key_ctrl/__init__.py -> /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl/lib/python3.10/site-packages/carbot_key_ctrl
+byte-compiling /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl/lib/python3.10/site-packages/carbot_key_ctrl/carbot_key_ctrl.py to carbot_key_ctrl.cpython-310.pyc
+byte-compiling /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl/lib/python3.10/site-packages/carbot_key_ctrl/__init__.py to __init__.cpython-310.pyc
+running install_data
+creating /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl/share/ament_index
+creating /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl/share/ament_index/resource_index
+creating /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl/share/ament_index/resource_index/packages
+copying resource/carbot_key_ctrl -> /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl/share/ament_index/resource_index/packages
+copying package.xml -> /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl/share/carbot_key_ctrl
+running install_egg_info
+Copying ../../build/carbot_key_ctrl/carbot_key_ctrl.egg-info to /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl/lib/python3.10/site-packages/carbot_key_ctrl-0.0.0-py3.10.egg-info
+running install_scripts
+Installing carbot_key_ctrl script to /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl/lib/carbot_key_ctrl
+writing list of installed files to '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_key_ctrl/install.log'

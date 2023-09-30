@@ -1,0 +1,3 @@
+[console_scripts]
+carbot_key_ctrl = carbot_key_ctrl.carbot_key_ctrl:main
+

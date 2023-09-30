@@ -1,0 +1,22 @@
+[7.171s] Invoking command in '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/src/carbot_launch': PYTHONPATH=/home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_launch/prefix_override:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_launch/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/carbot_launch build --build-base /home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_launch/build install --record /home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_launch/install.log --single-version-externally-managed
+[8.590s] running egg_info
+[8.598s] writing ../../build/carbot_launch/carbot_launch.egg-info/PKG-INFO
+[8.599s] writing dependency_links to ../../build/carbot_launch/carbot_launch.egg-info/dependency_links.txt
+[8.604s] writing entry points to ../../build/carbot_launch/carbot_launch.egg-info/entry_points.txt
+[8.607s] writing requirements to ../../build/carbot_launch/carbot_launch.egg-info/requires.txt
+[8.607s] writing top-level names to ../../build/carbot_launch/carbot_launch.egg-info/top_level.txt
+[8.614s] reading manifest file '../../build/carbot_launch/carbot_launch.egg-info/SOURCES.txt'
+[8.623s] writing manifest file '../../build/carbot_launch/carbot_launch.egg-info/SOURCES.txt'
+[8.628s] running build
+[8.629s] running build_py
+[8.630s] running install
+[8.630s] /usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+[8.631s]   warnings.warn(
+[8.635s] running install_lib
+[8.641s] running install_data
+[8.644s] running install_egg_info
+[8.669s] removing '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_launch/lib/python3.10/site-packages/carbot_launch-0.0.0-py3.10.egg-info' (and everything under it)
+[8.671s] Copying ../../build/carbot_launch/carbot_launch.egg-info to /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_launch/lib/python3.10/site-packages/carbot_launch-0.0.0-py3.10.egg-info
+[8.691s] running install_scripts
+[8.886s] writing list of installed files to '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_launch/install.log'
+[9.206s] Invoked command in '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/src/carbot_launch' returned '0': PYTHONPATH=/home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_launch/prefix_override:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_launch/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/carbot_launch build --build-base /home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_launch/build install --record /home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_launch/install.log --single-version-externally-managed

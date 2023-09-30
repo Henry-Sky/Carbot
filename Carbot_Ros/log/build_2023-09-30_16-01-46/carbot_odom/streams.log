@@ -1,0 +1,69 @@
+[3.254s] Invoking command in '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_odom': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_imu:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_driver:/opt/ros/humble /usr/bin/cmake /home/henry/Workspace/SIT_Carbot/Carbot_Ros/src/carbot_odom -DCMAKE_INSTALL_PREFIX=/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom
+[4.461s] -- The C compiler identification is GNU 11.4.0
+[5.213s] -- The CXX compiler identification is GNU 11.4.0
+[5.262s] -- Detecting C compiler ABI info
+[5.683s] -- Detecting C compiler ABI info - done
+[5.716s] -- Check for working C compiler: /usr/bin/cc - skipped
+[5.719s] -- Detecting C compile features
+[5.726s] -- Detecting C compile features - done
+[5.747s] -- Detecting CXX compiler ABI info
+[6.395s] -- Detecting CXX compiler ABI info - done
+[6.469s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[6.472s] -- Detecting CXX compile features
+[6.476s] -- Detecting CXX compile features - done
+[6.563s] -- Found tf2: 0.25.3 (/opt/ros/humble/share/tf2/cmake)
+[7.961s] -- Found Python3: /usr/bin/python3.10 (found version "3.10.12") found components: Interpreter 
+[9.084s] -- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[9.130s] -- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[9.193s] -- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[9.284s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[9.407s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[9.961s] -- Found tf2_ros: 0.25.3 (/opt/ros/humble/share/tf2_ros/cmake)
+[10.618s] -- Found rmw_implementation_cmake: 6.1.1 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[10.643s] -- Found rmw_fastrtps_cpp: 6.2.3 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[11.164s] -- Found OpenSSL: /usr/lib/aarch64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[11.285s] -- Found FastRTPS: /opt/ros/humble/include  
+[11.506s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[11.587s] -- Looking for pthread.h
+[12.351s] -- Looking for pthread.h - found
+[12.352s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[12.663s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[12.667s] -- Found Threads: TRUE  
+[14.323s] -- Found nav_msgs: 4.2.3 (/opt/ros/humble/share/nav_msgs/cmake)
+[14.647s] -- Found ament_lint_auto: 0.12.7 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[15.140s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[15.140s] -- Configured cppcheck include dirs: 
+[15.140s] -- Configured cppcheck exclude dirs and/or files: 
+[15.169s] -- Added test 'lint_cmake' to check CMake code style
+[15.245s] -- Added test 'uncrustify' to check C / C++ code style
+[15.246s] -- Configured uncrustify additional arguments: 
+[15.256s] -- Added test 'xmllint' to check XML markup files
+[15.266s] -- Configuring done
+[15.337s] -- Generating done
+[15.345s] -- Build files have been written to: /home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_odom
+[15.380s] Invoked command in '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_odom' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_imu:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_driver:/opt/ros/humble /usr/bin/cmake /home/henry/Workspace/SIT_Carbot/Carbot_Ros/src/carbot_odom -DCMAKE_INSTALL_PREFIX=/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom
+[15.389s] Invoking command in '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_odom': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_imu:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_driver:/opt/ros/humble /usr/bin/cmake --build /home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_odom -- -j4 -l4
+[15.580s] [ 50%] [32mBuilding CXX object CMakeFiles/carbot_odom.dir/src/carbot_odom_data.cpp.o[0m
+[49.165s] [100%] [32m[1mLinking CXX executable carbot_odom[0m
+[51.591s] [100%] Built target carbot_odom
+[51.626s] Invoked command in '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_odom' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_imu:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_driver:/opt/ros/humble /usr/bin/cmake --build /home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_odom -- -j4 -l4
+[51.769s] Invoking command in '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_odom': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_imu:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_driver:/opt/ros/humble /usr/bin/cmake --install /home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_odom
+[51.791s] -- Install configuration: ""
+[51.792s] -- Installing: /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/lib/carbot_odom/carbot_odom
+[51.820s] -- Set runtime path of "/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/lib/carbot_odom/carbot_odom" to ""
+[51.821s] -- Installing: /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/ament_index/resource_index/package_run_dependencies/carbot_odom
+[51.823s] -- Installing: /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/ament_index/resource_index/parent_prefix_path/carbot_odom
+[51.824s] -- Installing: /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/carbot_odom/environment/ament_prefix_path.sh
+[51.825s] -- Installing: /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/carbot_odom/environment/ament_prefix_path.dsv
+[51.827s] -- Installing: /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/carbot_odom/environment/path.sh
+[51.828s] -- Installing: /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/carbot_odom/environment/path.dsv
+[51.829s] -- Installing: /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/carbot_odom/local_setup.bash
+[51.830s] -- Installing: /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/carbot_odom/local_setup.sh
+[51.831s] -- Installing: /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/carbot_odom/local_setup.zsh
+[51.833s] -- Installing: /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/carbot_odom/local_setup.dsv
+[51.834s] -- Installing: /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/carbot_odom/package.dsv
+[51.835s] -- Installing: /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/ament_index/resource_index/packages/carbot_odom
+[51.837s] -- Installing: /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/carbot_odom/cmake/carbot_odomConfig.cmake
+[51.838s] -- Installing: /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/carbot_odom/cmake/carbot_odomConfig-version.cmake
+[51.839s] -- Installing: /home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_odom/share/carbot_odom/package.xml
+[51.853s] Invoked command in '/home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_odom' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_key_ctrl:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_imu:/home/henry/Workspace/SIT_Carbot/Carbot_Ros/install/carbot_driver:/opt/ros/humble /usr/bin/cmake --install /home/henry/Workspace/SIT_Carbot/Carbot_Ros/build/carbot_odom

@@ -28,6 +28,17 @@
     ### carbot_imu:
         - 开启python接收下位机数据线程
         - 获取陀螺仪数据并发布
+            -scipy
+
+## 依赖(推荐)
+    ### 基础依赖
+        - ubuntu 22.04Lts
+        - ros2 humble
+        - python 3.10
+            - scipy
+    ### 功能包依赖
+        - robot_localization
+            sudo apt install ros-humble-robot-localization
 
 ## 计划
     - 调用robot localization功能包,对里程计，陀螺仪数据融合
