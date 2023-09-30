@@ -40,12 +40,11 @@ class OdomPublisher:public rclcpp ::Node{
 
     public:
         // 类的构造函数
-        OdomPublisher(): Node("base_node"){
-            cout<<"carbot_odom start";
+        OdomPublisher(): Node("carbot_odom"){
             // 参数创建           
             this->declare_parameter<double>("linear_scale_x",1.0);
             this->declare_parameter<double>("linear_scale_y",1.0);
-            this->declare_parameter<bool>("pub_odom_tf",true);
+            this->declare_parameter<bool>("pub_odom_tf",false);
 
             this->get_parameter<double>("linear_scale_x",linear_scale_x_);
             this->get_parameter<double>("linear_scale_y",linear_scale_y_);

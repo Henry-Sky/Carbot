@@ -1,3 +1,0 @@
-[console_scripts]
-carbot_imu_data = carbot_imu.carbot_imu_data:main
-
