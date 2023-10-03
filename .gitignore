@@ -1,0 +1,12 @@
+# Carbot_Lib
+/Carbot_Lib/build/
+/Carbot_Lib/carbot_lib.egg-info/
+/Carbot_Lib/dist/
+# Carbot_Ros
+/Carbot_Ros/.vscoe/
+/Carbot_Ros/build/
+/Carbot_Ros/install/
+/Carbot_Ros/log/
+# model
+/model/V1.0/
+/model/V2.0/
