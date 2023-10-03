@@ -51,17 +51,15 @@
 - robot_localization:  
 
         sudo apt install ros-humble-robot-localization
+
 - v4l2-camera:  
 
         sudo apt install ros-humble-v4l2-camera
-- image_transport(可选):
+
+- image-transport-plugins(可选):  
 
         sudo apt install libtheora-dev libogg-dev libboost-python-dev
-        cd [your workspace]
-        git clone https://github.com/ros-perception/image_common.git --branch humble src/image_common
-        git clone https://github.com/ros-perception/vision_opencv.git --branch humble src/vision_opencv
-        git clone https://github.com/ros-perception/image_transport_plugins.git --branch humble src/image_transport_plugins
-        colcon build
+        sudo apt install ros-humble-image-transport-plugins
 
 
 ## 计划
