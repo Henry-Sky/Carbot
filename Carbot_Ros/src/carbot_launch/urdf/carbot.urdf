@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name='carbot'>
+    <link name="base_link">
+        <visual>
+            <geometry>
+                <box size="0.1 0.1 0.1">
+            </geometry>
+        </visual>
+    </link>

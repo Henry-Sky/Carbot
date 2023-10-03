@@ -39,6 +39,8 @@
     ### 功能包依赖
         - robot_localization
             sudo apt install ros-humble-robot-localization
+        - v4l2-camera
+            sudo apt install ros-humble-v4l2-camera
 
 ## 计划
     - 调用robot localization功能包,对里程计，陀螺仪数据融合
