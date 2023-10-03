@@ -29,7 +29,15 @@
 - 获取陀螺仪数据并发布
 - 依赖: scipy
 
+### carbot_launch:
+- 添加各包的参数配置
+- 添加rviz2加载urdf文件
+
 ## 依赖(推荐)
+- numpy
+- scipy
+- opencv
+
 ### 系统依赖
 - ubuntu 22.04Lts
 - ros2 humble
