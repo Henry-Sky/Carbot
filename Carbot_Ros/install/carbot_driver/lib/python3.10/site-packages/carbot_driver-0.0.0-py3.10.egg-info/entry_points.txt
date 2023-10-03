@@ -1,3 +1,0 @@
-[console_scripts]
-carbot_driver = carbot_driver.carbot_driver:main
-

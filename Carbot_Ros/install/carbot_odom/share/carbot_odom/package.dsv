@@ -1,8 +1,0 @@
-source;share/carbot_odom/hook/cmake_prefix_path.ps1
-source;share/carbot_odom/hook/cmake_prefix_path.dsv
-source;share/carbot_odom/hook/cmake_prefix_path.sh
-source;share/carbot_odom/local_setup.bash
-source;share/carbot_odom/local_setup.dsv
-source;share/carbot_odom/local_setup.ps1
-source;share/carbot_odom/local_setup.sh
-source;share/carbot_odom/local_setup.zsh
