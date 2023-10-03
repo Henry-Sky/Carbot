@@ -44,6 +44,10 @@
 - python 3.10
 
 ### 功能包依赖
+- opencv
+
+        sudo apt install ros-humble-vision-opencv
+
 - robot_localization:  
 
         sudo apt install ros-humble-robot-localization
