@@ -7,6 +7,7 @@ from sensor_msgs.msg import Image
 import cv2
 from cv_bridge import CvBridge
 
+
 class Camera_Pub(Node):
     def __init__(self, name):
         super().__init__(name)
