@@ -49,3 +49,4 @@ def main():
 	rclpy.init() 
 	carbot_driver = Carbot_Driver('driver_node')
 	rclpy.spin(carbot_driver)
+	rclpy.shutdown()
