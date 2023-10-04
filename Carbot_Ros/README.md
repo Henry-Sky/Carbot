@@ -16,27 +16,9 @@
 - 获取陀螺仪数据并发布
 - 依赖: scipy
 
+### carbot_launch:
+- 添加各包的参数配置
+- 添加rviz2加载urdf文件
+
 ### carbot_camera:
 - 发布摄像头画面
-
-## 依赖(推荐)
-### 系统依赖
-- ubuntu 22.04Lts
-- ros2 humble
-- python 3.10
-
-### 功能包依赖
-- robot_localization:  
-
-        sudo apt install ros-humble-robot-localization
-- v4l2-camera:  
-
-        sudo apt install ros-humble-v4l2-camera
-- image_transport(可选):
-
-        sudo apt install libtheora-dev libogg-dev libboost-python-dev
-        cd [your workspace]
-        git clone https://github.com/ros-perception/image_common.git --branch humble src/image_common
-        git clone https://github.com/ros-perception/vision_opencv.git --branch humble src/vision_opencv
-        git clone https://github.com/ros-perception/image_transport_plugins.git --branch humble src/image_transport_plugins
-        colcon build

@@ -10,7 +10,7 @@ ekf_filter_node:
 # set to true, no 3D information will be used in your state estimate. Use this if you are operating in a planar
 # environment and want to ignore the effect of small variations in the ground plane that might otherwise be detected
 # by, for example, an IMU. Defaults to false if unspecified.
-        two_d_mode: false
+        two_d_mode: true
 
         publish_acceleration: true
 
@@ -29,23 +29,18 @@ ekf_filter_node:
         odom_frame: odom           # Defaults to "odom" if unspecified
         base_link_frame: base_link  # Defaults to "base_link" if unspecified
         world_frame: odom           # Defaults to the value of odom_frame if unspecified
-        # odom0: /odom_diff
-        # odom0_config: [true,  true,  true,
-        #                false, false, false,
-        #                false, false, true,
-        #                false, false, false,
-        #                false, false, false]
+
         odom0: /odom_raw
-        odom0_config: [false,  false,  false,
-                       false, false, false,
-                       true, true, true,
-                       false, false, false,
+        odom0_config: [true,  true,  false,
+                       false, false, true,
+                       true, true, false,
+                       false, false, true,
                        false, false, false]
 
         imu0: /imu_data
         imu0_config: [false, false, false,
-                      true,  true,  true,
+                      false,  false,  true,
                       false, false, false,
-                      false, false, false,
-                      false, false, false]
+                      false, false, true,
+                      true, true, true]
 

@@ -34,7 +34,7 @@ class OdomPublisher:public rclcpp ::Node{
     double linear_velocity_y_ = 0.0;
     double angular_velocity_z_ = 0.0;
     // 是否发布tf广播
-    bool pub_odom_tf_ = false;
+    bool pub_odom_tf_ = true;
     // 上个时间初始化
     rclcpp::Time last_vel_time_  ;
 

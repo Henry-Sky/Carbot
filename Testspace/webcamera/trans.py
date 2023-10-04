@@ -12,7 +12,6 @@ class VideoCamera(object):
     def get_frame(self):
         flag, img = self.cap.read()
         if flag:
-            codeinfo = qrcheck(img)
             ret,img_encode = cv2.imencode('.jpg', img)
             return ret,img_encode.tobytes(),codeinfo
         else:

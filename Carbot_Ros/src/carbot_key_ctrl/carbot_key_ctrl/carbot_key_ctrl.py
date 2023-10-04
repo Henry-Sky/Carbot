@@ -2,7 +2,6 @@
 # encoding: utf-8
 
 #import public lib
-from geometry_msgs.msg import Twist
 import sys, select, termios, tty
 
 #import ros lib
@@ -39,7 +38,7 @@ class Carbot_Key_Ctrl(Node):
         # 创建一个名为 angular_speed_limit 默认值为 5.0 的参数
 		self.declare_parameter("angular_speed_limit",5.0)
 		# 创建一个自动刹车的参数
-		self.declare_parameter("auto_stop",False)
+		self.declare_parameter("auto_stop",True)
         # 获取名为 linear_speed_limit 的参数，并存储在 self.linenar_speed_limit
 		self.linenar_speed_limit = self.get_parameter("linear_speed_limit").get_parameter_value().double_value
 		self.angular_speed_limit = self.get_parameter("angular_speed_limit").get_parameter_value().double_value

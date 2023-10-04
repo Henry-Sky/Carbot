@@ -788,7 +788,7 @@ class Carbot(object):
         try:
             if not self.__arm_ctrl_enable:
                 return
-            if 0 <= angle_s[0] <= 180 and 0 <= angle_s[1] <= 180 and 0 <= angle_s[2] <= 180 and \
+            if 0 <= angle_s[0] <= 180 and 0 <= angle_s[1] <= 300 and 0 <= angle_s[2] <= 270 and \
                 0 <= angle_s[3] <= 180 and 0 <= angle_s[4] <= 270 and 0 <= angle_s[5] <= 180:
                 if run_time > 2000:
                     run_time = 2000

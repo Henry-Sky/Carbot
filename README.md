@@ -1,4 +1,4 @@
-# SIT_Carbot
+# Carbot
 基于 Ros2 Humble 的智能物流小车
 
 ## 上位机:树莓派4B or 旭日x3派(地平线)
@@ -33,10 +33,14 @@
 - 添加各包的参数配置
 - 添加rviz2加载urdf文件
 
+### carbot_camera:
+- 发布摄像头画面
+
 ## 依赖(推荐)
 - numpy
 - scipy
 - opencv
+- ...
 
 ### 系统依赖
 - ubuntu 22.04Lts
