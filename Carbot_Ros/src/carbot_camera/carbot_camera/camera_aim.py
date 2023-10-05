@@ -6,6 +6,7 @@ from rclpy.node import Node
 from sensor_msgs.msg import Image
 import cv2
 import numpy as np
+import time
 from geometry_msgs.msg import Twist
 from cv_bridge import CvBridge
 
@@ -30,7 +31,7 @@ class Carbot_Aim(Node):
         self.declare_parameter("cap_id",0)
         self.declare_parameter("aim_x",320)
         self.declare_parameter("aim_y",240)
-        self.declare_parameter("buffer",10)
+        self.declare_parameter("buffer",8)
         
         self.cap_id = self.get_parameter("cap_id").get_parameter_value().integer_value
         self.aim_x = self.get_parameter("aim_x").get_parameter_value().integer_value
@@ -46,22 +47,25 @@ class Carbot_Aim(Node):
         flag, frame = self.cap.read()
         if flag:
             dst = cv2.undistort(frame, mtx, dist, None, mtx)
-            return dst
+            return True, dst
         else:
-            print("Read Cap Error!")
+            return False
     
     def get_circle(self,img):
-        type_test = np.zeros((3,3))
-        circles = cv2.HoughCircles(img, cv2.HOUGH_GRADIENT, 1, 50,
-                         param1=100, param2=80, minRadius=120, maxRadius=200)
+        type_test = np.zeros((1,1,3))
+        hsv_img = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+        inRange_hsv = cv2.inRange(hsv_img, color_dist['green']['Lower'], color_dist['green']['Upper'])
+        circles = cv2.HoughCircles(inRange_hsv, cv2.HOUGH_GRADIENT, 1, 50,
+                         param1=100, param2=80, minRadius=60, maxRadius=200)
         if type(circles) == type(type_test):
-            return circles[0][0]
+            print(circles[0][0])
+            return True, circles[0][0]
         else:
-            return -1
+            return False, type_test
               
 def main():
     rclpy.init()
-    carbot_aim = Carbot_Aim()
+    carbot_aim = Carbot_Aim("carbot_aim")
     aim_x = carbot_aim.aim_x
     aim_y = carbot_aim.aim_y
     buf = carbot_aim.buffer
@@ -70,27 +74,33 @@ def main():
         while True:
             cir_x = 0
             cir_y = 0
-            img = carbot_aim.get_frame()
-            circle = carbot_aim.get_circle(img)
-            if circle != -1:
+            flag1 = False
+            flag2 = False
+
+            flag1, img = carbot_aim.get_frame()
+
+            if flag1:
+                flag2, circle = carbot_aim.get_circle(img)
+            
+            if flag2:
                 cir_x = circle[0]
                 cir_y = circle[1]
-            else:
-                pass
+
             
             if cir_x!=0 and cir_y != 0:
                 if aim_x < cir_x - buf:
-                    twist.linear.x = -0.1
+                    twist.linear.x = -0.01
                 elif aim_x > cir_x + buf:
-                    twist.linear.x = 0.1
+                    twist.linear.x = 0.01
                 elif aim_y < cir_y - buf:
-                    twist.linear.y = 0.1
+                    twist.linear.y = 0.01
                 elif aim_y > cir_y + buf:
-                    twist.linear.y = -0.1
+                    twist.linear.y = -0.01
                 else:
-                    twist.linear.x = 0
-                    twist.linear.y = 0
+                    twist.linear.x = 0.0
+                    twist.linear.y = 0.0
                 carbot_aim.pub.publish(twist)
+                
     except Exception as e: print(e)
     finally:
         carbot_aim.pub.publish(Twist())

@@ -2,12 +2,6 @@
 # encoding: utf-8
 
 #public lib
-import sys
-import math
-import random
-import threading
-from math import pi
-from time import sleep
 from carbot_lib import Carbot
 
 #ros lib
@@ -22,6 +16,8 @@ class Carbot_Driver(Node):
 
         # 实例化底层控制库
 		self.car = Carbot()
+
+		self.car.set_uart_servo_angle_array([64, 209, 141, 90, 90, 90])
 
 		# 创建订阅者
 		self.sub_cmd_vel = self.create_subscription(Twist,"cmd_vel",self.cmd_vel_callback,1)
