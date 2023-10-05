@@ -21,6 +21,7 @@ setup(
     entry_points={
         'console_scripts': [
             'camera_pub = carbot_camera.camera_pub:main',
+            'camera_aim = carbot_camera.camera_aim:main',
         ],
     },
 )

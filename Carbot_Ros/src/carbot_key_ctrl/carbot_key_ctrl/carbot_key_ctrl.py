@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 # encoding: utf-8
 
-#import public lib
+#public lib
 import sys, select, termios, tty
 
-#import ros lib
+#ros lib
 import rclpy
 from rclpy.node import Node
 from geometry_msgs.msg import Twist
@@ -22,27 +22,48 @@ o/l : increase/decrease only angular speed by 10%
 CTRL-C to quit
 """
 
-moveBindings = {'w': (1, 0, 0),'a': (0, 1, 0),'s': (-1, 0, 0),'d': (0, -1, 0),'q': (0, 0, 1),'e': (0, 0, -1),'W': (1, 0, 0),'A': (0, 1, 0),'S': (-1, 0, 0),'D': (0, -1, 0),'Q': (0, 0, 1),'E': (0, 0, -1),}
+moveBindings = {'w': (1, 0, 0),
+                'a': (0, 1, 0),
+                's': (-1, 0, 0),
+                'd': (0, -1, 0),
+                'q': (0, 0, 1),
+                'e': (0, 0, -1),
+                'W': (1, 0, 0),
+                'A': (0, 1, 0),
+                'S': (-1, 0, 0),
+                'D': (0, -1, 0),
+                'Q': (0, 0, 1),
+                'E': (0, 0, -1),}
 
-speedBindings = {'u': (1.1, 1.1),'j': (.9, .9),'i': (1.1, 1),'k': (.9, 1),'o': (1, 1.1),'l': (1, .9),'U': (1.1, 1.1),'J': (.9, .9),'I': (1.1, 1),'K': (.9, 1),'O': (1, 1.1),'L': (1, .9),}
+speedBindings = {'u': (1.1, 1.1),
+                 'j': (.9, .9),
+                 'i': (1.1, 1),
+                 'k': (.9, 1),
+                 'o': (1, 1.1),
+                 'l': (1, .9),
+                 'U': (1.1, 1.1),
+                 'J': (.9, .9),
+                 'I': (1.1, 1),
+                 'K': (.9, 1),
+                 'O': (1, 1.1),
+                 'L': (1, .9),}
 
 class Carbot_Key_Ctrl(Node):
-
 	# 节点初始化
 	def __init__(self,name):
 		super().__init__(name)
         # 创建一个发布者 消息类型为 Twist 名为 cmd_vel 
 		self.pub = self.create_publisher(Twist,'cmd_vel',1)
-        # 创建一个名为 linear_speed_limit 默认值为 1.0 的参数
+  
+        # 参数声明
 		self.declare_parameter("linear_speed_limit",1.0)
-        # 创建一个名为 angular_speed_limit 默认值为 5.0 的参数
 		self.declare_parameter("angular_speed_limit",5.0)
-		# 创建一个自动刹车的参数
 		self.declare_parameter("auto_stop",True)
-        # 获取名为 linear_speed_limit 的参数，并存储在 self.linenar_speed_limit
+        # 参数获取
 		self.linenar_speed_limit = self.get_parameter("linear_speed_limit").get_parameter_value().double_value
 		self.angular_speed_limit = self.get_parameter("angular_speed_limit").get_parameter_value().double_value
 		self.auto_stop = self.get_parameter("auto_stop").get_parameter_value().bool_value
+  
 		# tcgetattr函数用于获取与终端相关的参数
 		self.settings = termios.tcgetattr(sys.stdin)
 
@@ -76,7 +97,7 @@ def main():
 		# 操控提示
 		print(tip)
 
-		while (1):
+		while True:
 
 			# 键盘监听
 			key = carbot_key_ctrl.getKey()
