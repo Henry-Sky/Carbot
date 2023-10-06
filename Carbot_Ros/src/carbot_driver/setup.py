@@ -21,6 +21,7 @@ setup(
     entry_points={
         'console_scripts': [
         	'car_driver = carbot_driver.car_driver:main',
+            'key_ctrl = carbot_driver.key_ctrl:main',
         ],
     },
 )

@@ -10,14 +10,14 @@ from rclpy.node import Node
 from geometry_msgs.msg import Twist
 
 tip = """
-Carbot Controler
+Carbot Key Ctrl
 --------------------------------------------------
 x: w/s	y: a/d	z: q/e
 space: force stop
 --------------------------------------------------
-u/j : increase/decrease max speeds by 10%
-i/k : increase/decrease only linear speed by 10%
-o/l : increase/decrease only angular speed by 10%
+u/j : increase/decrease all speeds
+i/k : increase/decrease only linear speed
+o/l : increase/decrease only angular speed
 --------------------------------------------------
 CTRL-C to quit
 """
@@ -36,29 +36,29 @@ moveBindings = {'w': (1, 0, 0),
                 'E': (0, 0, -1),}
 
 speedBindings = {'u': (1.1, 1.1),
-                 'j': (.9, .9),
+                 'j': (0.9, 0.9),
                  'i': (1.1, 1),
-                 'k': (.9, 1),
+                 'k': (0.9, 1),
                  'o': (1, 1.1),
-                 'l': (1, .9),
+                 'l': (1, 0.9),
                  'U': (1.1, 1.1),
-                 'J': (.9, .9),
+                 'J': (0.9, 0.9),
                  'I': (1.1, 1),
-                 'K': (.9, 1),
+                 'K': (0.9, 1),
                  'O': (1, 1.1),
-                 'L': (1, .9),}
+                 'L': (1, 0.9),}
 
-class Carbot_Key_Ctrl(Node):
+class Key_Ctrl(Node):
 	# 节点初始化
 	def __init__(self,name):
 		super().__init__(name)
         # 创建一个发布者 消息类型为 Twist 名为 cmd_vel 
-		self.pub = self.create_publisher(Twist,'cmd_vel',1)
+		self.pub_ctrl = self.create_publisher(Twist,'cmd_vel',1)
   
         # 参数声明
-		self.declare_parameter("linear_speed_limit",1.0)
-		self.declare_parameter("angular_speed_limit",5.0)
-		self.declare_parameter("auto_stop",True)
+		self.declare_parameter("linear_speed_limit",0.30)
+		self.declare_parameter("angular_speed_limit",0.25)
+		self.declare_parameter("auto_stop",False)
         # 参数获取
 		self.linenar_speed_limit = self.get_parameter("linear_speed_limit").get_parameter_value().double_value
 		self.angular_speed_limit = self.get_parameter("angular_speed_limit").get_parameter_value().double_value
@@ -72,11 +72,8 @@ class Carbot_Key_Ctrl(Node):
 		tty.setraw(sys.stdin.fileno())
 		rlist, _, _ = select.select([sys.stdin], [], [], 0.1)
 		if rlist: key = sys.stdin.read(1)
-		else:
-			if self.auto_stop:
-				key = ' '
-			else: 
-				key = ''
+		else: 
+			key = ''
 		termios.tcsetattr(sys.stdin, termios.TCSADRAIN, self.settings)
 		return key
 
@@ -86,9 +83,9 @@ class Carbot_Key_Ctrl(Node):
 def main():
 	rclpy.init()
 	# 实例化节点
-	carbot_key_ctrl = Carbot_Key_Ctrl("carbot_key_ctrl")
+	key_ctrl = Key_Ctrl("key_ctrl")
 	# 速度初始化
-	(speed, turn) = (0.2, 1.0)
+	(speed, turn) = (0.2, 0.15)
 	# 方向系数初始化
 	(x_linear, y_linear, z_angular) = (0, 0, 0)
 
@@ -100,7 +97,7 @@ def main():
 		while True:
 
 			# 键盘监听
-			key = carbot_key_ctrl.getKey()
+			key = key_ctrl.getKey()
 
 			if key in moveBindings.keys():
 				x_linear = moveBindings[key][0]
@@ -111,10 +108,10 @@ def main():
 				speed = speed * speedBindings[key][0]
 				turn = turn * speedBindings[key][1]
 				# 速度上限监测
-				if speed > carbot_key_ctrl.linenar_speed_limit: 
-					speed = carbot_key_ctrl.linenar_speed_limit
-				if turn > carbot_key_ctrl.angular_speed_limit: 
-					turn = carbot_key_ctrl.angular_speed_limit
+				if speed > key_ctrl.linenar_speed_limit: 
+					speed = key_ctrl.linenar_speed_limit
+				if turn > key_ctrl.angular_speed_limit: 
+					turn = key_ctrl.angular_speed_limit
 
 			elif key == ' ':
 				(x_linear, y_linear, z_angular) = (0, 0, 0)
@@ -123,16 +120,23 @@ def main():
 				break
 
 			else:
-				pass
+				if key_ctrl.auto_stop:
+					twist = Twist()
+				else:
+					pass
 
 			twist.linear.x = speed * x_linear
 			twist.linear.y = speed * y_linear
 			twist.angular.z = turn * z_angular
 
-			carbot_key_ctrl.pub.publish(twist)
+			key_ctrl.pub_ctrl.publish(twist)
 
-	except Exception as e: print(e)
-	finally: carbot_key_ctrl.pub.publish(Twist())
-	termios.tcsetattr(sys.stdin, termios.TCSADRAIN, carbot_key_ctrl.settings)
-	carbot_key_ctrl.destroy_node()
+	except Exception as e: 
+		print(e)
+
+	finally: 
+		key_ctrl.pub_ctrl.publish(Twist())
+
+	termios.tcsetattr(sys.stdin, termios.TCSADRAIN, key_ctrl.settings)
+	key_ctrl.destroy_node()
 	rclpy.shutdown()

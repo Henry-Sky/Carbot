@@ -27,7 +27,6 @@
 ### carbot_imu:
 - 开启python接收下位机数据线程
 - 获取陀螺仪数据并发布
-- 依赖: scipy
 
 ### carbot_launch:
 - 添加各包的参数配置
@@ -38,7 +37,6 @@
 
 ## 依赖(推荐)
 - numpy
-- scipy
 - opencv
 - ...
 
@@ -51,6 +49,10 @@
 - opencv
 
         sudo apt install ros-humble-vision-opencv
+
+- tf_transformations
+
+        sudo apt install ros-humble-tf-transformations
 
 - robot_localization:  
 

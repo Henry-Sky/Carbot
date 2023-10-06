@@ -4,10 +4,10 @@ from launch import LaunchDescription
 from launch_ros.actions import Node
 
 def generate_launch_description():
-    carbot_driver_config = os.path.join(
+    car_driver_config = os.path.join(
         get_package_share_directory('carbot_launch'),
         'config',
-        'carbot_driver.yaml' 
+        'car_driver.yaml' 
     )
     
     ekf_node_config = os.path.join(
@@ -19,8 +19,8 @@ def generate_launch_description():
     return LaunchDescription([
         Node(
             package='carbot_driver',
-            executable='carbot_driver',
-            parameters=[carbot_driver_config]
+            executable='car_driver',
+            parameters=[car_driver_config]
         ),
         Node(
             package='carbot_imu',

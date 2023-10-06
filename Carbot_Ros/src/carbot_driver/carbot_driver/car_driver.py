@@ -39,26 +39,28 @@ class Car_Driver(Node):
 
 		if vx > 0:
 			state = 1
-			speed = vx
+			speed = vx * 100
 		elif vx < 0:
 			state = 2
-			speed = -vx
+			speed = -vx * 100
 		elif vy > 0:
 			state = 3
-			speed = vy
+			speed = vy * 100
 		elif vy < 0:
 			state = 4
-			speed = -vy
+			speed = -vy * 100
 		elif vz > 0:
 			state = 5
-			speed = vz
+			speed = vz * 100
 		elif vz < 0:
 			state = 6
-			speed = -vz
+			speed = -vz * 100
 		else:
 			state = 7
 
-		# state=[0, 7],=0停止,=1前进,=2后退,=3向左,=4向右,=5左旋,=6右旋,=7停车
+		# state = [0, 7],=0停止,=1前进,=2后退,=3向左,=4向右,=5左旋,=6右旋,=7停车
+		# speed = [0, 100] 线速度默认限制25,角速度默认限制20
+		# speed 在电机驱动中为 [0, 100] 而在控制消息twist中为[0,1]
 		self.car.set_car_run(state, speed, adjust=self.pid_ctrl)
 		
 			
