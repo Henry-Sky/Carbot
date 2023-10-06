@@ -20,7 +20,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-        	'carbot_driver = carbot_driver.carbot_driver:main',
+        	'car_driver = carbot_driver.car_driver:main',
         ],
     },
 )
