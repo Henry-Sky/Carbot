@@ -1,0 +1,6 @@
+/carbot_odom:
+  ros__parameters:
+    linear_scale_x: 1.0
+    linear_scale_y: 1.0
+    angular_scale_z: 1.356
+    pub_head: true

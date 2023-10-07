@@ -15,6 +15,12 @@ def generate_launch_description():
         'config',
         'ekf_node.yaml'
     )
+
+    carbot_odom_config = os.path.join(
+        get_package_share_directory('carbot_launch'),
+        'config',
+        'carbot_odom.yaml'
+    )
     
     return LaunchDescription([
         Node(
@@ -29,6 +35,7 @@ def generate_launch_description():
         Node(
             package='carbot_odom',
             executable='carbot_odom',
+            parameters=[carbot_odom_config]
         ),
         Node(
             package='robot_localization',
