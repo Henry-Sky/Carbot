@@ -1,15 +1,11 @@
 /ekf_filter_node:
   ros__parameters:
+    # [X,Y,Z,roll,pitch,yaw,X˙,Y˙,Z˙,roll˙,pitch˙,yaw˙,X¨,Y¨,Z¨]
     base_link_frame: base_link
     base_link_frame_output: base_link
-    control_timeout: 0.0
-    debug: false
-    diagnostic_updater:
-      period: 1.0
     disabled_at_startup: false
     dynamic_process_noise_covariance: false
     frequency: 30.0
-    gravitational_acceleration: 9.80665
     history_length: 0.0
     imu0: /imu_data
     imu0_config: [false, false, false, 
@@ -20,12 +16,13 @@
 
     map_frame: map
     odom0: /odom_raw
-    odom0_config: [true,  true,  false,
+    odom0_config: [true,  true,  true,
                 false, false, true,
-                true, true, false,
-                false, false, true,
+                true, true, true,
+                false, false, false,
                 false, false, false]
     odom_frame: odom
+
     permit_corrected_publication: false
 
     predict_to_current_time: false
@@ -34,30 +31,9 @@
     publish_acceleration: false
     publish_tf: true
 
-    qos_overrides:
-      /odometry/filtered:
-        publisher:
-          depth: 10
-          history: keep_last
-          reliability: reliable
-      /parameter_events:
-        publisher:
-          depth: 1000
-          durability: volatile
-          history: keep_last
-          reliability: reliable
-      /tf:
-        publisher:
-          depth: 100
-          durability: volatile
-          history: keep_last
-          reliability: reliable
     reset_on_time_jump: false
     sensor_timeout: 0.03333333333333333
     smooth_lagged_data: false
-
-    transform_time_offset: 0.0
-    transform_timeout: 0.0
 
     two_d_mode: true
     use_control: false
