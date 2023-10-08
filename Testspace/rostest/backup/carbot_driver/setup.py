@@ -1,6 +1,6 @@
 from setuptools import find_packages, setup
 
-package_name = 'carbot_plan'
+package_name = 'carbot_driver'
 
 setup(
     name=package_name,
@@ -13,14 +13,15 @@ setup(
     ],
     install_requires=['setuptools'],
     zip_safe=True,
-    maintainer='sit',
-    maintainer_email='sit@todo.todo',
+    maintainer='henry',
+    maintainer_email='henry@todo.todo',
     description='TODO: Package description',
     license='TODO: License declaration',
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'march_pose = carbot_plan.march_pose:main',
+        	'car_driver = carbot_driver.car_driver:main',
+            'key_ctrl = carbot_driver.key_ctrl:main',
         ],
     },
 )
