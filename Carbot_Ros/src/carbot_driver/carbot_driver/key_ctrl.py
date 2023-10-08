@@ -106,7 +106,7 @@ def main():
 			elif key == '\x03':
 				break
 			else:
-				if key_ctrl.auto_stop:
+				if key_ctrl.auto_brake:
 					twist = Twist()
 				else:
 					pass

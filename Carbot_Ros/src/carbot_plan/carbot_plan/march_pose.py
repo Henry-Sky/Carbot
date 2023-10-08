@@ -8,16 +8,15 @@ from nav_msgs.msg import Odometry
 class March_Pose(Node):
     def __init__(self,name):
         super().__init__(name)
-        self.pose_sub = self.create_subscription(Pose,"set_pose",march_callback,1)
-        self.odom_sub = self.create_subscription(Odometry,"odom_data",odom_callback,1)
+        self.pose_sub = self.create_subscription(Pose,"set_pose",self.march_callback,1)
+        self.odom_sub = self.create_subscription(Odometry,"odom_data",self.odom_callback,1)
         self.twist_pub = self.create_publisher(Twist,"twist_cmd",2)
-        
         # 位置初始化
         self.now_pose = Pose()
         self.goal_pose = Pose()
         
     def odom_callback(self,odom_msg):
-        self.now_pose = odom_msg.pose
+        self.now_pose = odom_msg.pose.pose
         march_twist = Twist()
         
         if self.goal_pose.position.x > self.now_pose.position.x:
@@ -32,6 +31,7 @@ class March_Pose(Node):
             else:
                 march_twist.linear.x = 0.0
                 march_twist.linear.y = 0.0
+        self.twist_pub.publish(march_twist)
         
     def march_callback(self,pose_msg):
         self.goal_pose = pose_msg
@@ -42,3 +42,5 @@ def main():
     rclpy.spin(march_pose)
     march_pose.destroy_node()
     rclpy.shutdown()    
+
+main()

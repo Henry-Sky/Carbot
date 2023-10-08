@@ -50,7 +50,7 @@ class OdomPublisher:public rclcpp ::Node{
             // 参数创建           
             this->declare_parameter<double>("linear_scale_x",1.0);
             this->declare_parameter<double>("linear_scale_y",1.0);
-            this->declare_parameter<double>("angular_scale_z",1.0);
+            this->declare_parameter<double>("angular_scale_z",1.356);
             this->declare_parameter<bool>("pub_odom_tf",false);
             this->declare_parameter<bool>("pub_head",true);
 

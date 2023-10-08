@@ -52,7 +52,7 @@ class Car_Driver(Node):
 		else:
 			state = 7
 		# 下发运动控制(含imu的pid控制判断)
-		self.car.set_car_run(state, speed, adjust=self.pid_ctrl)
+		self.car.set_car_run(state, speed, adjust=self.imu_pid_ctrl)
 		
 def main():
 	rclpy.init() 

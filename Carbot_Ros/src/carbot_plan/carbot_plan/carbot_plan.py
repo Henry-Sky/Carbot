@@ -15,8 +15,10 @@ def main():
     
     carbot_plan = Carbot_Plan("carbot_plan")
     pose = Pose()
-    pose.position.x = 1.0
+    pose.position.x = 2.0
     carbot_plan.publish_pose(pose)
     
     carbot_plan.destroy_node()
     rclpy.shutdown()
+
+main()

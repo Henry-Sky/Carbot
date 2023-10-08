@@ -1,23 +1,25 @@
-## 中间件:Ros2 humble
-### carbot_driver: 
-- 订阅Twist并向下位机发送移动指令
+# 中间件:Ros2 humble
 
-### carbot_key_ctrl:
-- 监听linux终端键盘
-- 发布Twist控制消息
+## [carbot_launch]:
+- 含有launch启动文件
+- 计划添加模型描述文件
 
-### carbot_odom: 
-- 订阅Twist消息
-- 计算里程计(获取速度后对时间积分)并发布
-- 计划添加直接从编码器脉冲计算里程的方法，并对两种方法的准确度对比择优选择
+## [carbot_plan]:
+### carbot_plan
+- 该项目的全局决策
+### march_pose
+- 定点移动
 
-### carbot_imu:
-- 开启python接收下位机数据线程
-- 获取陀螺仪数据并发布
 
-### carbot_launch:
-- 添加各包的参数配置
-- 添加rviz2加载urdf文件
+## [carbot_driver]: 
+### car_driver
+- 控制底层电机运动
+### key_ctrl
+- 键盘控制
 
-### carbot_camera:
-- 发布摄像头画面
+## [carbot_location]:
+### odom_data
+- 发送里程计信息 
+
+
+
