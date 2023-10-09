@@ -37,8 +37,7 @@ class March_Pose(Node):
         self.twist_start = True
         self.navigation_start = False
         # 初始化
-        self.heading_yaw = 0.0 # 弧度 [-3.14, +3.14]
-        self.twist_init()
+        self.heading_yaw = 0.0 # 弧度 (-3.14, +3.14]
         
     def twist_init(self):
         if self.twist_start:
@@ -147,12 +146,20 @@ class March_Pose(Node):
     
     def heading_update(self,now_pose):
         q = nowpose.orientation
-        yaw, roll, pitch = tf_transformations.euler_from_quaternion(q)
+        roll, pitch, yaw = tf_transformations.euler_from_quaternion([q.x,q.y,q.z,q.w])
+        if yaw >= 0:
+            yaw = yaw % 6.28
+        else:
+            yaw = yaw % -6.28
+        # (-6.28,6.28)
+        if yaw > 3.14:
+            yaw -= 6.28
+        elif yaw <= -3.14:
+            yaw += 6.28
+        else:
+            self.get_logger().info("Error in heading_update")
+            
         self.heading_yaw = yaw
-        if self.heading_yaw > 3.14:
-            self.heading_yaw = self.heading_yaw - 6.28
-        elif self.heading_yaw < -3.14:
-            self.heading_yaw = self.heading_yaw + 6.28
 
     def odom_callback(self,odom_msg):
         self.now_pose = odom_msg.pose.pose
