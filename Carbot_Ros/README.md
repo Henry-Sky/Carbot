@@ -14,6 +14,8 @@
 ## [carbot_driver]: 
 ### car_driver
 - 控制底层电机运动
+### arm_driver
+- 控制机械臂运动
 ### key_ctrl
 - 键盘控制
 

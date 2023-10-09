@@ -12,9 +12,9 @@ class Car_Driver(Node):
 		super().__init__(name)
         # 实例化底层控制板
 		self.car = Carbot()
-		# 创建订阅者
+		# 订阅
 		self.twist_sub = self.create_subscription(Twist,"twist_cmd",self.twist_callback,1)
-		# 参数声明
+		# 参数
 		self.declare_parameter("imu_pid_ctrl",False)
 		self.imu_pid_ctrl = self.get_parameter("imu_pid_ctrl").get_parameter_value().bool_value
 
@@ -29,26 +29,27 @@ class Car_Driver(Node):
 		state = 0
   		# speed = [0, 100] 线速度默认限制25,角速度默认限制20
 		speed = 0
-		# 移动判定
 		# speed 在电机驱动中为 [0, 100] 而在控制消息twist中为[0,1] 故放大100倍
+		power = 100
+		# 移动判定
 		if v_x > 0:
 			state = 1
-			speed = v_x * 100
+			speed = v_x * power
 		elif v_x < 0:
 			state = 2
-			speed = -v_x * 100
+			speed = -v_x * power
 		elif v_y > 0:
 			state = 3
-			speed = v_y * 100
+			speed = v_y * power
 		elif v_y < 0:
 			state = 4
-			speed = -v_y * 100
+			speed = -v_y * power
 		elif v_yaw > 0:
 			state = 5
-			speed = v_yaw * 100
+			speed = v_yaw * power
 		elif v_yaw < 0:
 			state = 6
-			speed = -v_yaw * 100
+			speed = -v_yaw * power
 		else:
 			state = 7
 		# 下发运动控制(含imu的pid控制判断)

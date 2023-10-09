@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# encoding: utf-8
+
 import rclpy
 from rclpy.node import Node
 from geometry_msgs.msg import Pose
