@@ -1,0 +1,17 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from carbot_interfaces/srv/Test.srv
+// generated code does not contain a copyright notice
+
+
+module carbot_interfaces {
+  module srv {
+    struct Test_Request {
+      boolean get_num;
+    };
+    struct Test_Response {
+      double num1;
+
+      double num2;
+    };
+  };
+};

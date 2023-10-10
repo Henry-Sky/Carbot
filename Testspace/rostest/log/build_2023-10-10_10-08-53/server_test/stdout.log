@@ -1,0 +1,39 @@
+running egg_info
+creating ../../build/server_test/server_test.egg-info
+writing ../../build/server_test/server_test.egg-info/PKG-INFO
+writing dependency_links to ../../build/server_test/server_test.egg-info/dependency_links.txt
+writing entry points to ../../build/server_test/server_test.egg-info/entry_points.txt
+writing requirements to ../../build/server_test/server_test.egg-info/requires.txt
+writing top-level names to ../../build/server_test/server_test.egg-info/top_level.txt
+writing manifest file '../../build/server_test/server_test.egg-info/SOURCES.txt'
+reading manifest file '../../build/server_test/server_test.egg-info/SOURCES.txt'
+writing manifest file '../../build/server_test/server_test.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/henry/Workspace/Carbot/Testspace/rostest/build/server_test/build
+creating /home/henry/Workspace/Carbot/Testspace/rostest/build/server_test/build/lib
+creating /home/henry/Workspace/Carbot/Testspace/rostest/build/server_test/build/lib/server_test
+copying server_test/server.py -> /home/henry/Workspace/Carbot/Testspace/rostest/build/server_test/build/lib/server_test
+copying server_test/client.py -> /home/henry/Workspace/Carbot/Testspace/rostest/build/server_test/build/lib/server_test
+copying server_test/__init__.py -> /home/henry/Workspace/Carbot/Testspace/rostest/build/server_test/build/lib/server_test
+running install
+running install_lib
+creating /home/henry/Workspace/Carbot/Testspace/rostest/install/server_test/lib/python3.10/site-packages/server_test
+copying /home/henry/Workspace/Carbot/Testspace/rostest/build/server_test/build/lib/server_test/server.py -> /home/henry/Workspace/Carbot/Testspace/rostest/install/server_test/lib/python3.10/site-packages/server_test
+copying /home/henry/Workspace/Carbot/Testspace/rostest/build/server_test/build/lib/server_test/client.py -> /home/henry/Workspace/Carbot/Testspace/rostest/install/server_test/lib/python3.10/site-packages/server_test
+copying /home/henry/Workspace/Carbot/Testspace/rostest/build/server_test/build/lib/server_test/__init__.py -> /home/henry/Workspace/Carbot/Testspace/rostest/install/server_test/lib/python3.10/site-packages/server_test
+byte-compiling /home/henry/Workspace/Carbot/Testspace/rostest/install/server_test/lib/python3.10/site-packages/server_test/server.py to server.cpython-310.pyc
+byte-compiling /home/henry/Workspace/Carbot/Testspace/rostest/install/server_test/lib/python3.10/site-packages/server_test/client.py to client.cpython-310.pyc
+byte-compiling /home/henry/Workspace/Carbot/Testspace/rostest/install/server_test/lib/python3.10/site-packages/server_test/__init__.py to __init__.cpython-310.pyc
+running install_data
+creating /home/henry/Workspace/Carbot/Testspace/rostest/install/server_test/share/ament_index
+creating /home/henry/Workspace/Carbot/Testspace/rostest/install/server_test/share/ament_index/resource_index
+creating /home/henry/Workspace/Carbot/Testspace/rostest/install/server_test/share/ament_index/resource_index/packages
+copying resource/server_test -> /home/henry/Workspace/Carbot/Testspace/rostest/install/server_test/share/ament_index/resource_index/packages
+copying package.xml -> /home/henry/Workspace/Carbot/Testspace/rostest/install/server_test/share/server_test
+running install_egg_info
+Copying ../../build/server_test/server_test.egg-info to /home/henry/Workspace/Carbot/Testspace/rostest/install/server_test/lib/python3.10/site-packages/server_test-0.0.0-py3.10.egg-info
+running install_scripts
+Installing client_test script to /home/henry/Workspace/Carbot/Testspace/rostest/install/server_test/lib/server_test
+Installing server_test script to /home/henry/Workspace/Carbot/Testspace/rostest/install/server_test/lib/server_test
+writing list of installed files to '/home/henry/Workspace/Carbot/Testspace/rostest/build/server_test/install.log'

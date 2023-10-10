@@ -1,0 +1,234 @@
+[0.117s] Invoking command in '/home/henry/Workspace/Carbot/Testspace/rostest/build/carbot_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/henry/Workspace/Carbot/Carbot_Ros/install/carbot_plan:/home/henry/Workspace/Carbot/Carbot_Ros/install/carbot_launch:/home/henry/Workspace/Carbot/Carbot_Ros/install/carbot_driver:/opt/ros/humble /usr/bin/cmake /home/henry/Workspace/Carbot/Testspace/rostest/src/carbot_interfaces -DCMAKE_INSTALL_PREFIX=/home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces
+[0.278s] -- The C compiler identification is GNU 11.4.0
+[0.434s] -- The CXX compiler identification is GNU 11.4.0
+[0.446s] -- Detecting C compiler ABI info
+[0.530s] -- Detecting C compiler ABI info - done
+[0.539s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.542s] -- Detecting C compile features
+[0.542s] -- Detecting C compile features - done
+[0.546s] -- Detecting CXX compiler ABI info
+[0.641s] -- Detecting CXX compiler ABI info - done
+[0.651s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.651s] -- Detecting CXX compile features
+[0.652s] -- Detecting CXX compile features - done
+[0.658s] -- Found ament_cmake: 1.3.5 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.861s] -- Found Python3: /usr/bin/python3.10 (found version "3.10.12") found components: Interpreter 
+[1.007s] -- Found geometry_msgs: 4.2.3 (/opt/ros/humble/share/geometry_msgs/cmake)
+[1.062s] -- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[1.069s] -- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[1.081s] -- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[1.100s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.125s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.274s] -- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)
+[1.619s] -- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)
+[2.187s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[2.383s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[2.412s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.10.12", minimum required is "3.6") 
+[2.414s] -- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)
+[2.448s] -- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.10.so (found suitable version "3.10.12", minimum required is "3.5") 
+[2.449s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[2.449s] -- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10
+[2.449s] -- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so
+[2.475s] -- Found PythonExtra: .so  
+[2.568s] -- Found ament_lint_auto: 0.12.8 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[2.599s] -- Added test 'lint_cmake' to check CMake code style
+[2.601s] -- Added test 'xmllint' to check XML markup files
+[2.604s] -- Configuring done
+[2.644s] -- Generating done
+[2.647s] -- Build files have been written to: /home/henry/Workspace/Carbot/Testspace/rostest/build/carbot_interfaces
+[2.659s] Invoked command in '/home/henry/Workspace/Carbot/Testspace/rostest/build/carbot_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/henry/Workspace/Carbot/Carbot_Ros/install/carbot_plan:/home/henry/Workspace/Carbot/Carbot_Ros/install/carbot_launch:/home/henry/Workspace/Carbot/Carbot_Ros/install/carbot_driver:/opt/ros/humble /usr/bin/cmake /home/henry/Workspace/Carbot/Testspace/rostest/src/carbot_interfaces -DCMAKE_INSTALL_PREFIX=/home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces
+[2.662s] Invoking command in '/home/henry/Workspace/Carbot/Testspace/rostest/build/carbot_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/henry/Workspace/Carbot/Carbot_Ros/install/carbot_plan:/home/henry/Workspace/Carbot/Carbot_Ros/install/carbot_launch:/home/henry/Workspace/Carbot/Carbot_Ros/install/carbot_driver:/opt/ros/humble /usr/bin/cmake --build /home/henry/Workspace/Carbot/Testspace/rostest/build/carbot_interfaces -- -j8 -l8
+[2.710s] [  3%] [34m[1mGenerating C code for ROS interfaces[0m
+[2.722s] [  6%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[2.732s] [  6%] Built target ament_cmake_python_copy_carbot_interfaces
+[3.057s] [  6%] Built target carbot_interfaces__cpp
+[3.060s] running egg_info
+[3.061s] creating carbot_interfaces.egg-info
+[3.061s] writing carbot_interfaces.egg-info/PKG-INFO
+[3.062s] writing dependency_links to carbot_interfaces.egg-info/dependency_links.txt
+[3.062s] [  9%] [32mBuilding C object CMakeFiles/carbot_interfaces__rosidl_generator_c.dir/rosidl_generator_c/carbot_interfaces/srv/detail/test__functions.c.o[0m
+[3.062s] writing top-level names to carbot_interfaces.egg-info/top_level.txt
+[3.063s] writing manifest file 'carbot_interfaces.egg-info/SOURCES.txt'
+[3.068s] reading manifest file 'carbot_interfaces.egg-info/SOURCES.txt'
+[3.069s] writing manifest file 'carbot_interfaces.egg-info/SOURCES.txt'
+[3.070s] [ 12%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[3.071s] [ 16%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[3.074s] [ 19%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[3.108s] [ 19%] Built target ament_cmake_python_build_carbot_interfaces_egg
+[3.177s] [ 22%] [32m[1mLinking C shared library libcarbot_interfaces__rosidl_generator_c.so[0m
+[3.225s] [ 22%] Built target carbot_interfaces__rosidl_generator_c
+[3.241s] [ 25%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[3.242s] [ 32%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[3.242s] [ 32%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[3.382s] [ 35%] [32mBuilding CXX object CMakeFiles/carbot_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/carbot_interfaces/srv/test__type_support.cpp.o[0m
+[3.523s] [ 38%] [32mBuilding CXX object CMakeFiles/carbot_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/carbot_interfaces/srv/detail/test__type_support.cpp.o[0m
+[3.547s] [ 41%] [32mBuilding CXX object CMakeFiles/carbot_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/carbot_interfaces/srv/test__type_support.cpp.o[0m
+[3.595s] [ 45%] [32m[1mLinking CXX shared library libcarbot_interfaces__rosidl_typesupport_c.so[0m
+[3.616s] [ 48%] [32mBuilding CXX object CMakeFiles/carbot_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/carbot_interfaces/srv/detail/dds_fastrtps/test__type_support.cpp.o[0m
+[3.673s] [ 48%] Built target carbot_interfaces__rosidl_typesupport_c
+[3.741s] [ 51%] [32mBuilding CXX object CMakeFiles/carbot_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/carbot_interfaces/srv/detail/test__type_support_c.cpp.o[0m
+[3.811s] [ 54%] [32mBuilding C object CMakeFiles/carbot_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/carbot_interfaces/srv/detail/test__type_support.c.o[0m
+[3.860s] [ 58%] [32m[1mLinking C shared library libcarbot_interfaces__rosidl_typesupport_introspection_c.so[0m
+[3.874s] [ 61%] [32m[1mLinking CXX shared library libcarbot_interfaces__rosidl_typesupport_cpp.so[0m
+[3.903s] [ 61%] Built target carbot_interfaces__rosidl_typesupport_introspection_c
+[3.928s] [ 61%] Built target carbot_interfaces__rosidl_typesupport_cpp
+[4.050s] [ 64%] [32m[1mLinking CXX shared library libcarbot_interfaces__rosidl_typesupport_introspection_cpp.so[0m
+[4.104s] [ 64%] Built target carbot_interfaces__rosidl_typesupport_introspection_cpp
+[4.221s] [ 67%] [32m[1mLinking CXX shared library libcarbot_interfaces__rosidl_typesupport_fastrtps_cpp.so[0m
+[4.244s] [ 70%] [32m[1mLinking CXX shared library libcarbot_interfaces__rosidl_typesupport_fastrtps_c.so[0m
+[4.333s] [ 70%] Built target carbot_interfaces__rosidl_typesupport_fastrtps_cpp
+[4.359s] [ 70%] Built target carbot_interfaces__rosidl_typesupport_fastrtps_c
+[4.386s] [ 70%] Built target carbot_interfaces
+[4.415s] [ 74%] [34m[1mGenerating Python code for ROS interfaces[0m
+[4.837s] [ 74%] Built target carbot_interfaces__py
+[4.862s] [ 77%] [32mBuilding C object CMakeFiles/carbot_interfaces__rosidl_generator_py.dir/rosidl_generator_py/carbot_interfaces/srv/_test_s.c.o[0m
+[5.009s] [ 80%] [32m[1mLinking C shared library rosidl_generator_py/carbot_interfaces/libcarbot_interfaces__rosidl_generator_py.so[0m
+[5.064s] [ 80%] Built target carbot_interfaces__rosidl_generator_py
+[5.089s] [ 90%] [32mBuilding C object CMakeFiles/carbot_interfaces__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/carbot_interfaces/_carbot_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[5.089s] [ 90%] [32mBuilding C object CMakeFiles/carbot_interfaces__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/carbot_interfaces/_carbot_interfaces_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[5.090s] [ 90%] [32mBuilding C object CMakeFiles/carbot_interfaces__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/carbot_interfaces/_carbot_interfaces_s.ep.rosidl_typesupport_c.c.o[0m
+[5.219s] [ 96%] [32m[1mLinking C shared library rosidl_generator_py/carbot_interfaces/carbot_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so[0m
+[5.219s] [ 96%] [32m[1mLinking C shared library rosidl_generator_py/carbot_interfaces/carbot_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so[0m
+[5.220s] [100%] [32m[1mLinking C shared library rosidl_generator_py/carbot_interfaces/carbot_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so[0m
+[5.271s] [100%] Built target carbot_interfaces__rosidl_typesupport_c__pyext
+[5.271s] [100%] Built target carbot_interfaces__rosidl_typesupport_fastrtps_c__pyext
+[5.271s] [100%] Built target carbot_interfaces__rosidl_typesupport_introspection_c__pyext
+[5.285s] Invoked command in '/home/henry/Workspace/Carbot/Testspace/rostest/build/carbot_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/henry/Workspace/Carbot/Carbot_Ros/install/carbot_plan:/home/henry/Workspace/Carbot/Carbot_Ros/install/carbot_launch:/home/henry/Workspace/Carbot/Carbot_Ros/install/carbot_driver:/opt/ros/humble /usr/bin/cmake --build /home/henry/Workspace/Carbot/Testspace/rostest/build/carbot_interfaces -- -j8 -l8
+[5.368s] Invoking command in '/home/henry/Workspace/Carbot/Testspace/rostest/build/carbot_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/henry/Workspace/Carbot/Carbot_Ros/install/carbot_plan:/home/henry/Workspace/Carbot/Carbot_Ros/install/carbot_launch:/home/henry/Workspace/Carbot/Carbot_Ros/install/carbot_driver:/opt/ros/humble /usr/bin/cmake --install /home/henry/Workspace/Carbot/Testspace/rostest/build/carbot_interfaces
+[5.377s] -- Install configuration: ""
+[5.378s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/share/ament_index/resource_index/rosidl_interfaces/carbot_interfaces
+[5.378s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/include/carbot_interfaces/carbot_interfaces
+[5.378s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/include/carbot_interfaces/carbot_interfaces/srv
+[5.378s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/include/carbot_interfaces/carbot_interfaces/srv/detail
+[5.378s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/include/carbot_interfaces/carbot_interfaces/srv/detail/test__functions.c
+[5.378s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/include/carbot_interfaces/carbot_interfaces/srv/detail/test__functions.h
+[5.378s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/include/carbot_interfaces/carbot_interfaces/srv/detail/test__struct.h
+[5.379s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/include/carbot_interfaces/carbot_interfaces/srv/detail/test__type_support.h
+[5.379s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/include/carbot_interfaces/carbot_interfaces/srv/test.h
+[5.379s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/include/carbot_interfaces/carbot_interfaces/msg
+[5.379s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/include/carbot_interfaces/carbot_interfaces/msg/rosidl_generator_c__visibility_control.h
+[5.379s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/share/carbot_interfaces/environment/library_path.sh
+[5.379s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/share/carbot_interfaces/environment/library_path.dsv
+[5.380s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/lib/libcarbot_interfaces__rosidl_generator_c.so
+[5.380s] -- Set runtime path of "/home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/lib/libcarbot_interfaces__rosidl_generator_c.so" to ""
+[5.381s] -- Up-to-date: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/include/carbot_interfaces/carbot_interfaces
+[5.381s] -- Up-to-date: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/include/carbot_interfaces/carbot_interfaces/srv
+[5.381s] -- Up-to-date: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/include/carbot_interfaces/carbot_interfaces/srv/detail
+[5.381s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/include/carbot_interfaces/carbot_interfaces/srv/detail/test__rosidl_typesupport_fastrtps_c.h
+[5.381s] -- Up-to-date: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/include/carbot_interfaces/carbot_interfaces/msg
+[5.381s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/include/carbot_interfaces/carbot_interfaces/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[5.381s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/lib/libcarbot_interfaces__rosidl_typesupport_fastrtps_c.so
+[5.382s] -- Set runtime path of "/home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/lib/libcarbot_interfaces__rosidl_typesupport_fastrtps_c.so" to ""
+[5.382s] -- Up-to-date: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/include/carbot_interfaces/carbot_interfaces
+[5.382s] -- Up-to-date: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/include/carbot_interfaces/carbot_interfaces/srv
+[5.382s] -- Up-to-date: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/include/carbot_interfaces/carbot_interfaces/srv/detail
+[5.382s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/include/carbot_interfaces/carbot_interfaces/srv/detail/test__traits.hpp
+[5.382s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/include/carbot_interfaces/carbot_interfaces/srv/detail/test__struct.hpp
+[5.382s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/include/carbot_interfaces/carbot_interfaces/srv/detail/test__builder.hpp
+[5.382s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/include/carbot_interfaces/carbot_interfaces/srv/test.hpp
+[5.382s] -- Up-to-date: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/include/carbot_interfaces/carbot_interfaces
+[5.383s] -- Up-to-date: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/include/carbot_interfaces/carbot_interfaces/srv
+[5.383s] -- Up-to-date: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/include/carbot_interfaces/carbot_interfaces/srv/detail
+[5.383s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/include/carbot_interfaces/carbot_interfaces/srv/detail/test__rosidl_typesupport_fastrtps_cpp.hpp
+[5.383s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/include/carbot_interfaces/carbot_interfaces/srv/detail/dds_fastrtps
+[5.383s] -- Up-to-date: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/include/carbot_interfaces/carbot_interfaces/msg
+[5.383s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/include/carbot_interfaces/carbot_interfaces/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[5.383s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/lib/libcarbot_interfaces__rosidl_typesupport_fastrtps_cpp.so
+[5.384s] -- Set runtime path of "/home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/lib/libcarbot_interfaces__rosidl_typesupport_fastrtps_cpp.so" to ""
+[5.384s] -- Up-to-date: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/include/carbot_interfaces/carbot_interfaces
+[5.384s] -- Up-to-date: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/include/carbot_interfaces/carbot_interfaces/srv
+[5.384s] -- Up-to-date: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/include/carbot_interfaces/carbot_interfaces/srv/detail
+[5.384s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/include/carbot_interfaces/carbot_interfaces/srv/detail/test__type_support.c
+[5.384s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/include/carbot_interfaces/carbot_interfaces/srv/detail/test__rosidl_typesupport_introspection_c.h
+[5.384s] -- Up-to-date: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/include/carbot_interfaces/carbot_interfaces/msg
+[5.384s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/include/carbot_interfaces/carbot_interfaces/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[5.385s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/lib/libcarbot_interfaces__rosidl_typesupport_introspection_c.so
+[5.385s] -- Set runtime path of "/home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/lib/libcarbot_interfaces__rosidl_typesupport_introspection_c.so" to ""
+[5.385s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/lib/libcarbot_interfaces__rosidl_typesupport_c.so
+[5.386s] -- Set runtime path of "/home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/lib/libcarbot_interfaces__rosidl_typesupport_c.so" to ""
+[5.386s] -- Up-to-date: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/include/carbot_interfaces/carbot_interfaces
+[5.386s] -- Up-to-date: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/include/carbot_interfaces/carbot_interfaces/srv
+[5.386s] -- Up-to-date: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/include/carbot_interfaces/carbot_interfaces/srv/detail
+[5.386s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/include/carbot_interfaces/carbot_interfaces/srv/detail/test__rosidl_typesupport_introspection_cpp.hpp
+[5.386s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/include/carbot_interfaces/carbot_interfaces/srv/detail/test__type_support.cpp
+[5.386s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/lib/libcarbot_interfaces__rosidl_typesupport_introspection_cpp.so
+[5.387s] -- Set runtime path of "/home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/lib/libcarbot_interfaces__rosidl_typesupport_introspection_cpp.so" to ""
+[5.387s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/lib/libcarbot_interfaces__rosidl_typesupport_cpp.so
+[5.387s] -- Set runtime path of "/home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/lib/libcarbot_interfaces__rosidl_typesupport_cpp.so" to ""
+[5.387s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/share/carbot_interfaces/environment/pythonpath.sh
+[5.388s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/share/carbot_interfaces/environment/pythonpath.dsv
+[5.388s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/local/lib/python3.10/dist-packages/carbot_interfaces-0.0.0-py3.10.egg-info
+[5.388s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/local/lib/python3.10/dist-packages/carbot_interfaces-0.0.0-py3.10.egg-info/SOURCES.txt
+[5.388s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/local/lib/python3.10/dist-packages/carbot_interfaces-0.0.0-py3.10.egg-info/PKG-INFO
+[5.388s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/local/lib/python3.10/dist-packages/carbot_interfaces-0.0.0-py3.10.egg-info/top_level.txt
+[5.388s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/local/lib/python3.10/dist-packages/carbot_interfaces-0.0.0-py3.10.egg-info/dependency_links.txt
+[5.388s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/local/lib/python3.10/dist-packages/carbot_interfaces
+[5.389s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/local/lib/python3.10/dist-packages/carbot_interfaces/srv
+[5.389s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/local/lib/python3.10/dist-packages/carbot_interfaces/srv/__init__.py
+[5.389s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/local/lib/python3.10/dist-packages/carbot_interfaces/srv/_test.py
+[5.389s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/local/lib/python3.10/dist-packages/carbot_interfaces/srv/_test_s.c
+[5.389s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/local/lib/python3.10/dist-packages/carbot_interfaces/carbot_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[5.389s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/local/lib/python3.10/dist-packages/carbot_interfaces/libcarbot_interfaces__rosidl_generator_py.so
+[5.389s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/local/lib/python3.10/dist-packages/carbot_interfaces/carbot_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[5.390s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/local/lib/python3.10/dist-packages/carbot_interfaces/_carbot_interfaces_s.ep.rosidl_typesupport_c.c
+[5.390s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/local/lib/python3.10/dist-packages/carbot_interfaces/_carbot_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c
+[5.390s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/local/lib/python3.10/dist-packages/carbot_interfaces/__init__.py
+[5.390s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/local/lib/python3.10/dist-packages/carbot_interfaces/carbot_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[5.390s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/local/lib/python3.10/dist-packages/carbot_interfaces/_carbot_interfaces_s.ep.rosidl_typesupport_introspection_c.c
+[5.431s] Listing '/home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/local/lib/python3.10/dist-packages/carbot_interfaces'...
+[5.431s] Compiling '/home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/local/lib/python3.10/dist-packages/carbot_interfaces/__init__.py'...
+[5.431s] Listing '/home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/local/lib/python3.10/dist-packages/carbot_interfaces/srv'...
+[5.431s] Compiling '/home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/local/lib/python3.10/dist-packages/carbot_interfaces/srv/__init__.py'...
+[5.431s] Compiling '/home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/local/lib/python3.10/dist-packages/carbot_interfaces/srv/_test.py'...
+[5.436s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/local/lib/python3.10/dist-packages/carbot_interfaces/carbot_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[5.437s] -- Set runtime path of "/home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/local/lib/python3.10/dist-packages/carbot_interfaces/carbot_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so" to ""
+[5.437s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/local/lib/python3.10/dist-packages/carbot_interfaces/carbot_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[5.437s] -- Set runtime path of "/home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/local/lib/python3.10/dist-packages/carbot_interfaces/carbot_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so" to ""
+[5.437s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/local/lib/python3.10/dist-packages/carbot_interfaces/carbot_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[5.438s] -- Set runtime path of "/home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/local/lib/python3.10/dist-packages/carbot_interfaces/carbot_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so" to ""
+[5.438s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/lib/libcarbot_interfaces__rosidl_generator_py.so
+[5.439s] -- Set runtime path of "/home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/lib/libcarbot_interfaces__rosidl_generator_py.so" to ""
+[5.439s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/share/carbot_interfaces/srv/Test.idl
+[5.439s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/share/carbot_interfaces/srv/Test.srv
+[5.439s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/share/carbot_interfaces/srv/Test_Request.msg
+[5.439s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/share/carbot_interfaces/srv/Test_Response.msg
+[5.439s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/share/ament_index/resource_index/package_run_dependencies/carbot_interfaces
+[5.439s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/share/ament_index/resource_index/parent_prefix_path/carbot_interfaces
+[5.440s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/share/carbot_interfaces/environment/ament_prefix_path.sh
+[5.440s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/share/carbot_interfaces/environment/ament_prefix_path.dsv
+[5.440s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/share/carbot_interfaces/environment/path.sh
+[5.440s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/share/carbot_interfaces/environment/path.dsv
+[5.441s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/share/carbot_interfaces/local_setup.bash
+[5.441s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/share/carbot_interfaces/local_setup.sh
+[5.441s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/share/carbot_interfaces/local_setup.zsh
+[5.441s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/share/carbot_interfaces/local_setup.dsv
+[5.441s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/share/carbot_interfaces/package.dsv
+[5.441s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/share/ament_index/resource_index/packages/carbot_interfaces
+[5.442s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/share/carbot_interfaces/cmake/export_carbot_interfaces__rosidl_generator_cExport.cmake
+[5.442s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/share/carbot_interfaces/cmake/export_carbot_interfaces__rosidl_generator_cExport-noconfig.cmake
+[5.442s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/share/carbot_interfaces/cmake/export_carbot_interfaces__rosidl_typesupport_fastrtps_cExport.cmake
+[5.442s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/share/carbot_interfaces/cmake/export_carbot_interfaces__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[5.443s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/share/carbot_interfaces/cmake/export_carbot_interfaces__rosidl_generator_cppExport.cmake
+[5.443s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/share/carbot_interfaces/cmake/export_carbot_interfaces__rosidl_typesupport_fastrtps_cppExport.cmake
+[5.443s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/share/carbot_interfaces/cmake/export_carbot_interfaces__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[5.443s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/share/carbot_interfaces/cmake/carbot_interfaces__rosidl_typesupport_introspection_cExport.cmake
+[5.444s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/share/carbot_interfaces/cmake/carbot_interfaces__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[5.444s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/share/carbot_interfaces/cmake/carbot_interfaces__rosidl_typesupport_cExport.cmake
+[5.444s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/share/carbot_interfaces/cmake/carbot_interfaces__rosidl_typesupport_cExport-noconfig.cmake
+[5.444s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/share/carbot_interfaces/cmake/carbot_interfaces__rosidl_typesupport_introspection_cppExport.cmake
+[5.444s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/share/carbot_interfaces/cmake/carbot_interfaces__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[5.444s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/share/carbot_interfaces/cmake/carbot_interfaces__rosidl_typesupport_cppExport.cmake
+[5.444s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/share/carbot_interfaces/cmake/carbot_interfaces__rosidl_typesupport_cppExport-noconfig.cmake
+[5.445s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/share/carbot_interfaces/cmake/export_carbot_interfaces__rosidl_generator_pyExport.cmake
+[5.445s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/share/carbot_interfaces/cmake/export_carbot_interfaces__rosidl_generator_pyExport-noconfig.cmake
+[5.445s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/share/carbot_interfaces/cmake/rosidl_cmake-extras.cmake
+[5.445s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/share/carbot_interfaces/cmake/ament_cmake_export_dependencies-extras.cmake
+[5.446s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/share/carbot_interfaces/cmake/ament_cmake_export_include_directories-extras.cmake
+[5.446s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/share/carbot_interfaces/cmake/ament_cmake_export_libraries-extras.cmake
+[5.446s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/share/carbot_interfaces/cmake/ament_cmake_export_targets-extras.cmake
+[5.446s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/share/carbot_interfaces/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[5.446s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/share/carbot_interfaces/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[5.446s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/share/carbot_interfaces/cmake/carbot_interfacesConfig.cmake
+[5.446s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/share/carbot_interfaces/cmake/carbot_interfacesConfig-version.cmake
+[5.447s] -- Installing: /home/henry/Workspace/Carbot/Testspace/rostest/install/carbot_interfaces/share/carbot_interfaces/package.xml
+[5.449s] Invoked command in '/home/henry/Workspace/Carbot/Testspace/rostest/build/carbot_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/henry/Workspace/Carbot/Carbot_Ros/install/carbot_plan:/home/henry/Workspace/Carbot/Carbot_Ros/install/carbot_launch:/home/henry/Workspace/Carbot/Carbot_Ros/install/carbot_driver:/opt/ros/humble /usr/bin/cmake --install /home/henry/Workspace/Carbot/Testspace/rostest/build/carbot_interfaces
