@@ -10,11 +10,11 @@ import tf_transformations
 
 
 
-class March_Pose(Node):
+class Navi_Pose(Node):
     def __init__(self,name):
         super().__init__(name)
         # 订阅/发布
-        self.navi_sub = self.create_subscription(Pose,"navi_pose",self.navi_callback,1)
+        self.navi_sub = self.create_subscription(Pose,"goal_pose",self.navi_callback,1)
         self.odom_sub = self.create_subscription(Odometry,"odom_data",self.odom_callback,1)
         self.twist_pub = self.create_publisher(Twist,"twist_cmd",2)
         # 参数
@@ -50,7 +50,7 @@ class March_Pose(Node):
         self.heading_update(self.now_pose)
         if self.navi_start:
             self.go_navigation(self.goal_pose,self.now_pose)
-            self.get_logger().info("now_pose: x:%f,y:%f"%(self.now_pose.position.x,self.now_pose.position.y))
+            # self.get_logger().info("now_pose: x:%f,y:%f"%(self.now_pose.position.x,self.now_pose.position.y))
         else:
             pass
             
@@ -175,7 +175,7 @@ class March_Pose(Node):
         
 def main():
     rclpy.init()
-    march_pose = March_Pose("march_pose")
-    rclpy.spin(march_pose)
-    march_pose.destroy_node()
+    navi_pose = Navi_Pose("navi_pose")
+    rclpy.spin(navi_pose)
+    navi_pose.destroy_node()
     rclpy.shutdown()
