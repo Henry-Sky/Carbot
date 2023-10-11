@@ -157,19 +157,21 @@ class Navi_Pose(Node):
         self.twist_pub.publish(nav_twist)              
     
     def heading_update(self,now_pose):
-        q = now_pose.orientation
-        roll, pitch, yaw = tf_transformations.euler_from_quaternion([q.x,q.y,q.z,q.w])
+        quaternion = now_pose.orientation
+        roll, pitch, yaw = tf_transformations.euler_from_quaternion(
+            [quaternion.x,quaternion.y,quaternion.z,quaternion.w])
         if yaw >= 0:
             yaw %= 6.28
         else:
             yaw %= -6.28
-        # (-6.28,6.28)
+        # (-6.28, +6.28)
         if yaw > 3.14:
             yaw -= 6.28
         elif yaw <= -3.14:
             yaw += 6.28
         else:
             pass
+        # (-3.14, +3.14]
         self.heading_yaw = yaw
 
         
