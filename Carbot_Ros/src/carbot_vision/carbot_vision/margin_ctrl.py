@@ -1,11 +1,22 @@
 import rclpy
 from rclpy.node import Node
+from std_msgs.msg import Bool
 from geometry_msgs.msg import Twist
 from sensor_msgs.msg import Image
 import cv2
 import numpy as np
 from cv_bridge import CvBridge
+from carbot_interfaces.srv import Margin
 from queue import PriorityQueue
+
+
+color_dist = {'red': {'Lower': np.array([0, 60, 60]), 'Upper': np.array([6, 255, 255])},
+              'gray': {'Lower': np.array([0, 0, 46]), 'Upper': np.array([180, 43, 220])},
+              'yellow': {'Lower': np.array([26, 43, 46]), 'Upper': np.array([34, 255, 255])},          
+              'blue': {'Lower': np.array([100, 80, 46]), 'Upper': np.array([124, 255, 255])},
+              'green': {'Lower': np.array([35, 43, 35]), 'Upper': np.array([90, 255, 255])},
+              'none': {'Lower': np.array([0, 0, 0]), 'Upper': np.array([255, 255, 255])},}
+
 
 class Margin_Ctrl(Node):
     def __init__(self, name):
@@ -13,12 +24,44 @@ class Margin_Ctrl(Node):
         # 订阅/发布
         self.twist_pub = self.create_publisher(Twist,"twist_cmd",2)
         self.image_sub = self.create_subscription(Image,"image_raw",self.margin_callback,1)
+        # 服务
+        self.margin_srv = self.create_service(Margin,"margin_server",self.margin_srv_callback)
         # 参数
-        self.declare_parameter
+        # 初始化
+        self.margin_start = False
+        self.upcolor = "gray"
+        self.downcolor = "blue"
+        self.aim_dis =  240
+        
+    def margin_srv_callback(self,request,response):
+        self.upcolor = request.upcolor
+        self.downcolor = request.downcolor
+        self.aim_dis = request.aim_dis
+        self.margin_start = request.send_flag
+        response.get_flag = (self.margin_start == request.send_flag)
+        return response
         
     def margin_callback(self,img_msg):
         img = CvBridge().imgmsg_to_cv2(img_msg)
-        
+        if (self.margin_start 
+            and self.cruising_boundary(img,self.upcolor,self.downcolor) != None):
+            line_coord, line_analy = self.cruising_boundary(img,self.upcolor,self.downcolor)
+            pix_dis = line_coord[1]
+            line_k = line_analy[0]
+            twist = Twist()
+            # 方向水平
+            if (line_k < 0.05 and line_k > -0.05):
+                twist.angular.z = 0.0
+                # 满足最大间距
+                if (pix_dis <= self.aim_dis):
+                    twist.linear.y = 0.0
+                else:
+                    twist.linear.y = -0.05
+            elif (line_k >= 0.05):
+                twist.angular.z = -0.01
+            else:
+                twist.angular.z = 0.01
+            self.twist_pub(twist)
         
     def analy_line(self,x1,y1,x2,y2):
         assert(x1 != x2)
@@ -117,7 +160,7 @@ class Margin_Ctrl(Node):
             else:
                 pass
             # 根据颜色筛除
-            sampling_distance = 8
+            sampling_distance = 10
             
             up_coord_1 = self.vertical_distance_point((k,b), (x1,y1), sampling_distance)
             up_coord_2 = self.vertical_distance_point((k,b), (x2,y2), sampling_distance)
@@ -155,3 +198,10 @@ class Margin_Ctrl(Node):
             return res_coord,res_analy
         else:
             return None
+
+def main():
+    rclpy.init()
+    margin_ctrl = Margin_Ctrl("margin_ctrl")
+    rclpy.spin(margin_ctrl)
+    margin_ctrl.destroy_node()
+    rclpy.shutdown()

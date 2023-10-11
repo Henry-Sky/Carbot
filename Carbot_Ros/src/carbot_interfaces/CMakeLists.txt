@@ -15,6 +15,7 @@ find_package(rosidl_default_generators REQUIRED)
 
 rosidl_generate_interfaces(${PROJECT_NAME}
   "srv/Navipose.srv"
+  "srv/Margin.srv"
   DEPENDENCIES geometry_msgs
 )
 

@@ -37,6 +37,14 @@ def generate_launch_description():
             parameters=[odom_data_config]
         ),
         Node(
+            package='carbot_vision',
+            executable='vision_proc',
+        ),
+        Node(
+            package='carbot_vision',
+            executable='margin_ctrl',
+        ),
+        Node(
             package='carbot_plan',
             executable='march_pose',
             parameters=[march_pose_config]
