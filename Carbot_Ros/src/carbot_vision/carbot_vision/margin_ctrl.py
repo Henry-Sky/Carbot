@@ -5,6 +5,7 @@ from geometry_msgs.msg import Twist
 from sensor_msgs.msg import Image
 import cv2
 import numpy as np
+import math
 from cv_bridge import CvBridge
 from carbot_interfaces.srv import Margin
 from queue import PriorityQueue
@@ -43,25 +44,34 @@ class Margin_Ctrl(Node):
         
     def margin_callback(self,img_msg):
         img = CvBridge().imgmsg_to_cv2(img_msg)
+        twist = Twist()
         if (self.margin_start 
             and self.cruising_boundary(img,self.upcolor,self.downcolor) != None):
             line_coord, line_analy = self.cruising_boundary(img,self.upcolor,self.downcolor)
             pix_dis = line_coord[1]
             line_k = line_analy[0]
-            twist = Twist()
+            self.get_logger().info("识别到边界:"+str(pix_dis))
             # 方向水平
             if (line_k < 0.05 and line_k > -0.05):
                 twist.angular.z = 0.0
                 # 满足最大间距
-                if (pix_dis <= self.aim_dis):
-                    twist.linear.y = 0.0
+                if (pix_dis < self.aim_dis):
+                    twist.linear.y = -0.02
+                elif (pix_dis > self.aim_dis + 20):
+                    twist.linear.y = 0.02
                 else:
-                    twist.linear.y = -0.05
+                    twist.linear.y = 0.0
             elif (line_k >= 0.05):
                 twist.angular.z = -0.01
             else:
                 twist.angular.z = 0.01
-            self.twist_pub(twist)
+            self.twist_pub.publish(twist)
+        else:
+            # twist.linear.y = 0.0
+            # twist.angular.z = 0.0
+            # self.twist_pub.publish(twist)
+            pass
+
         
     def analy_line(self,x1,y1,x2,y2):
         assert(x1 != x2)
@@ -109,7 +119,9 @@ class Margin_Ctrl(Node):
     def fit_hsv_color(self,img_hsv, coord_1, coord_2, color, sampling_num = 10, assert_num = 0.6):
         # sampling_num: 两点间采样数 ； assert_num: 判断阈值，0.6表示有，60%的采样点符合即返回True
         if coord_1[0] > coord_2[0]:
-            swap(coord_1,coord_2)
+            coord_tmp = coord_1
+            coord_1 = coord_2
+            coord_2 = coord_tmp
         sample_interval = (coord_2[0] - coord_1[0]) // sampling_num
         k,b = self.analy_line(coord_1[0], coord_1[1], coord_2[0], coord_2[1])
         true_num = 0
@@ -145,7 +157,10 @@ class Margin_Ctrl(Node):
         img_hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
         # 获取线条
         lines = cv2.HoughLinesP(img_edges,1,np.pi/180,100,minLineLength=100,maxLineGap=10)
+        # self.get_logger().info("线条数量:"+str(len(lines)))
         sort_lines = []
+        if lines is None:
+            return None
         for line in lines:
             x1, y1, x2, y2 = line[0]
             # 计算直线解析式 (y = k*x + b)
@@ -190,7 +205,7 @@ class Margin_Ctrl(Node):
             for line in sort_lines:
                 x1, y1, x2, y2 = line[0]
                 k, b = self.analy_line(x1, y1, x2, y2)
-                length_line_queue.put((-line_len(x1, y1, x2, y2),((x1+x2)//2,(y1+y2)//2),(k,b)))
+                length_line_queue.put((-self.line_len(x1, y1, x2, y2),((x1+x2)//2,(y1+y2)//2),(k,b)))
             res_line = length_line_queue.get()
             res_coord = res_line[1]
             res_analy = res_line[2]

@@ -13,7 +13,7 @@ class Carbot_Plan(Node):
     def __init__(self,name):
         super().__init__(name)
         # 位置控制
-        self.twist_pub = self.create_publisher(Twist,"twist_cmd",10)
+        self.twist_pub = self.create_publisher(Twist,"twist_cmd",2)
         self.pose_pub = self.create_publisher(Pose,"goal_pose",10)
         # 机械臂控制
         self.arm_pub = self.create_publisher(Int64MultiArray,"arm_cmd",10)
@@ -42,10 +42,14 @@ def set_margin(carbot_plan,upcolor,downcolor,aim_pix,flag):
     carbot_plan.set_margin(upcolor,downcolor,aim_pix,flag)
     while rclpy.ok():
         rclpy.spin_once(carbot_plan)
+        print("发送请求")
         if carbot_plan.future.done():
+            print("接收结果")
             response = carbot_plan.future.result()
             if not response.get_flag:
                 continue
+            else:
+                print("消息发送成功")
             break
         
 def main():
@@ -59,7 +63,7 @@ def main():
     start_twist = Twist()
     carbot_plan.publish_twist(start_twist)
     
-    set_margin(carbot_plan,"gray","blue",120,True)
+    set_margin(carbot_plan,"gray","blue",170,True)
     
         
     

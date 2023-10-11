@@ -46,7 +46,7 @@ def generate_launch_description():
         ),
         Node(
             package='carbot_plan',
-            executable='march_pose',
+            executable='navi_pose',
             parameters=[march_pose_config]
         )
     ])

@@ -37,7 +37,7 @@ class Vision_Proc(Node):
         if ret:
             dst = cv2.undistort(frame, mtx, dist, None, mtx)
             img = CvBridge().cv2_to_imgmsg(dst, encoding='passthrough')
-            self.image_publisher.publish(img)
+            self.image_pub.publish(img)
             
 def main():
     rclpy.init()
