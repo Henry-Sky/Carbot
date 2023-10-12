@@ -17,7 +17,7 @@ dist = np.array([[-2.52464877e-01, 1.92828476e-01,
                   -6.55508668e-04, 2.48903668e-03,
                   -7.45335496e-01]])
 
-class Vision_Proc(Node):
+class Image_Proc(Node):
     def __init__(self,name):
         super().__init__(name)
         # 发布者
@@ -41,6 +41,6 @@ class Vision_Proc(Node):
             
 def main():
     rclpy.init()
-    vision_proc = Vision_Proc('vision_proc')
-    rclpy.spin(vision_proc)
+    image_proc = Image_Proc('image_proc')
+    rclpy.spin(image_proc)
     rclpy.shutdown()    

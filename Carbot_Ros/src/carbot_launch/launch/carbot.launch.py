@@ -19,12 +19,6 @@ def generate_launch_description():
         'odom_data.yaml'
     )
     
-    march_pose_config = os.path.join(
-        get_package_share_directory('carbot_launch'),
-        'config',
-        'march_pose.yaml'
-    )
-    
     return LaunchDescription([
         Node(
             package='carbot_driver',
@@ -37,16 +31,7 @@ def generate_launch_description():
             parameters=[odom_data_config]
         ),
         Node(
-            package='carbot_vision',
-            executable='vision_proc',
-        ),
-        Node(
-            package='carbot_vision',
-            executable='margin_ctrl',
-        ),
-        Node(
             package='carbot_plan',
-            executable='navi_pose',
-            parameters=[march_pose_config]
+            executable='carbot_plan',
         )
     ])

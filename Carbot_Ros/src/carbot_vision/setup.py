@@ -20,8 +20,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'vision_proc = carbot_vision.vision_proc:main',
-            'margin_ctrl = carbot_vision.margin_ctrl:main'
+            'image_proc = carbot_vision.image_proc:main',
         ],
     },
 )

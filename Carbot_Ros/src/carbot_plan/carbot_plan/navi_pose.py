@@ -6,7 +6,6 @@ from rclpy.node import Node
 from geometry_msgs.msg import Twist
 from geometry_msgs.msg import Pose
 from nav_msgs.msg import Odometry
-from std_msgs.msg import Bool
 import tf_transformations
 
 
@@ -15,10 +14,9 @@ class Navi_Pose(Node):
     def __init__(self,name):
         super().__init__(name)
         # 订阅/发布
-        self.navi_sub = self.create_subscription(Pose,"goal_pose",self.navi_callback,1)
+        self.navi_sub = self.create_subscription(Pose,"navi_pose",self.navi_callback,1)
         self.odom_sub = self.create_subscription(Odometry,"odom_data",self.odom_callback,1)
         self.twist_pub = self.create_publisher(Twist,"twist_cmd",2)
-        self.navi_pub = self.create_publisher(Bool,"navi_start",2)
         
         
         # 参数
@@ -46,20 +44,19 @@ class Navi_Pose(Node):
         
     def navi_callback(self, pose_msg):
         self.goal_pose = pose_msg
+        self.get_logger().info("请求导航")
         self.navi_start = True
         
     def odom_callback(self,odom_msg):
         # 更新当前里程计
         self.now_pose = odom_msg.pose.pose
         self.heading_update(self.now_pose)
-        flag = Bool()
-        flag.data = self.navi_start
-        self.navi_pub.publish(flag)
         if self.navi_start == True:
             self.go_navigation(self.goal_pose,self.now_pose)
 
             
     def go_navigation(self, goal_pose, now_pose):
+        self.get_logger().info("导航中")
         # 坐标获取
         goal_x = goal_pose.position.x
         goal_y = goal_pose.position.y
