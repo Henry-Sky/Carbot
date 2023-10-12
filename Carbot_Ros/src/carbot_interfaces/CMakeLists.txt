@@ -14,8 +14,8 @@ find_package(geometry_msgs REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
 
 rosidl_generate_interfaces(${PROJECT_NAME}
-  "srv/Navipose.srv"
-  "srv/Margin.srv"
+  "msg/Aimtask.msg"
+  "msg/Eyestask.msg"
   DEPENDENCIES geometry_msgs
 )
 

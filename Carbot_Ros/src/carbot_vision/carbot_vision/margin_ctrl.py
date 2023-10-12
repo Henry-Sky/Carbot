@@ -29,10 +29,12 @@ class Margin_Ctrl(Node):
         self.margin_srv = self.create_service(Margin,"margin_server",self.margin_srv_callback)
         # 参数
         # 初始化
+        self.max_window = [640,480]
         self.margin_start = False
         self.upcolor = "gray"
         self.downcolor = "blue"
         self.aim_dis =  240
+        
         
     def margin_srv_callback(self,request,response):
         self.upcolor = request.upcolor
@@ -85,36 +87,55 @@ class Margin_Ctrl(Node):
 
     def vertical_distance_point(self,analy,coord,dis):
         # 最大窗口限制
-        max_x = 640
+        max_x = self.max_window[0]
         min_x = 0
-        max_y = 480
+        max_y = self.max_window[1]
         min_y = 0
         if analy[0] != 0.0:
         # dis为正,返回在analy(x)右方距离点
             vert_k = -(1.0/analy[0])
             vert_b = coord[1] - (vert_k * coord[0])
-            res_x = coord[0] + (dis * 1.0) / (math.sqrt(1.0 + vert_k * vert_k))
-            if res_x > max_x:
-                res_x = max_x - 1
-            elif res_x < min_x:
-                res_x = min_x + 1
-            res_y = vert_k * res_x + vert_b
-            if res_y > max_y:
-                res_y = max_y - 1
+            res_coord = []
+            res_x_1 = coord[0] + (dis * 1.0) / (math.sqrt(1.0 + vert_k * vert_k))
+            res_y_1 = vert_k * res_x_1 + vert_b
+            res_coord.append([res_x_1,res_y_1])
+            res_x_2 = coord[0] - (dis * 1.0) / (math.sqrt(1.0 + vert_k * vert_k))
+            res_y_2 = vert_k * res_x_2 + vert_b
+            res_coord.append([res_x_2,res_y_2])
+            for the_coord in res_coord:
+                res_x = the_coord[0]
+                rex_y = the_coord[1]
+                if res_x >= max_x:
+                    res_x = max_x - 1
+                elif res_x <= min_x:
+                    res_x = min_x + 1
+                res_y = vert_k * res_x + vert_b
+                if res_y >= max_y:
+                    res_y = max_y - 1
+                elif res_y <= min_y:
+                    res_y = min_y + 1
                 res_x = (res_y - vert_b) * 1.0 / vert_k
-            elif res_y < min_y:
-                res_y = min_y + 1
-                res_x = (res_y - vert_b) * 1.0 / vert_k
-            return (int(res_x), int(res_y))
+                the_coord[0] = int(res_x)
+                the_coord[1] = int(res_y)
+            if coord[0][1] > coord[1][1]:
+                tmp_y = coord[1][1]
+                tmp_x = coord[1][0]
+                coord[1] = coord[0]
+                coord[0] = [tmp_x,tmp_y]
+            return coord[0],coord[1]
         else:
         # dis为正,返回在analy(x)下方距离点
+            res_coord = []
             res_x = coord[0]
-            res_y = coord[0] + dis
-            if res_y > max_y:
-                res_y = max_y - 1
-            elif res_y < min_y:
+            res_y = coord[0] - dis
+            if res_y <= min_y:
                 res_y = min_y + 1
-            return (int(res_x), int(res_y))
+            res_coord.append([res_x, res_y])
+            res_y = coord[0] + dis
+            if res_y >= max_y:
+                res_y = max_y - 1
+            res_coord.append([res_x, res_y])
+            return res_coord[0],res_coord[1]
 
     def fit_hsv_color(self,img_hsv, coord_1, coord_2, color, sampling_num = 10, assert_num = 0.6):
         # sampling_num: 两点间采样数 ； assert_num: 判断阈值，0.6表示有，60%的采样点符合即返回True
@@ -125,7 +146,7 @@ class Margin_Ctrl(Node):
         sample_interval = (coord_2[0] - coord_1[0]) // sampling_num
         k,b = self.analy_line(coord_1[0], coord_1[1], coord_2[0], coord_2[1])
         true_num = 0
-        for i in range(sampling_num):
+        for i in range(sampling_num + 1):
             coord = []
             coord.append(coord_1[0] + i * sample_interval)
             coord.append(k * coord[0] + b)
@@ -137,7 +158,7 @@ class Margin_Ctrl(Node):
                     or pix[i] > color_dist[color]["Upper"][i]):
                     color_flag = False
             true_num += int(color_flag)
-        if (true_num * 1.0)/(sampling_num * 1.0) >= assert_num:
+        if (true_num * 1.0)/((sampling_num + 1) * 1.0) >= assert_num:
             return True
         else:
             return False
@@ -177,18 +198,11 @@ class Margin_Ctrl(Node):
             # 根据颜色筛除
             sampling_distance = 10
             
-            up_coord_1 = self.vertical_distance_point((k,b), (x1,y1), sampling_distance)
-            up_coord_2 = self.vertical_distance_point((k,b), (x2,y2), sampling_distance)
+            up_coord_1, down_coord_1 = self.vertical_distance_point((k,b), (x1,y1), sampling_distance)
+            up_coord_2, down_coord_2 = self.vertical_distance_point((k,b), (x2,y2), sampling_distance)
 
-            if self.fit_hsv_color(img_hsv, up_coord_1, up_coord_2, upcolor):
-                pass
-            else:
-                continue
-            
-            down_coord_1 = self.vertical_distance_point((k,b), (x1,y1), -sampling_distance)
-            down_coord_2 = self.vertical_distance_point((k,b), (x2,y2), -sampling_distance)
-            
-            if self.fit_hsv_color(img_hsv, down_coord_1, down_coord_2, downcolor):
+            if (self.fit_hsv_color(img_hsv, up_coord_1, up_coord_2, upcolor) 
+                and self.fit_hsv_color(img_hsv, down_coord_1, down_coord_2, downcolor)):
                 pass
             else:
                 continue

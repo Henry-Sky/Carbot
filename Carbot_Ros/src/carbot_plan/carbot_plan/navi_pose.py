@@ -6,6 +6,7 @@ from rclpy.node import Node
 from geometry_msgs.msg import Twist
 from geometry_msgs.msg import Pose
 from nav_msgs.msg import Odometry
+from std_msgs.msg import Bool
 import tf_transformations
 
 
@@ -17,18 +18,22 @@ class Navi_Pose(Node):
         self.navi_sub = self.create_subscription(Pose,"goal_pose",self.navi_callback,1)
         self.odom_sub = self.create_subscription(Odometry,"odom_data",self.odom_callback,1)
         self.twist_pub = self.create_publisher(Twist,"twist_cmd",2)
+        self.navi_pub = self.create_publisher(Bool,"navi_start",2)
+        
+        
         # 参数
         self.declare_parameter("reducer_buffer", 0.2)
-        self.reducer_buffer = self.get_parameter("reducer_buffer").get_parameter_value().double_value
         self.declare_parameter("stop_buffer", 0.02)
-        self.stop_buffer = self.get_parameter("stop_buffer").get_parameter_value().double_value
         self.declare_parameter("turn_buffer", 0.001)
-        self.turn_buffer = self.get_parameter("turn_buffer").get_parameter_value().double_value
         self.declare_parameter("cruising_speed", 0.2)
-        self.cruising_speed = self.get_parameter("cruising_speed").get_parameter_value().double_value
         self.declare_parameter("reducer_speed", 0.1)
-        self.reducer_speed = self.get_parameter("reducer_speed").get_parameter_value().double_value
         self.declare_parameter("turn_speed", 0.05)
+        
+        self.reducer_buffer = self.get_parameter("reducer_buffer").get_parameter_value().double_value
+        self.stop_buffer = self.get_parameter("stop_buffer").get_parameter_value().double_value
+        self.turn_buffer = self.get_parameter("turn_buffer").get_parameter_value().double_value
+        self.cruising_speed = self.get_parameter("cruising_speed").get_parameter_value().double_value
+        self.reducer_speed = self.get_parameter("reducer_speed").get_parameter_value().double_value
         self.turn_speed = self.get_parameter("turn_speed").get_parameter_value().double_value
         
         # 位置初始化
@@ -43,16 +48,16 @@ class Navi_Pose(Node):
         self.goal_pose = pose_msg
         self.navi_start = True
         
-        
     def odom_callback(self,odom_msg):
         # 更新当前里程计
         self.now_pose = odom_msg.pose.pose
         self.heading_update(self.now_pose)
-        if self.navi_start:
+        flag = Bool()
+        flag.data = self.navi_start
+        self.navi_pub.publish(flag)
+        if self.navi_start == True:
             self.go_navigation(self.goal_pose,self.now_pose)
-            # self.get_logger().info("now_pose: x:%f,y:%f"%(self.now_pose.position.x,self.now_pose.position.y))
-        else:
-            pass
+
             
     def go_navigation(self, goal_pose, now_pose):
         # 坐标获取
@@ -80,7 +85,6 @@ class Navi_Pose(Node):
                 nav_twist.linear.y = 0.0
                 nav_twist.angular.z = 0.0
                 self.get_logger().info("导航结束!")
-                self.navi_start = False
             # 目标在西方(y+)
             elif goal_y - self.stop_buffer > now_y:
                 # 面向西方
@@ -119,7 +123,6 @@ class Navi_Pose(Node):
                     nav_twist.angular.z = self.turn_speed
         # 目标在北方(x+)
         elif (goal_x - self.stop_buffer > now_x):
-            
             # 面向北方
             if (self.heading_yaw > north - self.turn_buffer 
                 and self.heading_yaw < north + self.turn_buffer):
@@ -129,6 +132,7 @@ class Navi_Pose(Node):
                 # 接近目标
                 else:
                     nav_twist.linear.x = self.reducer_speed
+                    
             # 需要右转
             elif (self.heading_yaw > north
                   and self.heading_yaw < south):
