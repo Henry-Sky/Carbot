@@ -190,6 +190,7 @@ class Carbot_Plan(Node):
                 and task_name == task[0]):
                 task[1] = task_status
                 if task[1]:
+                    self.get_logger().info(self.task_name + "完成!")
                     task[2] = False
                 break
             
@@ -199,6 +200,10 @@ class Carbot_Plan(Node):
         for task in self.task_list:
             if task[2]:
                 task[1] = task[3]()
+                if task[1]:
+                    task[2] = False
+                    self.get_logger().info(task[0] + "完成!"+
+                                           "("+str(self.now_pose.position.x)+","+str(self.now_pose.position.y)+")")
                 
     def heading_update(self,now_pose):
         quaternion = now_pose.orientation
