@@ -20,7 +20,6 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'navi_pose = carbot_plan.navi_pose:main',
             'carbot_plan = carbot_plan.carbot_plan:main',
         ],
     },

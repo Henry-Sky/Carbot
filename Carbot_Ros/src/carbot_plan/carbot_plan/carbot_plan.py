@@ -28,7 +28,7 @@ class Carbot_Plan(Node):
         self.reducer_buffer = 0.2
         self.cruising_speed = 0.2
         self.reducer_speed = 0.1
-        self.turn_speed = 0.05
+        self.turn_speed = 0.06
             
         # 摄像头调取
         self.cam_pub = self.create_publisher(Camreq,"cam_req",2)
@@ -58,13 +58,13 @@ class Carbot_Plan(Node):
     def task_moveout(self):
         pose = Pose()
         pose.position.x = 0.0
-        pose.position.y = 0.3
+        pose.position.y = 0.22
         return self.go_navigation(pose,self.heading)
         
     def task_moveqr(self):
         pose = Pose()
         pose.position.x = 0.6
-        pose.position.y = 0.3
+        pose.position.y = 0.22
         return self.go_navigation(pose,self.heading)
                 
     def task_callback(self):

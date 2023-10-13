@@ -83,9 +83,9 @@ class Bullseye_Aim(Node):
     def task_qrscan(self,img):
         arm_cmd = Int64MultiArray()
         # 设置机械臂
-        self.arm_pub.publish(arm_cmd)
+        # self.arm_pub.publish(arm_cmd)
         codeinfo = self.get_code(img)
-        if codeinfo is not None:
+        if len(codeinfo) != 0:
             self.codeinfo = codeinfo
             self.get_logger().info("获取二维码:"+str(self.codeinfo))
             return True
@@ -152,7 +152,7 @@ class Bullseye_Aim(Node):
         
 def main():
     rclpy.init()
-    bullseye_aim = Bullseye_Aim()
+    bullseye_aim = Bullseye_Aim("bullseye_aim")
     rclpy.spin(bullseye_aim)
     bullseye_aim.destroy_node()
     rclpy.shutdown()

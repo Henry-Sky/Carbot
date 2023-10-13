@@ -17,7 +17,7 @@ class Car_Driver(Node):
 		self.twist_sub = self.create_subscription(Twist,"twist_cmd",self.twist_callback,1)
 		self.arm_sub = self.create_subscription(Int64MultiArray,"arm_cmd",self.arm_callback,1)
 		# 参数
-		self.declare_parameter("imu_pid_ctrl",False)
+		self.declare_parameter("imu_pid_ctrl",True)
 		self.imu_pid_ctrl = self.get_parameter("imu_pid_ctrl").get_parameter_value().bool_value
 		self.declare_parameter("arm_run_time", 800)
 		self.run_time = self.get_parameter("arm_run_time").get_parameter_value().integer_value

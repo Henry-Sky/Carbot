@@ -21,6 +21,7 @@ setup(
     entry_points={
         'console_scripts': [
             'image_proc = carbot_vision.image_proc:main',
+            'bullseye_aim = carbot_vision.bullseye_aim:main',
         ],
     },
 )
