@@ -75,8 +75,8 @@ class Navi_Pose(Node):
         if (goal_x - self.stop_buffer < now_x
             and goal_x + self.stop_buffer > now_x):
             # y轴坐标满足
-            if (goal_y -self.stop_buffer < now_y
-                and goal_y +self.stop_buffer > now_y):
+            if (goal_y - self.stop_buffer < now_y
+                and goal_y + self.stop_buffer > now_y):
                 # 停车，导航结束
                 nav_twist.linear.x = 0.0
                 nav_twist.linear.y = 0.0
