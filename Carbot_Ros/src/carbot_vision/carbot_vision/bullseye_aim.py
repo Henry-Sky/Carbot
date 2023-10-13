@@ -5,6 +5,9 @@ import numpy as np
 from cv_bridge import CvBridge
 from sensor_msgs.msg import Image
 from geometry_msgs.msg import Twist
+from std_msgs.msg import Int64MultiArray
+from carbot_interfaces.msg import Camreq
+from carbot_interfaces.msg import Camfed
 
 
 # HSV格式色表
@@ -29,35 +32,56 @@ class Bullseye_Aim(Node):
         # 消息创建
         self.image_sub = self.create_subscription(Image,"image_raw",self.image_callback,1)
         self.twist_pub = self.create_publisher(Twist,"twist_cmd",2)
-        self.aim_sub = "获取请求"
-        self.aim_pub = "发送反馈"
+        self.arm_pub = self.create_publisher(Int64MultiArray,"arm_cmd",2)
+        self.aim_sub = self.create_subscription(Camreq,"cam_req",self.aim_callback,1)
+        self.aim_pub = self.create_publisher(Camfed,"cam_fed",2)
         self.task_name = None
         self.start_aim_task = False
-        
+        self.codeinfo = " "
         # 任务列表
         # task1 : 扫描二维码
         # task2 : 抓取转盘物块
         # task3 : 识别靶心放置物块
-        self.task_list = []
+        # (name,status,active,func)
+        self.task_list = [
+            ["qrcode_scan",False,False,self.task_scan_qrcode],
+            ["object_pick",False,False,self.task_obj_pick],
+        ]
         
-    def aim_callback(self):
+    def aim_callback(self,task_msg):
         # 检索请求
-        self.task_name = "request"
-        if self.task_name is not None:
-            if task_list[self.task_name]:
-                self.task_name = None
-                # 发送反馈
+        self.task_name = task_msg.task_name
+        for task in self.task_list:
+            if (task[0] == self.task_name 
+                and task[1] == False):
+                # 激活任务
+                task[2] = True
+            cam_fed = Camfed()
+            cam_fed.task_name = self.task_name
+            cam_fed.task_status = task[1]
+            self.aim_pub.publish(cam_fed)
         
     def image_callback(self,img_msg):
         img = CvBridge().imgmsg_to_cv2(img_msg)
         # 更新任务目标
-        if self.task_name is not None:
-            # 执行任务函数
-            result = task_list[self.task_name]
-        else:
-            pass
-                
-    
+        for task in self.task_list:
+            if (task[0] == self.task_name 
+                and task[2] == True):
+                # 执行任务
+                task[1] = task[3](img)
+                if task[1]:
+                    task[2] = False
+        
+    # task1 : 扫描二维码    
+    def task_scan_qrcode(self,img):
+        arm_cmd = Int64MultiArray()
+        # 设置机械臂
+        self.arm_pub.publish(arm_cmd)
+        codeinfo = self.get_code(img)
+        if codeinfo is not None:
+            self.codeinfo = codeinfo
+            return True
+        
     def get_control(self,coord):
         now_x = coord[0]
         now_y = coord[1]
@@ -103,5 +127,13 @@ class Bullseye_Aim(Node):
         if circles is not None:
             aim_coord = circles[0][0]
             return aim_coord
+        else:
+            return None
+        
+    def get_code(self,img):
+        # 识别二维码，返回二维码信息
+        codeinfo, points, straight_qrcode = cv2.QRCodeDetector().detectAndDecode(img)
+        if codeinfo is not None:
+            return codeinfo
         else:
             return None

@@ -1,6 +1,0 @@
-string upcolor
-string downcolor
-uint64 aim_dis
-bool send_flag
----
-bool get_flag

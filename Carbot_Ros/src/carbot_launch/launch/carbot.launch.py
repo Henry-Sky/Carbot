@@ -20,11 +20,11 @@ def generate_launch_description():
     )
     
     return LaunchDescription([
-        Node(
-            package='carbot_driver',
-            executable='car_driver',
-            parameters=[car_driver_config]
-        ),
+        # Node(
+        #     package='carbot_driver',
+        #     executable='car_driver',
+        #     parameters=[car_driver_config]
+        # ),
         Node(
             package='carbot_location',
             executable='odom_data',
