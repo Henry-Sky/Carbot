@@ -4,8 +4,7 @@ import cv2
 import numpy as np
 from cv_bridge import CvBridge
 from sensor_msgs.msg import Image
-from carbot_interfaces.msg import Aimtask
-from carbot_interfaces.msg import Eyestask
+from geometry_msgs.msg import Twist
 
 
 # HSV格式色表
@@ -29,41 +28,49 @@ class Bullseye_Aim(Node):
         
         # 消息创建
         self.image_sub = self.create_subscription(Image,"image_raw",self.image_callback,1)
-        self.aim_pub = self.create_publisher(Aimtask,"aim_task")
-        self.eyes_sub = self.create_subscription(Eyestask,"eyes_task",self.eyes_callback,1)
-        # 初始化
-        self.aim_name = " "
-        self.aim_info = " "
+        self.twist_pub = self.create_publisher(Twist,"twist_cmd",2)
+        self.aim_sub = "获取请求"
+        self.aim_pub = "发送反馈"
+        self.task_name = None
+        self.start_aim_task = False
         
-    def eyes_callback(self,eyes_msg):
-        self.aim_name = eyes_msg.task_name
-        self.aim_info = eyes_msg.task_info
+        # 任务列表
+        # task1 : 扫描二维码
+        # task2 : 抓取转盘物块
+        # task3 : 识别靶心放置物块
+        self.task_list = []
         
+    def aim_callback(self):
+        # 检索请求
+        self.task_name = "request"
+        if self.task_name is not None:
+            if task_list[self.task_name]:
+                self.task_name = None
+                # 发送反馈
         
     def image_callback(self,img_msg):
         img = CvBridge().imgmsg_to_cv2(img_msg)
-        aimtask = Aimtask()
-        aimtask = self.aim_name
         # 更新任务目标
-        if self.aim_name == "bullseye":
-            if self.get_circle(img) is not None:
-                coord = self.get_circle
-                aimtask.aim_x = coord[0]
-                aimtask.aim_y = coord[1]
-                self.aim_pub.publish(aimtask)
-            else:
-                pass
-        elif self.aim_name == "object":
-            if self.get_object(img) is not None:
-                coord = self.get_circle
-                aimtask.aim_x = coord[0]
-                aimtask.aim_y = coord[1]
-                self.aim_pub.publish(aimtask)
-            else:
-                pass
+        if self.task_name is not None:
+            # 执行任务函数
+            result = task_list[self.task_name]
         else:
             pass
-            
+                
+    
+    def get_control(self,coord):
+        now_x = coord[0]
+        now_y = coord[1]
+        twist = Twist()
+        if (now_x > self.aim_x - self.buffer
+            and now_x < self.aim_x + self.buffer):
+            if (now_x > self.aim_y - self.buffer
+                and now_y < self.aim_y + self.buffer):
+                    twist = Twist()
+                    self.twist_pub.publish(twist)
+                    return True
+        else:
+            return False       
             
     def get_object(self,img):
         # 识别物体，返回物体坐标，或None

@@ -6,7 +6,6 @@ from rclpy.node import Node
 from geometry_msgs.msg import Twist
 from geometry_msgs.msg import Pose
 from nav_msgs.msg import Odometry
-from std_msgs.msg import Int64MultiArray
 from rclpy.callback_groups import ReentrantCallbackGroup
 import time
 
@@ -14,60 +13,46 @@ class Carbot_Plan(Node):
     def __init__(self,name):
         super().__init__(name)
 
-        # 位置发送
         self.twist_pub = self.create_publisher(Twist,"twist_cmd",2)
-        self.pose_pub = self.create_publisher(Pose,"navi_pose",10)
-        # 位置初始化
         self.now_pose = Pose()
         # 位置反馈
         self.odom_sub = self.create_subscription(Odometry,"odom_data",self.odom_callback,2)
-
-        # 机械臂控制
-        self.arm_pub = self.create_publisher(Int64MultiArray,"arm_cmd",2)
-
-        # 任务标记
-        self.get_out = False
-        self.get_qr_place = False
-        self.get_pik_place = False
-
-        # 任务初始化
-        self.task_lists = [
-            self.start_task(),
-            self.scan_task(),
-        ]
+        # 摄像头调取
+        self.camera_pub = "请求摄像头任务"
+        self.camera_sub = "取得任务完成信息"
+        self.cam_task_info = "任务反馈"
         
-    def start_task(self):
-        now_x = self.now_pose.position.x
-        now_y = self.now_pose.position.y
-        # 导航二维码前
-        # step 1: 出站
-        twist = Twist()
-        twist.linear.x = 0.0
-        twist.linear.y = 0.0
-        if not self.get_out:
-            if now_y > 0.2 and now_y < 0.3:
-                twist.linear.y = 0.0
-                self.get_out = True
-            elif now_y <= 0.2:
-                twist.linear.y = 0.1
-            else:
-                twist.linear.y = -0.1
-        # step 2: 寻码
-        if not self.get_qr_place and self.get_out:
-            if now_x > 0.6 and now_x < 0.7:
-                twist.linear.x = 0.0
-                self.get_qr_place = True
-            elif now_x <= 0.6:
-                twist.linear.x = 0.1
-            else:
-                twist.linear.x = -0.1
-        self.twist_pub.publish(twist)
-    
-    def scan_task(self):
-        time.sleep(3)
-        return True
-
-
+        # 任务线程
+        self.task_proc = self.create_timer(0.01,self.task_callback)
+        
+    def camera_task(self,task):
+        if self.cam_task_info == "任务未完成":
+            self.camera_pub = "任务类型"
+        else:
+            self.cam_task_info = "任务信息"
+        set_step
+        
+    def task_callback(self):
+        # 出站
+        if not step01:
+            self.get_pose("道路","北方")
+        # 移动到二维码区
+        if not step01 and step02:
+            self.get_pose("二维码","北方")
+        # 调摄像头扫码
+        if not step01 and step02 and step03:
+            self.camera_task("二维码扫描")
+        # 移动到转盘区域
+        if not step01 and step02 and step03 and step04:
+            self.get_pose("转盘")
+        # 调摄像头获取物块
+        if not step01 and step02 and step03 and step04 and step05:
+            self.camera_task("拾取物块")
+        # 移动到单层放置区
+        
+        # 调摄像头放置物块
+        # 移动到转盘区域
+        # 调摄像头获取物块
 
     def odom_callback(self,odom_msg):
         self.now_pose = odom_msg.pose.pose
