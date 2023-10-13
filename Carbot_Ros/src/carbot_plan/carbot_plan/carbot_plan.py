@@ -190,7 +190,6 @@ class Carbot_Plan(Node):
                 and task_name == task[0]):
                 task[1] = task_status
                 if task[1]:
-                    self.get_logger().info(self.task_name + "完成!")
                     task[2] = False
                 break
             

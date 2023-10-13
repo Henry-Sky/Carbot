@@ -149,3 +149,10 @@ class Bullseye_Aim(Node):
             return codeinfo
         else:
             return None
+        
+def main():
+    rclpy.init()
+    bullseye_aim = Bullseye_Aim()
+    rclpy.spin(bullseye_aim)
+    bullseye_aim.destroy_node()
+    rclpy.shutdown()
