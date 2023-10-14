@@ -1,6 +1,0 @@
-setup.py
-carbot_interfaces/__init__.py
-carbot_interfaces.egg-info/PKG-INFO
-carbot_interfaces.egg-info/SOURCES.txt
-carbot_interfaces.egg-info/dependency_links.txt
-carbot_interfaces.egg-info/top_level.txt

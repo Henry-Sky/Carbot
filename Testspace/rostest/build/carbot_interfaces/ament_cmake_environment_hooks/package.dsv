@@ -1,4 +1,0 @@
-source;share/carbot_interfaces/local_setup.bash
-source;share/carbot_interfaces/local_setup.dsv
-source;share/carbot_interfaces/local_setup.sh
-source;share/carbot_interfaces/local_setup.zsh

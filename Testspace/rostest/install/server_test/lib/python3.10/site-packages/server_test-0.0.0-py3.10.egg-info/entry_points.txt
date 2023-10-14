@@ -1,4 +1,0 @@
-[console_scripts]
-client_test = server_test.client:main
-server_test = server_test.server:main
-

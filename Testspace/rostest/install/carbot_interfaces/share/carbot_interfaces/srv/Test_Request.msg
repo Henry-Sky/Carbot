@@ -1,1 +1,0 @@
-bool get_num

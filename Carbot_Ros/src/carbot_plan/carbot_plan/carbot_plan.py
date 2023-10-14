@@ -40,30 +40,36 @@ class Carbot_Plan(Node):
         self.task_list = [
             ["move_out",False,False,self.task_moveout],
             ["move_qr",False,False,self.task_moveqr],
-            ["qrcode_scan",False,False,self.task_qrscan]
+            ["qrcode_scan",False,False,self.task_qrscan],
+            ["move_plt",False,False,self.task_moveplt]
         ]
         
         # 任务线程
         self.task_name = " "
         self.task_proc = self.create_timer(0.01,
                                            self.task_callback,callback_group=ReentrantCallbackGroup())        
-        
+    
+    def task_moveplt(self):
+        pose = Pose()
+        pose.position.x = 1.5
+        pose.position.y = 0.22
+        return self.go_navigation(pose,self.heading)
     
     def task_qrscan(self):
         camreq = Camreq()
         camreq.task_name = self.task_name
         self.cam_pub.publish(camreq)
         return False
-    
-    def task_moveout(self):
-        pose = Pose()
-        pose.position.x = 0.0
-        pose.position.y = 0.22
-        return self.go_navigation(pose,self.heading)
         
     def task_moveqr(self):
         pose = Pose()
         pose.position.x = 0.6
+        pose.position.y = 0.22
+        return self.go_navigation(pose,self.heading)
+    
+    def task_moveout(self):
+        pose = Pose()
+        pose.position.x = 0.0
         pose.position.y = 0.22
         return self.go_navigation(pose,self.heading)
                 
