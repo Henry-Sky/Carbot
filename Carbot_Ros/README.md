@@ -1,27 +1,24 @@
-# 中间件:Ros2 humble
+## 中间件:Ros2 humble
 
-## [carbot_launch]:
-- 含有launch启动文件
-- 计划添加模型描述文件
+### carbot_launch:
+- 启动该项目所需的所有节点
+- 一个基于pyqt5的实时显示订阅codeinfo信息的图形界面
 
-## [carbot_plan]:
-### carbot_plan
-- 该项目的全局决策
-### march_pose
-- 定点移动
+### carbot_interfaces:
+- 包含所需的自定义消息
 
-
-## [carbot_driver]: 
-### car_driver
-- 控制底层电机运动
-### arm_driver
-- 控制机械臂运动
-### key_ctrl
+### carbot_driver: 
+- 订阅电机，机械臂的控制信息
 - 键盘控制
 
-## [carbot_location]:
-### odom_data
-- 发送里程计信息 
+### carbot_location: 
+- 订阅控制信息，计算里程，建立坐标系 
+
+### carbot_vision:
+- 调用摄像头，进行二维码识别，物块识别，靶心识别等
+
+### carbot_plan:
+- 该项目的任务调度节点，控制任务的开始与结束
 
 
 
