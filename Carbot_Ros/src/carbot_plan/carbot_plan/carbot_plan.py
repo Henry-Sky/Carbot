@@ -3,6 +3,7 @@
 
 import rclpy
 from rclpy.node import Node
+from std_msgs.msg import Bool
 from geometry_msgs.msg import Twist
 from geometry_msgs.msg import Pose
 from nav_msgs.msg import Odometry
@@ -40,6 +41,7 @@ class Carbot_Plan(Node):
         self.task_list = [
             ["move_out",False,False,self.task_moveout],
             ["move_qr",False,False,self.task_moveqr],
+            ["qrcode_scan",False,False,self.task_qrscan],
             ["move_plt",False,False,self.task_moveplt],
             ["move_rgh",False,False,self.task_movergh]
         ]
@@ -48,11 +50,13 @@ class Carbot_Plan(Node):
         self.task_name = " "
         self.task_proc = self.create_timer(0.01,
                                            self.task_callback,callback_group=ReentrantCallbackGroup())  
+        self.activate = False
+        self.activate_sub = self.create_subscription(Bool,"activate",self.activate_callback,5)
 
     def task_movergh(self):
         pose = Pose()
         pose.position.x = 1.8
-        pose.position.y = 0.8
+        pose.position.y = 1.0
         return self.go_navigation(pose,self.heading)
 
     def task_moveplt(self):
@@ -86,22 +90,28 @@ class Carbot_Plan(Node):
         else:
             twist.linear.y = -self.reducer_speed
         self.twist_pub.publish(twist)
-        return False    
+        return False   
+
+    def activate_callback(self,act_msg):
+        self.activate = act_msg.data
                 
     def task_callback(self):
-        # 检查已完成的任务,取消激活状态
-        # 获取一个未完成的任务，并激活该任务
-        for task in self.task_list:
-            if task[1]:
-                task[2] = False
-            else:
-                self.task_name = task[0]
-                if not task[2]:
-                    task[2] = True
-                    self.get_logger().info("激活任务:"+str(task[0]))
-                    twist = Twist()
-                    self.twist_pub.publish(twist)
-                break
+        if self.activate:
+            # 检查已完成的任务,取消激活状态
+            # 获取一个未完成的任务，并激活该任务
+            for task in self.task_list:
+                if task[1]:
+                    task[2] = False
+                else:
+                    self.task_name = task[0]
+                    if not task[2]:
+                        task[2] = True
+                        self.get_logger().info("激活任务:"+str(task[0]))
+                        twist = Twist()
+                        self.twist_pub.publish(twist)
+                    break
+        else:
+            pass
     
     def go_navigation(self, goal_pose, goal_heading):
         # 坐标获取

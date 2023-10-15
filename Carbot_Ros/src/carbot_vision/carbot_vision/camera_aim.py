@@ -64,7 +64,7 @@ class Camera_Aim(Node):
     # task1 : 扫描二维码    
     def task_qrscan(self,img):
         # 设置机械臂
-        #self.car.set_uart_servo_angle_array([])
+        self.car.set_uart_servo_angle_array([21, 114, 220])
         codeinfo = self.get_code(img)
         
         if len(codeinfo) != 0:
@@ -106,7 +106,7 @@ class Camera_Aim(Node):
             if (task[0] == self.task_name 
                 and task[1] == False
                 and task[2] == False):
-                task[2] == True
+                task[2] = True
                 break
         
     def task_callback(self):
@@ -121,11 +121,12 @@ class Camera_Aim(Node):
                 cam_fed = Camfed()
                 cam_fed.task_name = self.task_name
                 cam_fed.task_status = task[1]
-                self.cam_pub(cam_fed)
+                self.cam_pub.publish(cam_fed)
                 break
                 
     def get_img(self):
-        ret, frame = self.cap.read(self.cam_id)
+        cap = cv2.VideoCapture(self.cam_id)
+        ret, frame = cap.read()
         if ret:
             dst = cv2.undistort(frame, mtx, dist, None, mtx)
             return dst

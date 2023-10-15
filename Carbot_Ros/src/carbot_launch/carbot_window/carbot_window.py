@@ -15,16 +15,18 @@ from PyQt5.QtCore import QTimer
 import rclpy
 from rclpy.node import Node
 from std_msgs.msg import String
+from std_msgs.msg import Bool
 
-class Ui_MainWindow(object):    
+
+class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(640, 480)
         MainWindow.setToolButtonStyle(QtCore.Qt.ToolButtonIconOnly)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
-        self.verticalLayout = QtWidgets.QVBoxLayout(self.centralwidget)
-        self.verticalLayout.setObjectName("verticalLayout")
+        self.gridLayout = QtWidgets.QGridLayout(self.centralwidget)
+        self.gridLayout.setObjectName("gridLayout")
         self.label = QtWidgets.QLabel(self.centralwidget)
         font = QtGui.QFont()
         font.setPointSize(40)
@@ -36,7 +38,18 @@ class Ui_MainWindow(object):
         self.label.setScaledContents(False)
         self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setObjectName("label")
-        self.verticalLayout.addWidget(self.label)
+        self.gridLayout.addWidget(self.label, 0, 0, 1, 1)
+        self.pushButton = QtWidgets.QPushButton(self.centralwidget)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.pushButton.sizePolicy().hasHeightForWidth())
+        self.pushButton.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setPointSize(40)
+        self.pushButton.setFont(font)
+        self.pushButton.setObjectName("pushButton")
+        self.gridLayout.addWidget(self.pushButton, 1, 0, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -45,19 +58,32 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Carbot"))
-        self.label.setText(_translate("MainWindow", "等待任务获取"))    
+        self.label.setText(_translate("MainWindow", "待启动"))
+        self.pushButton.setText(_translate("MainWindow", "启动"))
         
 class CarbotWindow(Node):
     def __init__(self,name,ui):
         super().__init__(name)
         self.ui = ui
-        self.info = "等待任务获取"
+        self.info = "待启动"
         self.timer_call = self.create_timer(0.1,self.time_callback)
         self.code_sub = self.create_subscription(String,"code_info",self.code_callback,1)
+        self.activate = False
+        self.activate_pub = self.create_publisher(Bool,"activate",5)
+        self.ui.pushButton.clicked.connect(self.button_clicked)
+        
+    def button_clicked(self):
+        QApplication.processEvents()
+        self.info = "等待任务代码"
+        self.activate = True
         
     def time_callback(self):
         QApplication.processEvents()
         self.ui.label.setText(str(self.info))
+        if self.activate:
+            activate = Bool()
+            activate.data = True
+            self.activate_pub.publish(activate)
         
     def code_callback(self,code_msg):
         self.info = code_msg.data

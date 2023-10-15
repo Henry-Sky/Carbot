@@ -15,17 +15,10 @@ class Car_Driver(Node):
 		self.car = Carbot()
 		# 订阅
 		self.twist_sub = self.create_subscription(Twist,"twist_cmd",self.twist_callback,1)
-		self.arm_sub = self.create_subscription(Int64MultiArray,"arm_cmd",self.arm_callback,1)
 		# 参数
 		self.declare_parameter("imu_pid_ctrl",True)
-		self.declare_parameter("arm_run_time", 800)
 
 		self.imu_pid_ctrl = self.get_parameter("imu_pid_ctrl").get_parameter_value().bool_value
-		self.run_time = self.get_parameter("arm_run_time").get_parameter_value().integer_value
-		# 开启消息接收
-		self.car.create_receive_threading()
-		# 机械臂初始化
-		self.car.set_uart_servo_angle_array([127, 90, 38])
 
 	# 回调函数
 	def twist_callback(self,twist_msg):
@@ -63,12 +56,6 @@ class Car_Driver(Node):
 			state = 7
 		# 下发运动控制(含imu的pid控制判断)
 		self.car.set_car_run(state, speed, adjust=self.imu_pid_ctrl)
-
-	def arm_callback(self,arm_msg):
-		angle_01 = arm_msg.data[0]
-		angle_02 = arm_msg.data[1]
-		angle_03 = arm_msg.data[2]
-		self.arm.set_uart_servo_angle_array([angle_01, angle_02, angle_03, 0, 0, 0],self.run_time)
 		
 def main():
 	rclpy.init() 
