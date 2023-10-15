@@ -20,8 +20,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'image_proc = carbot_vision.image_proc:main',
-            'bullseye_aim = carbot_vision.bullseye_aim:main',
+            'camera_aim = carbot_vision.camera_aim:main',
         ],
     },
 )

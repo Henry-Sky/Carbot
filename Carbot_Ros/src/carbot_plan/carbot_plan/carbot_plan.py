@@ -31,7 +31,7 @@ class Carbot_Plan(Node):
         self.turn_speed = 0.06
             
         # 摄像头调取
-        self.cam_pub = self.create_publisher(Camreq,"cam_req",2)
+        self.cam_pub = self.create_publisher(Camreq,"cam_req",5)
         self.cam_sub = self.create_subscription(Camfed,"cam_fed",
                                                 self.camfed_callback,1)
         # self.cam_status = Camfed()

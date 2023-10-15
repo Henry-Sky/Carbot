@@ -51,14 +51,16 @@ class CarbotWindow(Node):
     def __init__(self,name,ui):
         super().__init__(name)
         self.ui = ui
-        self.count = 0
+        self.info = "等待任务获取"
         self.timer_call = self.create_timer(0.1,self.time_callback)
-        
+        self.code_sub = self.create_subscription(String,"code_info",self.code_callback,1)
         
     def time_callback(self):
-        self.count += 1
         QApplication.processEvents()
-        self.ui.label.setText(str(self.count))
+        self.ui.label.setText(str(self.info))
+        
+    def code_callback(self,code_msg):
+        self.info = code_msg.data
         
 def main():
     app = QApplication(sys.argv)
