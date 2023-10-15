@@ -51,27 +51,6 @@ class Bullseye_Aim(Node):
             ["object_pick",False,False,self.task_objpick],
         ]
         
-    def aim_callback(self,task_msg):
-        # 检索请求
-        self.task_name = task_msg.task_name
-        for task in self.task_list:
-            # 对于请求任务
-            if task[0] == self.task_name:
-                if task[1] == False:
-                    # 激活任务
-                    task[2] = True
-                cam_fed = Camfed()
-                cam_fed.task_name = self.task_name
-                cam_fed.task_status = task[1]
-                self.aim_pub.publish(cam_fed)
-                break
-            # 对于非请求任务
-            else:
-                if task[1]:
-                    task[2] = False
-                else:
-                    pass
-        
     def image_callback(self,img_msg):
         img = CvBridge().imgmsg_to_cv2(img_msg)
         # 更新任务目标
@@ -98,11 +77,35 @@ class Bullseye_Aim(Node):
     # task2 : 识别并抓取物块
     def task_objpick(self,img):
         # 识别一次颜色切换
+        for color in ["red","green","blue"]:
+            if self.get_object(img,color) is not None:
+                pass
         # 校准机械臂位置
         # 按照任务信息操作
             # 再次识别颜色切换(符合当前颜色)
             # 机械臂抓取
         return False
+    
+    def aim_callback(self,task_msg):
+        # 检索请求
+        self.task_name = task_msg.task_name
+        for task in self.task_list:
+            # 对于请求任务
+            if task[0] == self.task_name:
+                if task[1] == False:
+                    # 激活任务
+                    task[2] = True
+                cam_fed = Camfed()
+                cam_fed.task_name = self.task_name
+                cam_fed.task_status = task[1]
+                self.aim_pub.publish(cam_fed)
+                break
+            # 对于非请求任务
+            else:
+                if task[1]:
+                    task[2] = False
+                else:
+                    pass
              
             
     def get_object(self,img,color = "none"):
@@ -112,9 +115,7 @@ class Bullseye_Aim(Node):
                                   color_dist[color]["Lower"], 
                                   color_dist[color]["Upper"]
                                   )
-        inRange_bgr = cv2.cvtColor(inRange_hsv,cv2.COLOR_HSV2BGR)
-        inRange_gray = cv2.cvtColor(inRange_bgr,cv2.COLOR_BGR2GRAY)
-        img_edges = cv2.Canny(inRange_gray,50,150,apertureSize = 3)
+        img_edges = cv2.Canny(inRange_hsv,50,150,apertureSize = 3)
         circles = cv2.HoughCircles(img_edges, cv2.HOUGH_GRADIENT, 1, 50,
                          param1=100, param2=80, minRadius=50, maxRadius=200)
         if circles is not None:

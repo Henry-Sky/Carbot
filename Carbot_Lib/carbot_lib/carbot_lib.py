@@ -784,11 +784,13 @@ class Carbot(object):
 
     # 同时控制机械臂所有舵机的角度。
     # Meanwhile, the Angle of all steering gear of the manipulator is controlled
-    def set_uart_servo_angle_array(self, angle_s=[90, 90, 90, 90, 90, 180], run_time=500):
+    def set_uart_servo_angle_array(self, angle_s=[90, 90, 90], run_time=500):
+        for i in range(3):
+            angle_s.append(90)
         try:
             if not self.__arm_ctrl_enable:
                 return
-            if 0 <= angle_s[0] <= 180 and 0 <= angle_s[1] <= 300 and 0 <= angle_s[2] <= 270 and \
+            if 0 <= angle_s[0] <= 240 and 0 <= angle_s[1] <= 240 and 0 <= angle_s[2] <= 240 and \
                 0 <= angle_s[3] <= 180 and 0 <= angle_s[4] <= 270 and 0 <= angle_s[5] <= 180:
                 if run_time > 2000:
                     run_time = 2000
@@ -1059,10 +1061,11 @@ class Carbot(object):
                     break
                 timeout = timeout - 1
                 time.sleep(.001)
+            angle = [angle[0], angle[1], angle[2]]
             return angle
         except:
             print('---get_uart_servo_angle_array error!---')
-            return [-2, -2, -2, -2, -2, -2]
+            return [-2, -2, -2]
 
     # 获取加速度计三轴数据，返回a_x, a_y, a_z
     # Get accelerometer triaxial data, return a_x, a_y, a_z

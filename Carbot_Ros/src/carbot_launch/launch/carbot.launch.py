@@ -25,11 +25,11 @@ def generate_launch_description():
             executable='car_driver',
             parameters=[car_driver_config]
         ),
-        Node(
-            package="carbot_vision",
-            executable="image_proc",
+        # Node(
+        #     package="carbot_vision",
+        #     executable="image_proc",
 
-        ),
+        # ),
         Node(
             package='carbot_location',
             executable='odom_data',
@@ -39,8 +39,8 @@ def generate_launch_description():
             package='carbot_plan',
             executable='carbot_plan',
         ),
-        Node(
-            package="carbot_vision",
-            executable="bullseye_aim",
-        )
+        # Node(
+        #     package="carbot_vision",
+        #     executable="bullseye_aim",
+        # )
     ])

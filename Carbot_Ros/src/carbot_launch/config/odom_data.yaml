@@ -1,0 +1,7 @@
+odom_data:
+  ros__parameters:
+    angular_scale_z: 1.345
+    linear_scale_x: 1.0
+    linear_scale_y: 1.0
+    pub_head: true
+    pub_odom_tf: false

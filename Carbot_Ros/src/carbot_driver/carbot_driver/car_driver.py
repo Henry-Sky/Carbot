@@ -18,9 +18,14 @@ class Car_Driver(Node):
 		self.arm_sub = self.create_subscription(Int64MultiArray,"arm_cmd",self.arm_callback,1)
 		# 参数
 		self.declare_parameter("imu_pid_ctrl",True)
-		self.imu_pid_ctrl = self.get_parameter("imu_pid_ctrl").get_parameter_value().bool_value
 		self.declare_parameter("arm_run_time", 800)
+
+		self.imu_pid_ctrl = self.get_parameter("imu_pid_ctrl").get_parameter_value().bool_value
 		self.run_time = self.get_parameter("arm_run_time").get_parameter_value().integer_value
+		# 开启消息接收
+		self.car.create_receive_threading()
+		# 机械臂初始化
+		self.car.set_uart_servo_angle_array([127, 90, 38])
 
 	# 回调函数
 	def twist_callback(self,twist_msg):

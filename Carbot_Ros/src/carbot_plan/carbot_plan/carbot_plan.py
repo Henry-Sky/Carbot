@@ -40,15 +40,21 @@ class Carbot_Plan(Node):
         self.task_list = [
             ["move_out",False,False,self.task_moveout],
             ["move_qr",False,False,self.task_moveqr],
-            ["qrcode_scan",False,False,self.task_qrscan],
-            ["move_plt",False,False,self.task_moveplt]
+            ["move_plt",False,False,self.task_moveplt],
+            ["move_rgh",False,False,self.task_movergh]
         ]
         
         # 任务线程
         self.task_name = " "
         self.task_proc = self.create_timer(0.01,
-                                           self.task_callback,callback_group=ReentrantCallbackGroup())        
-    
+                                           self.task_callback,callback_group=ReentrantCallbackGroup())  
+
+    def task_movergh(self):
+        pose = Pose()
+        pose.position.x = 1.8
+        pose.position.y = 0.8
+        return self.go_navigation(pose,self.heading)
+
     def task_moveplt(self):
         pose = Pose()
         pose.position.x = 1.5
@@ -68,10 +74,19 @@ class Carbot_Plan(Node):
         return self.go_navigation(pose,self.heading)
     
     def task_moveout(self):
-        pose = Pose()
-        pose.position.x = 0.0
-        pose.position.y = 0.22
-        return self.go_navigation(pose,self.heading)
+        now_y = self.now_pose.position.y
+        twist = Twist()
+        if (now_y > 0.22 - self.stop_buffer
+            and now_y < 0.22 + self.stop_buffer):
+            twist.linear.y = 0.0
+            self.twist_pub.publish(twist)
+            return True
+        elif now_y < 0.22 - self.stop_buffer:
+            twist.linear.y = self.reducer_speed
+        else:
+            twist.linear.y = -self.reducer_speed
+        self.twist_pub.publish(twist)
+        return False    
                 
     def task_callback(self):
         # 检查已完成的任务,取消激活状态
@@ -81,7 +96,11 @@ class Carbot_Plan(Node):
                 task[2] = False
             else:
                 self.task_name = task[0]
-                task[2] = True
+                if not task[2]:
+                    task[2] = True
+                    self.get_logger().info("激活任务:"+str(task[0]))
+                    twist = Twist()
+                    self.twist_pub.publish(twist)
                 break
     
     def go_navigation(self, goal_pose, goal_heading):
