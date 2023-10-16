@@ -79,23 +79,29 @@ class Camera_Aim(Node):
     
     # task2 : 识别并抓取物块
     def task_objpick(self,img):
-        # 识别一次颜色切换
-        now_color = None
-        now_coord = None
-        for color in ["red","green","blue"]:
-            obj_coord = self.get_object(img)
-            if obj_coord is not None:
-                now_color = color
-                now_coord = obj_coord
-                break
-        last_coord =  self.color_coord_list[len(self.color_coord_list)-1]
-        self.color_coord_list.append(now_coord)
-        if now_coord == last_coord:
-            pass
-        # 校准机械臂位置
-        # 按照任务信息操作
-            # 再次识别颜色切换(符合当前颜色)
-            # 机械臂抓取
+        # 在物体没有运动时校准机械臂
+        now_coord, now_color = self.get_object(img)
+        now_colrd = [now_coord, now_color]
+        if len(self.colrd_list) == 0:
+            self.colrd_list.append(now_colrd)
+        else:
+            last_colrd = self.colrd_list.pop()
+            if (last_colrd[1] == now_colrd[1]
+                and self.get_similar(last_colrd[0], now_colrd[0])):
+                circle_coord = self.get_circle(img, color = now_color)
+                if circle_coord is not None:
+                    aim_flag = self.get_aim(circle_coord)
+                    if aim_flag:
+                        self.get_logger().info("已瞄准圆心")
+                else:
+                    aim_flag = self.get_aim(now_coord)
+                    if aim_flag:
+                        self.get_logger().info("已瞄准轮廓中心")
+                now_colrd[0] = self.get_object(img, now_color)
+                self.colrd_list.append(now_colrd)
+            else:
+                self.colrd_list.append(now_colrd)
+        # 校准机械臂后，按指令抓取物块
         return False
         
     def cam_callback(self,task_msg):
@@ -122,38 +128,73 @@ class Camera_Aim(Node):
                 cam_fed.task_name = self.task_name
                 cam_fed.task_status = task[1]
                 self.cam_pub.publish(cam_fed)
-                break
-                
-    def get_img(self):
-        cap = cv2.VideoCapture(self.cam_id)
-        ret, frame = cap.read()
-        if ret:
-            dst = cv2.undistort(frame, mtx, dist, None, mtx)
-            return dst
-        else:
-            self.get_logger().info("camera error!")           
+                break        
             
-    def get_object(self,img,color = "none"):
-        # 识别物体，返回物体坐标，或None
-        hsv_img = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
-        inRange_hsv = cv2.inRange(hsv_img,
-                            color_dist[color]["Lower"], 
-                            color_dist[color]["Upper"]
-                            )
-        contours, hierarchy = cv2.findContours(inRange_hsv, cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE)
-        if len(contours) > 0:
-            obj_contour = []
-            for contour in contours:
-                if len(contour) > len(obj_contour):
-                    obj_contour = contour
-            if len(obj_contour) > 800:
-                x, y, w, h = cv2.boundingRect(obj_contour)
-                obj_coord = [x,y]
-                return obj_coord
+    def get_object(self,img,color = "none",cont = False):
+        # 未指定颜色，返回物体坐标,颜色(和轮廓)
+        if color == "none":
+            prb_cont = []
+            for colr in ["red","green","bule"]:
+                obj_coord, obj_cont = self.get_object(img,color = colr,cont = True)
+                if (obj_coord is not None 
+                    and len(obj_cont) > len(prb_cont)):
+                    prb_cont = obj_cont
+                    prb_colr = colr
+            x, y, w, h = cv2.boundingRect(prb_cont)
+            prb_coord = [x, y]
+            if cont:
+                return prb_coord, prb_colr, prb_cont
+            else:
+                return prb_coord, prb_colr
+        else:            
+            # 识别指定颜色物体，返回物体坐标(和轮廓)             
+            hsv_img = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+            inRange_hsv = cv2.inRange(hsv_img,
+                                color_dist[color]["Lower"], 
+                                color_dist[color]["Upper"]
+                                )
+            contours, hierarchy = cv2.findContours(inRange_hsv, cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE)
+            if len(contours) > 0:
+                obj_contour = []
+                for contour in contours:
+                    if len(contour) > len(obj_contour):
+                        obj_contour = contour
+                    x, y, w, h = cv2.boundingRect(obj_contour)
+                    obj_coord = [x,y]
+                    if cont:
+                        return obj_coord, obj_contour
+                    else:
+                        return obj_coord
             else:
                 return None
+            
+    def get_aim(self,coord):
+        # 摄像头相对机械臂的偏移位置
+        bia_coord = [150, 150]
+        buffer = 5
+        speed = 0.01
+        twist = Twist()
+        aim_x = bia_coord[0]
+        aim_y = bia_coord[1]
+        now_x = coord[0]
+        now_y = coord[1]
+        # --begin--
+        if (now_x > aim_x - buffer 
+            and now_x < aim_x + buffer):
+            if (now_y > aim_y - buffer
+                and now_y < aim_y + buffer):
+                self.twist_pub.publish(Twist())
+                return True
+            elif (now_y < aim_y - buffer):
+                twist.linear.y = -speed
+            else:
+                twist.linear.y = speed
+        elif (now_x < aim_x - buffer):
+            twist.linear.x = -speed
         else:
-            return None
+            twist.linear.x = speed
+        self.twist_pub.publish(twist)
+        return False
                         
     def get_circle(self,img,color = "none"):
         # 识别靶心，返回靶心坐标，或None
@@ -169,6 +210,15 @@ class Camera_Aim(Node):
             return aim_coord
         else:
             return None
+        
+    def get_img(self):
+        cap = cv2.VideoCapture(self.cam_id)
+        ret, frame = cap.read()
+        if ret:
+            dst = cv2.undistort(frame, mtx, dist, None, mtx)
+            return dst
+        else:
+            self.get_logger().info("camera error!")   
         
     def get_code(self,img):
         # 识别二维码，返回二维码信息
