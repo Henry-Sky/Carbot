@@ -43,6 +43,7 @@ class Carbot_Plan(Node):
             ["move_qr",False,False,self.task_moveqr],
             ["qrcode_scan",False,False,self.task_qrscan],
             ["move_plt",False,False,self.task_moveplt],
+            ["object_pick",False,False,self.task_objpick],
             ["move_rgh",False,False,self.task_movergh]
         ]
         
@@ -50,7 +51,7 @@ class Carbot_Plan(Node):
         self.task_name = " "
         self.task_proc = self.create_timer(0.01,
                                            self.task_callback,callback_group=ReentrantCallbackGroup())  
-        self.activate = False
+        self.activate = True
         self.activate_sub = self.create_subscription(Bool,"activate",self.activate_callback,5)
 
     def task_movergh(self):
@@ -58,6 +59,12 @@ class Carbot_Plan(Node):
         pose.position.x = 1.8
         pose.position.y = 1.0
         return self.go_navigation(pose,self.heading)
+
+    def task_objpick(self):
+        camreq = Camreq()
+        camreq.task_name = self.task_name
+        self.cam_pub.publish(camreq)
+        return False       
 
     def task_moveplt(self):
         pose = Pose()

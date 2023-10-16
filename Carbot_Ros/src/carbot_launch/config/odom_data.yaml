@@ -1,6 +1,6 @@
 odom_data:
   ros__parameters:
-    angular_scale_z: 1.345
+    angular_scale_z: 1.365
     linear_scale_x: 1.0
     linear_scale_y: 1.0
     pub_head: true

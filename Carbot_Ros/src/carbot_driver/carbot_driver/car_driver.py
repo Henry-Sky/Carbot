@@ -20,6 +20,8 @@ class Car_Driver(Node):
 
 		self.imu_pid_ctrl = self.get_parameter("imu_pid_ctrl").get_parameter_value().bool_value
 
+		self.car.set_uart_servo_angle_array([0, 218, 236])
+
 	# 回调函数
 	def twist_callback(self,twist_msg):
         # 速度(v_x,v_y表示线速度, v_yaw为偏航角角速度)

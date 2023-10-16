@@ -47,7 +47,7 @@ class Camera_Aim(Node):
         
         self.task_name = None
         self.codeinfo = "等待任务获取"
-        self.color_coord_list = ["none"]
+        self.colrd_list = []
         self.task_proc = self.create_timer(0.01,
                                            self.task_callback,
                                            callback_group=ReentrantCallbackGroup()) 
@@ -79,8 +79,10 @@ class Camera_Aim(Node):
     
     # task2 : 识别并抓取物块
     def task_objpick(self,img):
+        obj_img = img
+        self.car.set_uart_servo_angle_array([73, 189, 153])
         # 在物体没有运动时校准机械臂
-        now_coord, now_color = self.get_object(img)
+        now_coord, now_color = self.get_object(obj_obj_img)
         now_colrd = [now_coord, now_color]
         if len(self.colrd_list) == 0:
             self.colrd_list.append(now_colrd)
@@ -88,7 +90,7 @@ class Camera_Aim(Node):
             last_colrd = self.colrd_list.pop()
             if (last_colrd[1] == now_colrd[1]
                 and self.get_similar(last_colrd[0], now_colrd[0])):
-                circle_coord = self.get_circle(img, color = now_color)
+                circle_coord = self.get_circle(obj_img, color = now_color)
                 if circle_coord is not None:
                     aim_flag = self.get_aim(circle_coord)
                     if aim_flag:
@@ -97,7 +99,7 @@ class Camera_Aim(Node):
                     aim_flag = self.get_aim(now_coord)
                     if aim_flag:
                         self.get_logger().info("已瞄准轮廓中心")
-                now_colrd[0] = self.get_object(img, now_color)
+                now_colrd[0] = self.get_object(obj_img, now_color)
                 self.colrd_list.append(now_colrd)
             else:
                 self.colrd_list.append(now_colrd)
@@ -122,8 +124,9 @@ class Camera_Aim(Node):
                 and task[2] == True):
                 # 执行任务
                 img = self.get_img()
-                task[1] = task[3](img)
-                task[2] = not task[1]
+                if img is not None:
+                    task[1] = task[3](img)
+                    task[2] = not task[1]
                 cam_fed = Camfed()
                 cam_fed.task_name = self.task_name
                 cam_fed.task_status = task[1]
@@ -134,7 +137,7 @@ class Camera_Aim(Node):
         # 未指定颜色，返回物体坐标,颜色(和轮廓)
         if color == "none":
             prb_cont = []
-            for colr in ["red","green","bule"]:
+            for colr in ["red","green","blue"]:
                 obj_coord, obj_cont = self.get_object(img,color = colr,cont = True)
                 if (obj_coord is not None 
                     and len(obj_cont) > len(prb_cont)):
@@ -210,6 +213,13 @@ class Camera_Aim(Node):
             return aim_coord
         else:
             return None
+    
+    def get_similar(self,coord1, coord2, buffer = 5):
+        if (abs(coord1[0] - coord2[0]) < buffer
+        and abs(coord1[1] - coord2[1]) < buffer):
+            return True
+        else:
+            return False
         
     def get_img(self):
         cap = cv2.VideoCapture(self.cam_id)
@@ -218,7 +228,7 @@ class Camera_Aim(Node):
             dst = cv2.undistort(frame, mtx, dist, None, mtx)
             return dst
         else:
-            self.get_logger().info("camera error!")   
+            return None   
         
     def get_code(self,img):
         # 识别二维码，返回二维码信息
