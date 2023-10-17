@@ -24,7 +24,7 @@ class Carbot_Plan(Node):
         self.odom_sub = self.create_subscription(Odometry,"odom_data",
                                                  self.odom_callback,2,callback_group=ReentrantCallbackGroup())
         
-        self.stop_buffer = 0.02
+        self.stop_buffer = 0.01
         self.turn_buffer = 0.001
         self.reducer_buffer = 0.2
         self.cruising_speed = 0.2
@@ -43,9 +43,14 @@ class Carbot_Plan(Node):
             ["move_qr",False,False,self.task_moveqr],
             ["qrcode_scan",False,False,self.task_qrscan],
             ["move_plt",False,False,self.task_moveplt],
-            
+            ["object_pick",False,False,self.task_objpick],
         ]
 
+
+        # ["move_out",False,False,self.task_moveout],
+        # ["move_qr",False,False,self.task_moveqr],
+        # ["qrcode_scan",False,False,self.task_qrscan],
+        # ["move_plt",False,False,self.task_moveplt],
         # ["object_pick",False,False,self.task_objpick],
         
         # 任务线程
@@ -69,8 +74,8 @@ class Carbot_Plan(Node):
 
     def task_moveplt(self):
         pose = Pose()
-        pose.position.x = 1.5
-        pose.position.y = 0.20
+        pose.position.x = 1.44
+        pose.position.y = 0.18
         return self.go_navigation(pose,self.heading)
     
     def task_qrscan(self):
@@ -82,14 +87,14 @@ class Carbot_Plan(Node):
     def task_moveqr(self):
         pose = Pose()
         pose.position.x = 0.6
-        pose.position.y = 0.20
+        pose.position.y = 0.18
         return self.go_navigation(pose,self.heading)
     
     def task_moveout(self):
         now_y = self.now_pose.position.y
         twist = Twist()
-        if (now_y > 0.20 - self.stop_buffer
-            and now_y < 0.20 + self.stop_buffer):
+        if (now_y > 0.18 - self.stop_buffer
+            and now_y < 0.18 + self.stop_buffer):
             twist.linear.y = 0.0
             self.twist_pub.publish(twist)
             return True
