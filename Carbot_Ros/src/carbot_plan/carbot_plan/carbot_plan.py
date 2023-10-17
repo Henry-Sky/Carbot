@@ -43,9 +43,10 @@ class Carbot_Plan(Node):
             ["move_qr",False,False,self.task_moveqr],
             ["qrcode_scan",False,False,self.task_qrscan],
             ["move_plt",False,False,self.task_moveplt],
-            ["object_pick",False,False,self.task_objpick],
-            ["move_rgh",False,False,self.task_movergh]
+            
         ]
+
+        # ["object_pick",False,False,self.task_objpick],
         
         # 任务线程
         self.task_name = " "
@@ -69,7 +70,7 @@ class Carbot_Plan(Node):
     def task_moveplt(self):
         pose = Pose()
         pose.position.x = 1.5
-        pose.position.y = 0.22
+        pose.position.y = 0.20
         return self.go_navigation(pose,self.heading)
     
     def task_qrscan(self):
@@ -81,14 +82,14 @@ class Carbot_Plan(Node):
     def task_moveqr(self):
         pose = Pose()
         pose.position.x = 0.6
-        pose.position.y = 0.22
+        pose.position.y = 0.20
         return self.go_navigation(pose,self.heading)
     
     def task_moveout(self):
         now_y = self.now_pose.position.y
         twist = Twist()
-        if (now_y > 0.22 - self.stop_buffer
-            and now_y < 0.22 + self.stop_buffer):
+        if (now_y > 0.20 - self.stop_buffer
+            and now_y < 0.20 + self.stop_buffer):
             twist.linear.y = 0.0
             self.twist_pub.publish(twist)
             return True
@@ -114,9 +115,10 @@ class Carbot_Plan(Node):
                     if not task[2]:
                         task[2] = True
                         self.get_logger().info("激活任务:"+str(task[0]))
-                        twist = Twist()
-                        self.twist_pub.publish(twist)
+                        self.twist_pub.publish(Twist())
                     break
+        if self.now_pose == Pose():
+            self.twist_pub.publish(Twist())
         else:
             pass
     

@@ -2,4 +2,4 @@ carbot_driver:
   car_driver:
     ros__parameters:
       arm_run_time: 800
-      imu_pid_ctrl: true
+      imu_pid_ctrl: False

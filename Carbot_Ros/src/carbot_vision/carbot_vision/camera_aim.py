@@ -36,7 +36,6 @@ class Camera_Aim(Node):
         self.img = None
 
         self.car = Carbot()
-        self.car.create_receive_threading()
         
         # 消息创建
         self.twist_pub = self.create_publisher(Twist,"twist_cmd",2)
@@ -50,6 +49,7 @@ class Camera_Aim(Node):
         self.codeinfo = "等待任务获取"
         # 抓取任务
         self.color_list = []
+        self.color_change_flag = False
 
         # 任务调度
         self.task_proc = self.create_timer(0.01,
@@ -67,7 +67,6 @@ class Camera_Aim(Node):
         # 设置机械臂
         self.car.set_uart_servo_angle_array([21, 114, 220])
         codeinfo = self.get_code(img)
-        
         if len(codeinfo) != 0:
             self.codeinfo = codeinfo
             code_pub = String()
@@ -79,26 +78,13 @@ class Camera_Aim(Node):
             return False
     
     # task2 : 识别并抓取物块
-    def task_objpick(self,img):
-        self.car.set_uart_servo_angle_array([73, 189, 153])
-        #识别颜色切换
-        color_change_flag = False
+    def task_objpick(self, img):
+        arm_obj_aim = [79, 183, 146]
+        self.car.set_uart_servo_angle_array(arm_obj_aim)
+        #识别颜色
         now_color = self.get_color(img)
-        self.get_logger().info("目前颜色:"+str(color))
-        if len(self.color_list)==0:
-            self.color_list.append(now_color)
-        else:
-            last_color = self.color_list.pop()
-            self.color_list.append(now_color)
-            if last_color != now_color:
-                color_change_flag = True
-                self.get_logger().info("识别到颜色切换")
-        if color_change_flag:
-            aim_flag = self.get_aim(img, now_color)
-            if aim_flag:
-                self.get_logger().info("已瞄准物块")
-        # 校准机械臂后，按指令抓取物块
-        return False
+        self.get_logger().info("目前颜色:" + str(now_color))
+        return self.get_aim(img, now_color)
         
     def cam_callback(self,task_msg):
         # 检索请求
@@ -152,20 +138,23 @@ class Camera_Aim(Node):
                             color_dist[color]["Lower"], 
                             color_dist[color]["Upper"])
         circle = cv2.HoughCircles(inRange_hsv, cv2.HOUGH_GRADIENT, 3, 60,
-                        param1=100, param2=75, minRadius=220, maxRadius=250)
+                        param1=100, param2=75, minRadius=100, maxRadius=150)
         if circle is None:
-            self.get_logger().info("物块丢失")
-            self.twist_pub.publish(Twist())
-            return False
+            self.get_logger().info("区域移动")
+            
+
+        else:
+            self.get_logger().info("找到圆形物块")
+            now_x = circle[0][0][0]
+            now_y = circle[0][0][1]
         # 摄像头相对机械臂的偏移位置
-        bia_coord = [150, 150]
-        buffer = 5
-        speed = 0.01
+        bia_coord = [196, 193]
+        buffer = 15
+        speed = 0.05
         twist = Twist()
         aim_x = bia_coord[0]
         aim_y = bia_coord[1]
-        now_x = circle[0][0]
-        now_y = circle[0][1]
+        self.get_logger().info("坐标:"+str(now_x)+","+str(now_y))
         # --begin--
         if (now_x > aim_x - buffer 
             and now_x < aim_x + buffer):
