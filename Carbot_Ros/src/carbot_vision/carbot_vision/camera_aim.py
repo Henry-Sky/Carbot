@@ -36,6 +36,7 @@ class Camera_Aim(Node):
         self.img = None
 
         self.car = Carbot()
+        self.car.create_receive_threading()
         
         # 消息创建
         self.twist_pub = self.create_publisher(Twist,"twist_cmd",2)
@@ -80,9 +81,10 @@ class Camera_Aim(Node):
     # task2 : 识别并抓取物块
     def task_objpick(self,img):
         self.car.set_uart_servo_angle_array([73, 189, 153])
-        #识别到颜色切换
+        #识别颜色切换
         color_change_flag = False
         now_color = self.get_color(img)
+        self.get_logger().info("目前颜色:"+str(color))
         if len(self.color_list)==0:
             self.color_list.append(now_color)
         else:

@@ -52,7 +52,7 @@ class Carbot_Plan(Node):
         self.task_proc = self.create_timer(0.01,
                                            self.task_callback,callback_group=ReentrantCallbackGroup())  
         self.activate = True
-        self.activate_sub = self.create_subscription(Bool,"activate",self.activate_callback,5)
+        # self.activate_sub = self.create_subscription(Bool,"activate",self.activate_callback,5)
 
     def task_movergh(self):
         pose = Pose()
