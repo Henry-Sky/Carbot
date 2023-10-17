@@ -23,11 +23,9 @@ dist = np.array([[-2.52464877e-01, 1.92828476e-01,
 
 
 # HSV格式色表
-color_dist = {'red': {'Lower': np.array([0, 60, 60]), 'Upper': np.array([6, 255, 255])},
-              'gray': {'Lower': np.array([0, 0, 46]), 'Upper': np.array([180, 43, 220])},
-              'yellow': {'Lower': np.array([26, 43, 46]), 'Upper': np.array([34, 255, 255])},          
-              'blue': {'Lower': np.array([100, 80, 46]), 'Upper': np.array([124, 255, 255])},
-              'green': {'Lower': np.array([35, 43, 35]), 'Upper': np.array([90, 255, 255])},
+color_dist = {'red': {'Lower': np.array([0, 60, 60]), 'Upper': np.array([6, 255, 255])},          
+              'blue': {'Lower': np.array([108, 88, 58]), 'Upper': np.array([118, 255, 255])},
+              'green': {'Lower': np.array([90, 50, 45]), 'Upper': np.array([100, 255, 255])},
               'none': {'Lower': np.array([0, 0, 0]), 'Upper': np.array([255, 255, 255])},}
 
 class Camera_Aim(Node):
@@ -36,6 +34,8 @@ class Camera_Aim(Node):
         # 参数声明
         self.cam_id = 0
         self.img = None
+
+        self.car = Carbot()
         
         # 消息创建
         self.twist_pub = self.create_publisher(Twist,"twist_cmd",2)
@@ -45,21 +45,21 @@ class Camera_Aim(Node):
         
         self.code_pub = self.create_publisher(String,"code_info",10)
         
-        self.task_name = None
+        # 二维码任务
         self.codeinfo = "等待任务获取"
-        self.colrd_list = []
+        # 抓取任务
+        self.color_list = []
+
+        # 任务调度
         self.task_proc = self.create_timer(0.01,
                                            self.task_callback,
                                            callback_group=ReentrantCallbackGroup()) 
-        self.car = Carbot()
-        
-        # 任务列表
+        self.task_name = None
         # (name,status,active,func)
         self.task_list = [
             ["qrcode_scan",False,False,self.task_qrscan],
             ["object_pick",False,False,self.task_objpick],
         ]
-        self.car = Carbot()
         
     # task1 : 扫描二维码    
     def task_qrscan(self,img):
@@ -79,30 +79,22 @@ class Camera_Aim(Node):
     
     # task2 : 识别并抓取物块
     def task_objpick(self,img):
-        obj_img = img
         self.car.set_uart_servo_angle_array([73, 189, 153])
-        # 在物体没有运动时校准机械臂
-        now_coord, now_color = self.get_object(obj_obj_img)
-        now_colrd = [now_coord, now_color]
-        if len(self.colrd_list) == 0:
-            self.colrd_list.append(now_colrd)
+        #识别到颜色切换
+        color_change_flag = False
+        now_color = self.get_color(img)
+        if len(self.color_list)==0:
+            self.color_list.append(now_color)
         else:
-            last_colrd = self.colrd_list.pop()
-            if (last_colrd[1] == now_colrd[1]
-                and self.get_similar(last_colrd[0], now_colrd[0])):
-                circle_coord = self.get_circle(obj_img, color = now_color)
-                if circle_coord is not None:
-                    aim_flag = self.get_aim(circle_coord)
-                    if aim_flag:
-                        self.get_logger().info("已瞄准圆心")
-                else:
-                    aim_flag = self.get_aim(now_coord)
-                    if aim_flag:
-                        self.get_logger().info("已瞄准轮廓中心")
-                now_colrd[0] = self.get_object(obj_img, now_color)
-                self.colrd_list.append(now_colrd)
-            else:
-                self.colrd_list.append(now_colrd)
+            last_color = self.color_list.pop()
+            self.color_list.append(now_color)
+            if last_color != now_color:
+                color_change_flag = True
+                self.get_logger().info("识别到颜色切换")
+        if color_change_flag:
+            aim_flag = self.get_aim(img, now_color)
+            if aim_flag:
+                self.get_logger().info("已瞄准物块")
         # 校准机械臂后，按指令抓取物块
         return False
         
@@ -132,46 +124,37 @@ class Camera_Aim(Node):
                 cam_fed.task_status = task[1]
                 self.cam_pub.publish(cam_fed)
                 break        
-            
-    def get_object(self,img,color = "none",cont = False):
-        # 未指定颜色，返回物体坐标,颜色(和轮廓)
-        if color == "none":
-            prb_cont = []
-            for colr in ["red","green","blue"]:
-                obj_coord, obj_cont = self.get_object(img,color = colr,cont = True)
-                if (obj_coord is not None 
-                    and len(obj_cont) > len(prb_cont)):
-                    prb_cont = obj_cont
-                    prb_colr = colr
-            x, y, w, h = cv2.boundingRect(prb_cont)
-            prb_coord = [x, y]
-            if cont:
-                return prb_coord, prb_colr, prb_cont
-            else:
-                return prb_coord, prb_colr
-        else:            
-            # 识别指定颜色物体，返回物体坐标(和轮廓)             
-            hsv_img = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+
+    def get_color(self,img):
+        tmp = 0
+        hsv_img = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+        for color in ["red", "green", "blue"]:
             inRange_hsv = cv2.inRange(hsv_img,
-                                color_dist[color]["Lower"], 
-                                color_dist[color]["Upper"]
-                                )
-            contours, hierarchy = cv2.findContours(inRange_hsv, cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE)
-            if len(contours) > 0:
-                obj_contour = []
-                for contour in contours:
-                    if len(contour) > len(obj_contour):
-                        obj_contour = contour
-                    x, y, w, h = cv2.boundingRect(obj_contour)
-                    obj_coord = [x,y]
-                    if cont:
-                        return obj_coord, obj_contour
-                    else:
-                        return obj_coord
+                                    color_dist[color]["Lower"], 
+                                    color_dist[color]["Upper"])
+            circle = cv2.HoughCircles(inRange_hsv, cv2.HOUGH_GRADIENT, 3, 60,
+                                param1=100, param2=75, minRadius=220, maxRadius=250)
+            if circle is not None:
+                return color
             else:
-                return None
+                if np.mean(inRange_hsv) > tmp:
+                    tmp = np.mean(inRange_hsv)
+                    print(tmp)
+                    prb_color = color
+        return prb_color
+
             
-    def get_aim(self,coord):
+    def get_aim(self, img, color):
+        hsv_img = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+        inRange_hsv = cv2.inRange(hsv_img,
+                            color_dist[color]["Lower"], 
+                            color_dist[color]["Upper"])
+        circle = cv2.HoughCircles(inRange_hsv, cv2.HOUGH_GRADIENT, 3, 60,
+                        param1=100, param2=75, minRadius=220, maxRadius=250)
+        if circle is None:
+            self.get_logger().info("物块丢失")
+            self.twist_pub.publish(Twist())
+            return False
         # 摄像头相对机械臂的偏移位置
         bia_coord = [150, 150]
         buffer = 5
@@ -179,8 +162,8 @@ class Camera_Aim(Node):
         twist = Twist()
         aim_x = bia_coord[0]
         aim_y = bia_coord[1]
-        now_x = coord[0]
-        now_y = coord[1]
+        now_x = circle[0][0]
+        now_y = circle[0][1]
         # --begin--
         if (now_x > aim_x - buffer 
             and now_x < aim_x + buffer):
@@ -198,28 +181,6 @@ class Camera_Aim(Node):
             twist.linear.x = speed
         self.twist_pub.publish(twist)
         return False
-                        
-    def get_circle(self,img,color = "none"):
-        # 识别靶心，返回靶心坐标，或None
-        hsv_img = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
-        inRange_hsv = cv2.inRange(hsv_img,
-                                  color_dist[color]["Lower"], 
-                                  color_dist[color]["Upper"]
-                                  )
-        circles = cv2.HoughCircles(inRange_hsv, cv2.HOUGH_GRADIENT, 1, 50,
-                         param1=100, param2=80, minRadius=60, maxRadius=200)
-        if circles is not None:
-            aim_coord = circles[0][0]
-            return aim_coord
-        else:
-            return None
-    
-    def get_similar(self,coord1, coord2, buffer = 5):
-        if (abs(coord1[0] - coord2[0]) < buffer
-        and abs(coord1[1] - coord2[1]) < buffer):
-            return True
-        else:
-            return False
         
     def get_img(self):
         cap = cv2.VideoCapture(self.cam_id)
