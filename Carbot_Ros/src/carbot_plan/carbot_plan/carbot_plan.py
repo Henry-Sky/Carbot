@@ -35,23 +35,18 @@ class Carbot_Plan(Node):
         self.cam_pub = self.create_publisher(Camreq,"cam_req",5)
         self.cam_sub = self.create_subscription(Camfed,"cam_fed",
                                                 self.camfed_callback,1)
-        # self.cam_status = Camfed()
         
         # (name,status,active,func)
         self.task_list = [
-            ["move_out",False,False,self.task_moveout],
-            ["move_qr",False,False,self.task_moveqr],
+
+           ["move_out",False,False,self.task_moveout],
+           ["move_qr",False,False,self.task_moveqr],
             ["qrcode_scan",False,False,self.task_qrscan],
-            ["move_plt",False,False,self.task_moveplt],
-            ["object_pick",False,False,self.task_objpick],
+           ["move_plt",False,False,self.task_moveplt],
+          ["object_pick",False,False,self.task_objpick],           
+#            ["goal_test", False, False, self.goal_test],
         ]
 
-
-        # ["move_out",False,False,self.task_moveout],
-        # ["move_qr",False,False,self.task_moveqr],
-        # ["qrcode_scan",False,False,self.task_qrscan],
-        # ["move_plt",False,False,self.task_moveplt],
-        # ["object_pick",False,False,self.task_objpick],
         
         # 任务线程
         self.task_name = " "
@@ -59,6 +54,12 @@ class Carbot_Plan(Node):
                                            self.task_callback,callback_group=ReentrantCallbackGroup())  
         self.activate = True
         # self.activate_sub = self.create_subscription(Bool,"activate",self.activate_callback,5)
+
+    def goal_test(self):
+        pose = Pose()
+        pose.position.x = 1.95
+        pose.position.y =0.85
+        return self.go_navigation(pose, self.heading)
 
     def task_movergh(self):
         pose = Pose()
@@ -86,7 +87,7 @@ class Carbot_Plan(Node):
         
     def task_moveqr(self):
         pose = Pose()
-        pose.position.x = 0.6
+        pose.position.x = 0.65
         pose.position.y = 0.18
         return self.go_navigation(pose,self.heading)
     
@@ -127,6 +128,7 @@ class Carbot_Plan(Node):
         else:
             pass
     
+
     def go_navigation(self, goal_pose, goal_heading):
         # 坐标获取
         goal_x = goal_pose.position.x
@@ -239,6 +241,8 @@ class Carbot_Plan(Node):
                 and task_name == task[0]):
                 task[1] = task_status
                 if task[1]:
+                    self.get_logger().info(task[0] + "完成!"+
+                                           "("+str(self.now_pose.position.x)+","+str(self.now_pose.position.y)+")")
                     task[2] = False
                 break
             

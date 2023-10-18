@@ -47,6 +47,7 @@ class Camera_Aim(Node):
         self.code_pub = self.create_publisher(String,"code_info",10)
         
         # 二维码任务(1:红 2:绿 3:蓝)
+        self.waittimes = 0
         self.codeinfo = "等待任务获取"
         # 抓取任务
         self.color_list = []
@@ -61,27 +62,17 @@ class Camera_Aim(Node):
         self.task_list = [
             ["qrcode_scan",False,False,self.task_qrscan],
             ["object_pick",False,False,self.task_objpick],
+            ["object_place", False, False, self.task_objplace]
         ]
+
+    # task3 : 识别靶心并放置物块
+    def task_objplace(self, img):
+        pass
+
         
-    # task1 : 扫描二维码    
-    def task_qrscan(self,img):
-        # 设置机械臂
-        self.car.set_pwm_servo(1, 120)
-        self.car.set_uart_servo_angle_array([21, 114, 220])
-        codeinfo = self.get_code(img)
-        if len(codeinfo) != 0:
-            self.codeinfo = codeinfo
-            code_pub = String()
-            code_pub.data = codeinfo
-            self.code_pub.publish(code_pub)
-            self.get_logger().info("获取二维码:" + str(self.codeinfo))
-            return True
-        else:
-            return False
-    
     # task2 : 识别并抓取物块
     def task_objpick(self, img):
-        arm_obj_aim = [79, 183, 146]
+        arm_obj_aim = [133, 108, 98]
         pwm_circle = [8,88,168]
 
         self.car.set_uart_servo_angle_array(arm_obj_aim)
@@ -98,33 +89,61 @@ class Camera_Aim(Node):
             aim_color = rgb[int(self.codeinfo[self.obj_code])-1]
             if (last_color != now_color 
             and now_color == aim_color):
+                time.sleep(1)
                 self.pick_from_plt(pwm_circle[self.obj_code])
                 self.obj_code += 1
             if self.obj_code == 3:
                 return True
         return False
 
+    # task1 : 扫描二维码    
+    def task_qrscan(self,img):
+        # 设置机械臂
+        self.car.set_pwm_servo(1, 120)
+        arm_scan = [226, 126, 35]
+        self.car.set_uart_servo_angle_array(arm_scan)
+        codeinfo = self.get_code(img)
+        twist = Twist()
+        self.twist_pub.publish(twist)
+        if len(codeinfo) != 0:
+            self.codeinfo = codeinfo
+            code_pub = String()
+            code_pub.data = codeinfo
+            self.code_pub.publish(code_pub)
+            self.get_logger().info("获取二维码:" + str(self.codeinfo))
+            return True
+        else:
+            self.waittimes += 1
+            if self.waittimes % 5 == 0:
+                twist.linear.x = 0.1
+            elif self.waittimes % 9 == 0:
+                twist.linear.x = -0.1
+            else:
+                twist.linear.x = 0.0
+            self.twist_pub.publish(twist)
+            return False
+
+
     def pick_from_plt(self, pwm_circle):
         # 死参数
-        arm_obj_pick_pre = [28, 238, 127]
-        arm_obj_pick = [72, 238, 127]
-        arm_obj_pick_back = [131, 27, 62]
+        arm_obj_pick_pre = [176, 7, 170]
+        arm_obj_pick =   [130, 7, 170]
+        arm_obj_pick_back = [99, 269, 132]
         pwm_pick = 110
         pwm_free = 75
 
         self.car.set_pwm_servo(2, pwm_circle)
         self.car.set_pwm_servo(1, pwm_free)
-        time.sleep(2)
         self.car.set_uart_servo_angle_array(arm_obj_pick_pre,500)
-        time.sleep(2)
+        time.sleep(1)
         self.car.set_uart_servo_angle_array(arm_obj_pick,1000)
         time.sleep(2)
         self.car.set_pwm_servo(1, pwm_pick)
-        time.sleep(2)
+        time.sleep(1)
         self.car.set_uart_servo_angle_array(arm_obj_pick_back,1000)
         time.sleep(2)
         self.car.set_pwm_servo(1, pwm_free)
-        time.sleep(2)
+        time.sleep(1)
         
     def cam_callback(self,task_msg):
         # 检索请求

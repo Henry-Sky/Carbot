@@ -277,11 +277,11 @@ class Carbot(object):
     def __arm_convert_value(self, s_id, s_angle):
         value = -1
         if s_id == 1:
-            value = int((3100 - 900) * (s_angle - 180) / (0 - 180) + 900)
+            value = int((3700 - 380) * (s_angle - 0) / (270 - 0) + 380)
         elif s_id == 2:
-            value = int((3100 - 900) * (s_angle - 180) / (0 - 180) + 900)
+            value = int((3700 - 380) * (s_angle - 0) / (270 - 0) + 380)
         elif s_id == 3:
-            value = int((3100 - 900) * (s_angle - 180) / (0 - 180) + 900)
+            value = int((3700 - 380) * (s_angle - 0) / (270 - 0) + 380)
         elif s_id == 4:
             value = int((3100 - 900) * (s_angle - 180) / (0 - 180) + 900)
         elif s_id == 5:
@@ -295,11 +295,11 @@ class Carbot(object):
     def __arm_convert_angle(self, s_id, s_value):
         s_angle = -1
         if s_id == 1:
-            s_angle = int((s_value - 900) * (0 - 180) / (3100 - 900) + 180 + 0.5)
+            s_angle = int((270 - 0) * (s_value - 380) / (3700 - 380) + 0 + 0.5)
         elif s_id == 2:
-            s_angle = int((s_value - 900) * (0 - 180) / (3100 - 900) + 180 + 0.5)
+            s_angle = int((270 - 0) * (s_value - 380) / (3700 - 380) + 0 + 0.5)
         elif s_id == 3:
-            s_angle = int((s_value - 900) * (0 - 180) / (3100 - 900) + 180 + 0.5)
+            s_angle = int((270 - 0) * (s_value - 380) / (3700 - 380) + 0 + 0.5)
         elif s_id == 4:
             s_angle = int((s_value - 900) * (0 - 180) / (3100 - 900) + 180 + 0.5)
         elif s_id == 5:
@@ -790,7 +790,7 @@ class Carbot(object):
         try:
             if not self.__arm_ctrl_enable:
                 return
-            if 0 <= angle_s[0] <= 240 and 0 <= angle_s[1] <= 300 and 0 <= angle_s[2] <= 240 and \
+            if 0 <= angle_s[0] <= 300 and 0 <= angle_s[1] <= 300 and 0 <= angle_s[2] <= 300 and \
                 0 <= angle_s[3] <= 180 and 0 <= angle_s[4] <= 270 and 0 <= angle_s[5] <= 180:
                 if run_time > 2000:
                     run_time = 2000
