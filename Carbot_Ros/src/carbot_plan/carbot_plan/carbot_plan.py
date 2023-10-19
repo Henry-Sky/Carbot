@@ -43,7 +43,8 @@ class Carbot_Plan(Node):
            ["move_qr",False,False,self.task_moveqr],
             ["qrcode_scan",False,False,self.task_qrscan],
            ["move_plt",False,False,self.task_moveplt],
-          ["object_pick",False,False,self.task_objpick],           
+           ["obj_aim", False, False,self.task_objaim],
+#          ["object_pick",False,False,self.task_objpick],           
 #            ["goal_test", False, False, self.goal_test],
         ]
 
@@ -71,7 +72,13 @@ class Carbot_Plan(Node):
         camreq = Camreq()
         camreq.task_name = self.task_name
         self.cam_pub.publish(camreq)
-        return False       
+        return False
+
+    def task_objaim(self):
+        camreq = Camreq()
+        camreq.task_name = self.task_name
+        self.cam_pub.publish(camreq)
+        return False
 
     def task_moveplt(self):
         pose = Pose()

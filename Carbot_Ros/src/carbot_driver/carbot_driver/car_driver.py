@@ -6,6 +6,7 @@ from rclpy.node import Node
 from carbot_lib import Carbot
 from geometry_msgs.msg import Twist
 from std_msgs.msg import Int64MultiArray
+import time
 
 
 class Car_Driver(Node):
@@ -19,6 +20,8 @@ class Car_Driver(Node):
 		self.declare_parameter("imu_pid_ctrl",True)
 
 		self.imu_pid_ctrl = self.get_parameter("imu_pid_ctrl").get_parameter_value().bool_value
+		self.car.set_uart_servo_angle_array([150, 50, 200])
+		time.sleep(1)
 		self.car.set_uart_servo_angle_array([235, 29, 232])
 
 	# 回调函数

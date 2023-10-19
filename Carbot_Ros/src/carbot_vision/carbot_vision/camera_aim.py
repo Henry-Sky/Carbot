@@ -28,6 +28,12 @@ color_dist = {'red': {'Lower': np.array([0, 60, 60]), 'Upper': np.array([6, 255,
               'green': {'Lower': np.array([90, 50, 45]), 'Upper': np.array([100, 255, 255])},
               'none': {'Lower': np.array([0, 0, 0]), 'Upper': np.array([255, 255, 255])},}
 
+# 物块HSV色表
+obj_color_dist = {'red': {'Lower': np.array([0, 60, 60]), 'Upper': np.array([6, 255, 255])},          
+              'blue': {'Lower': np.array([108, 88, 58]), 'Upper': np.array([118, 255, 255])},
+              'green': {'Lower': np.array([90, 50, 45]), 'Upper': np.array([100, 255, 255])},
+              'none': {'Lower': np.array([0, 0, 0]), 'Upper': np.array([255, 255, 255])},}
+
 class Camera_Aim(Node):
     def __init__(self,name):
         super().__init__(name)
@@ -61,6 +67,7 @@ class Camera_Aim(Node):
         # (name,status,active,func)
         self.task_list = [
             ["qrcode_scan",False,False,self.task_qrscan],
+            ["obj_aim", False, False,self.task_objaim],
             ["object_pick",False,False,self.task_objpick],
             ["object_place", False, False, self.task_objplace]
         ]
@@ -89,12 +96,49 @@ class Camera_Aim(Node):
             aim_color = rgb[int(self.codeinfo[self.obj_code])-1]
             if (last_color != now_color 
             and now_color == aim_color):
-                time.sleep(1)
+                time.sleep(2)
                 self.pick_from_plt(pwm_circle[self.obj_code])
                 self.obj_code += 1
             if self.obj_code == 3:
                 return True
         return False
+
+    # task1.5 : 识别物块
+    def task_objaim(self, img):
+        time.sleep(2)
+        arm_obj_aim = [133, 108, 98]
+        self.car.set_uart_servo_angle_array(arm_obj_aim)
+        time.sleep(1)
+        color = self.get_color(img)
+        aim_coord = (150, 260)
+        flag = False
+        while not flag:
+            img = self.get_img()
+            res = self.get_obj_aim(img, color)
+            if res is not None:
+                flag = self.move_aim(res, aim_coord)
+            else:
+                continue
+
+    def get_obj_aim(self,img,color):
+        hsv_img = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+        inRange_hsv = cv2.inRange(hsv_img,
+                                    obj_color_dist[color]["Lower"], 
+                                    obj_color_dist[color]["Upper"])
+        contours, hierarchy = cv2.findContours(inRange_hsv, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+
+        res_con = []
+        for contour in contours:
+            if len(contour) > len(res_con):
+                res_con = contour
+        if len(res_con) != 0:
+            x, y, w, h = cv2.boundingRect(res_con)
+            x = x + w/2
+            y = y + h/2
+            self.get_logger().info("捕获物体坐标:"+str(x)+","+str(y))
+            return (x, y)
+        else:
+            return None
 
     # task1 : 扫描二维码    
     def task_qrscan(self,img):
@@ -170,7 +214,32 @@ class Camera_Aim(Node):
                 cam_fed.task_name = self.task_name
                 cam_fed.task_status = task[1]
                 self.cam_pub.publish(cam_fed)
-                break        
+                break
+
+    def move_aim(self,now_coord,aim_coord):
+        now_x = now_coord[0]
+        now_y = now_coord[1]
+        aim_x = aim_coord[0]
+        aim_y = aim_coord[1]
+        buffer = 15
+        speed = 0.01
+        twist = Twist()
+        if (abs(now_x - aim_x) < buffer 
+        and abs(now_y - aim_y) < buffer):
+            self.twist_pub.publish(Twist())
+            return True
+        elif now_x > aim_x + buffer:
+            twist.linear.x = -speed
+        elif now_x < aim_x - buffer:
+            twist.linear.x = speed
+        elif now_y > aim_y + buffer:
+            twist.linear.y = speed
+        elif now_y < aim_y - buffer:
+            twist.linear.y = -speed
+        else:
+            pass
+        self.twist_pub.publish(twist)
+        return False
 
     def get_color(self,img):
         tmp = 0
