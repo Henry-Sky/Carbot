@@ -55,6 +55,9 @@ class Camera_Aim(Node):
         # 二维码任务(1:红 2:绿 3:蓝)
         self.waittimes = 0
         self.codeinfo = "等待任务获取"
+        # 瞄准任务
+        self.time_list = []
+        self.coord_list = []
         # 抓取任务
         self.color_list = []
         self.obj_code = 0
@@ -72,26 +75,30 @@ class Camera_Aim(Node):
             ["object_place", False, False, self.task_objplace]
         ]
 
-    # task3 : 识别靶心并放置物块
+    # task4 : 识别靶心并放置物块
     def task_objplace(self, img):
+        arm_obj_aim = [133, 108, 98]
+        pwm_circle = [8,88,168]
+        self.car.set_uart_servo_angle_array(arm_obj_aim)
         pass
 
         
-    # task2 : 识别并抓取物块
+    # task3 : 识别并抓取物块
     def task_objpick(self, img):
         arm_obj_aim = [133, 108, 98]
         pwm_circle = [8,88,168]
-
         self.car.set_uart_servo_angle_array(arm_obj_aim)
+        time.sleep(1)
         #识别颜色
         now_color = self.get_color(img)
-        self.get_logger().info("目前颜色:" + str(now_color))
+        self.get_logger().info("现在颜色:"+str(now_color))
         if len(self.color_list) == 0:
             self.color_list.append(now_color)
             return False
         else:
             last_color = self.color_list.pop()
             self.color_list.append(now_color)
+
             rgb = ["red", "green", "blue"]
             aim_color = rgb[int(self.codeinfo[self.obj_code])-1]
             if (last_color != now_color 
@@ -99,28 +106,46 @@ class Camera_Aim(Node):
                 time.sleep(2)
                 self.pick_from_plt(pwm_circle[self.obj_code])
                 self.obj_code += 1
+                self.color_list = []
             if self.obj_code == 3:
                 return True
         return False
 
-    # task1.5 : 识别物块
+    def color_sum(self, color_list):
+        red = 0
+        green = 0
+        blue = 0
+        for color in color_list:
+            if color == "red":
+                red +=1
+            elif color == "green":
+                green += 1
+            elif color == "blue":
+                blue += 1
+            else:
+                pass
+        dict = {red:"red", green:"green", blue:"blue"}
+        return dict[sorted([red, green, blue])[2]]
+
+
+    # task2 : 识别物块并瞄准
     def task_objaim(self, img):
-        time.sleep(2)
         arm_obj_aim = [133, 108, 98]
         self.car.set_uart_servo_angle_array(arm_obj_aim)
         time.sleep(1)
-        color = self.get_color(img)
         aim_coord = (150, 260)
         flag = False
         while not flag:
             img = self.get_img()
+            color = self.get_color(img)
             res = self.get_obj_aim(img, color)
             if res is not None:
                 flag = self.move_aim(res, aim_coord)
             else:
                 continue
+        return True
 
-    def get_obj_aim(self,img,color):
+    def get_obj_aim(self, img, color):
         hsv_img = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
         inRange_hsv = cv2.inRange(hsv_img,
                                     obj_color_dist[color]["Lower"], 
@@ -141,9 +166,9 @@ class Camera_Aim(Node):
             return None
 
     # task1 : 扫描二维码    
-    def task_qrscan(self,img):
+    def task_qrscan(self, img):
         # 设置机械臂
-        self.car.set_pwm_servo(1, 120)
+        self.car.set_pwm_servo(1, 110)
         arm_scan = [226, 126, 35]
         self.car.set_uart_servo_angle_array(arm_scan)
         codeinfo = self.get_code(img)
@@ -174,17 +199,17 @@ class Camera_Aim(Node):
         arm_obj_pick =   [130, 7, 170]
         arm_obj_pick_back = [99, 269, 132]
         pwm_pick = 110
-        pwm_free = 75
+        pwm_free = 50
 
         self.car.set_pwm_servo(2, pwm_circle)
         self.car.set_pwm_servo(1, pwm_free)
         self.car.set_uart_servo_angle_array(arm_obj_pick_pre,500)
         time.sleep(1)
-        self.car.set_uart_servo_angle_array(arm_obj_pick,1000)
+        self.car.set_uart_servo_angle_array(arm_obj_pick,500)
         time.sleep(2)
         self.car.set_pwm_servo(1, pwm_pick)
         time.sleep(1)
-        self.car.set_uart_servo_angle_array(arm_obj_pick_back,1000)
+        self.car.set_uart_servo_angle_array(arm_obj_pick_back,800)
         time.sleep(2)
         self.car.set_pwm_servo(1, pwm_free)
         time.sleep(1)
@@ -217,38 +242,64 @@ class Camera_Aim(Node):
                 break
 
     def move_aim(self,now_coord,aim_coord):
+
+        # # --------------------
+        # now_time = self.get_clock().now()
+        # if len(self.time_list) == 0:
+        #     self.time_list.append(now_time)
+        #     return False
+        # else:
+        #     last_time = self.time_list.pop()
+        # diff_time = now_time - last_time
+        # print("瞄准时间间隔:" + str(diff_time))
+        # # --------------------
+
         now_x = now_coord[0]
         now_y = now_coord[1]
         aim_x = aim_coord[0]
         aim_y = aim_coord[1]
-        buffer = 15
+
+        # # --------------------
+        # if len(self.coord_list) == 0:
+        #     self.coord_list.append((now_x, now_y))
+        # else:
+        #     coord_length = len(self.coord_list)
+        #     last_coord = self.coord_list[coord_length - 1]
+        # self.get_logger().info("瞄准时间间隔:" + str(diff_time)+"坐标:"+str(now_x)+","+str(now_y))
+        # # --------------------
+
+        buffer = 30
         speed = 0.01
         twist = Twist()
-        if (abs(now_x - aim_x) < buffer 
-        and abs(now_y - aim_y) < buffer):
-            self.twist_pub.publish(Twist())
-            return True
+        if abs(now_x - aim_x) < buffer:
+            if abs(now_y - aim_y) < buffer:
+                self.twist_pub.publish(Twist())
+                self.get_logger().info("已校准物体!")
+                return True
+            elif now_y > aim_y + buffer:
+                twist.linear.y = speed
+            elif now_y < aim_y - buffer:
+                twist.linear.y = -speed
+            else:
+                self.get_logger().info("aim error!")
         elif now_x > aim_x + buffer:
             twist.linear.x = -speed
         elif now_x < aim_x - buffer:
             twist.linear.x = speed
-        elif now_y > aim_y + buffer:
-            twist.linear.y = speed
-        elif now_y < aim_y - buffer:
-            twist.linear.y = -speed
         else:
-            pass
+            self.get_logger().info("aim error!")
+
         self.twist_pub.publish(twist)
         return False
 
-    def get_color(self,img):
+    def get_color(self, img):
         tmp = 0
         hsv_img = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
         prb_color = "none"
         for color in ["red", "green", "blue"]:
             inRange_hsv = cv2.inRange(hsv_img,
-                                    color_dist[color]["Lower"], 
-                                    color_dist[color]["Upper"])
+                                    obj_color_dist[color]["Lower"], 
+                                    obj_color_dist[color]["Upper"])
             circle = cv2.HoughCircles(inRange_hsv, cv2.HOUGH_GRADIENT, 3, 60,
                                 param1=100, param2=75, minRadius=220, maxRadius=250)
             if circle is not None:
@@ -256,36 +307,8 @@ class Camera_Aim(Node):
             else:
                 if np.mean(inRange_hsv) > tmp:
                     tmp = np.mean(inRange_hsv)
-                    print(tmp)
                     prb_color = color
         return prb_color
-        
-        image = Image()
-        image = CvBridge().cv2_to_imgmsg(res_img)
-        self.img_pub.publish(image)
-
-        self.get_logger().info("目前坐标:"+str(now_x)+","+str(now_y))
-
-        twist = Twist()
-        aim_x = bia_coord[0]
-        aim_y = bia_coord[1]
-        # --begin--
-        if (now_x > aim_x - buffer 
-            and now_x < aim_x + buffer):
-            if (now_y > aim_y - buffer
-                and now_y < aim_y + buffer):
-                self.twist_pub.publish(Twist())
-                return True
-            elif (now_y < aim_y - buffer):
-                twist.linear.y = -speed
-            else:
-                twist.linear.y = speed
-        elif (now_x < aim_x - buffer):
-            twist.linear.x = -speed
-        else:
-            twist.linear.x = speed
-        self.twist_pub.publish(twist)
-        return False
         
     def get_img(self):
         cap = cv2.VideoCapture(self.cam_id)

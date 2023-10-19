@@ -29,7 +29,7 @@ class Ui_MainWindow(object):
         self.gridLayout.setObjectName("gridLayout")
         self.label = QtWidgets.QLabel(self.centralwidget)
         font = QtGui.QFont()
-        font.setPointSize(40)
+        font.setPointSize(55)
         font.setBold(True)
         font.setWeight(75)
         font.setStyleStrategy(QtGui.QFont.PreferDefault)

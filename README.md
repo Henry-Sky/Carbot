@@ -58,6 +58,17 @@
 
         sudo apt install ros-humble-robot-localization
 
+### 开机启动 
+添加  
+        sudo cp carbot_start.sh /etc/init.d/
+        sudo chmod 777 carbot_start.sh
+        sudo update-rc.d carbot_start.sh defaults (优先级)
+
+移除
+        cd /etc/init.d
+        sudo update-rc.d -f carbot_start.sh remove
+
+
 ## 计划
 - 优化3d模型，添加屏幕支架，添加底盘支撑，调整机械臂臂长，调整摄像头位置
 - 对物流场地预先建图

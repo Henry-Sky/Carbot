@@ -20,10 +20,10 @@ def generate_launch_description():
     )
     
     return LaunchDescription([
-        # Node(
-        #     package='carbot_launch',
-        #     executable='carbot_window',
-        # ),
+        Node(
+            package='carbot_launch',
+            executable='carbot_window',
+        ),
         Node(
             package='carbot_driver',
             executable='car_driver',

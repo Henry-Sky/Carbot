@@ -44,8 +44,8 @@ class Carbot_Plan(Node):
             ["qrcode_scan",False,False,self.task_qrscan],
            ["move_plt",False,False,self.task_moveplt],
            ["obj_aim", False, False,self.task_objaim],
-#          ["object_pick",False,False,self.task_objpick],           
-#            ["goal_test", False, False, self.goal_test],
+          ["object_pick",False,False,self.task_objpick],
+#          ["move_rgh",False, False, self.task_movergh]           
         ]
 
         
@@ -53,14 +53,8 @@ class Carbot_Plan(Node):
         self.task_name = " "
         self.task_proc = self.create_timer(0.01,
                                            self.task_callback,callback_group=ReentrantCallbackGroup())  
-        self.activate = True
-        # self.activate_sub = self.create_subscription(Bool,"activate",self.activate_callback,5)
-
-    def goal_test(self):
-        pose = Pose()
-        pose.position.x = 1.95
-        pose.position.y =0.85
-        return self.go_navigation(pose, self.heading)
+        self.activate = False
+        self.activate_sub = self.create_subscription(Bool,"activate",self.activate_callback,5)
 
     def task_movergh(self):
         pose = Pose()
@@ -103,10 +97,9 @@ class Carbot_Plan(Node):
         twist = Twist()
         if (now_y > 0.18 - self.stop_buffer
             and now_y < 0.18 + self.stop_buffer):
-            twist.linear.y = 0.0
-            self.twist_pub.publish(twist)
+            self.twist_pub.publish(Twist())
             return True
-        elif now_y < 0.22 - self.stop_buffer:
+        elif now_y < 0.18 - self.stop_buffer:
             twist.linear.y = self.reducer_speed
         else:
             twist.linear.y = -self.reducer_speed
