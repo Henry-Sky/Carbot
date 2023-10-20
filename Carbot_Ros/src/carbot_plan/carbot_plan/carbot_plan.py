@@ -38,14 +38,15 @@ class Carbot_Plan(Node):
         
         # (name,status,active,func)
         self.task_list = [
-
            ["move_out",False,False,self.task_moveout],
            ["move_qr",False,False,self.task_moveqr],
             ["qrcode_scan",False,False,self.task_qrscan],
            ["move_plt",False,False,self.task_moveplt],
            ["obj_aim", False, False,self.task_objaim],
           ["object_pick",False,False,self.task_objpick],
-#          ["move_rgh",False, False, self.task_movergh]           
+          ["move_rgh",False, False, self.task_movergh],
+            ["bull_place", False, False, self.task_bullplace],    
+            ["bull_get", False, False, self.task_bullget], 
         ]
 
         
@@ -55,6 +56,18 @@ class Carbot_Plan(Node):
                                            self.task_callback,callback_group=ReentrantCallbackGroup())  
         self.activate = False
         self.activate_sub = self.create_subscription(Bool,"activate",self.activate_callback,5)
+
+    def task_bullget(self):
+        camreq = Camreq()
+        camreq.task_name = self.task_name
+        self.cam_pub.publish(camreq)
+        return False
+
+    def task_bullplace(self):
+        camreq = Camreq()
+        camreq.task_name = self.task_name
+        self.cam_pub.publish(camreq)
+        return False
 
     def task_movergh(self):
         pose = Pose()

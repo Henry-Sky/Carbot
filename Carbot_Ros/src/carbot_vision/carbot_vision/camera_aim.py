@@ -2,7 +2,6 @@ import rclpy
 from rclpy.node import Node
 import cv2
 import numpy as np
-from cv_bridge import CvBridge
 from sensor_msgs.msg import Image
 from geometry_msgs.msg import Twist
 from rclpy.callback_groups import ReentrantCallbackGroup
@@ -22,10 +21,10 @@ dist = np.array([[-2.52464877e-01, 1.92828476e-01,
                   -7.45335496e-01]])
 
 
-# HSV格式色表
-color_dist = {'red': {'Lower': np.array([0, 60, 60]), 'Upper': np.array([6, 255, 255])},          
-              'blue': {'Lower': np.array([108, 88, 58]), 'Upper': np.array([118, 255, 255])},
-              'green': {'Lower': np.array([90, 50, 45]), 'Upper': np.array([100, 255, 255])},
+# 靶心HSV色表
+bull_color_dist = {'red': {'Lower': np.array([0, 35, 32]), 'Upper': np.array([17, 255, 255])},          
+              'blue': {'Lower': np.array([95, 28, 35]), 'Upper': np.array([115, 255, 255])},
+              'green': {'Lower': np.array([42, 35, 38]), 'Upper': np.array([80, 255, 255])},
               'none': {'Lower': np.array([0, 0, 0]), 'Upper': np.array([255, 255, 255])},}
 
 # 物块HSV色表
@@ -58,9 +57,12 @@ class Camera_Aim(Node):
         # 瞄准任务
         self.time_list = []
         self.coord_list = []
+        self.aim_delay_flag = False
         # 抓取任务
         self.color_list = []
         self.obj_code = 0
+        self.obj_pwm_list = []
+        self.pick_delay_flag = False
 
         # 任务调度
         self.task_proc = self.create_timer(0.001,
@@ -72,25 +74,145 @@ class Camera_Aim(Node):
             ["qrcode_scan",False,False,self.task_qrscan],
             ["obj_aim", False, False,self.task_objaim],
             ["object_pick",False,False,self.task_objpick],
-            ["object_place", False, False, self.task_objplace]
+            ["bull_place", False, False, self.task_bullplace],
+            ["bull_get", False, False, self.task_bullget]
         ]
 
-    # task4 : 识别靶心并放置物块
-    def task_objplace(self, img):
-        arm_obj_aim = [133, 108, 98]
-        pwm_circle = [8,88,168]
-        self.car.set_uart_servo_angle_array(arm_obj_aim)
-        pass
+    # task5 : 识别物体，回收
+    def task_bullget(self):
 
+        aim_coord = (150, 260)  # 靶心相对摄像头的偏移坐标
+        pwm_circle = [8,88,168]
+
+        color_list = []
+        for i in range(3):
+            index = self.codeinfo[i]
+            if index == 1:
+                color_list.append("red")
+            elif index == 2:
+                color_list.append("green")
+            elif index == 3:
+                color_list.append("blue")
+            else:
+                pass
+        bull_index = 0
+        while bull_index != 3:
+            img = self.get_img()
+            color = color_list[bull_index]
+            res = self.get_obj_aim(img, color)
+            if res is not None:
+                flag = self.move_aim(res, aim_coord)
+            if flag:
+                self.pick_from_bull(pwm_circle[bull_index])
+                bull_index += 1
+        return True
+
+    def pick_from_bull(self, pwm_circle):
+        # 死参数
+        arm_obj_pick_pre = [176, 7, 170]    # 预抓取机械臂 (待测)
+        arm_obj_pick = [130, 7, 170]  # 抓取机械臂 (待测)
+        arm_obj_pick_back = [99, 269, 132]  # 放回机械臂 (待测)
+        pwm_pick = 110  # 机械臂抓取
+        pwm_free = 50   # 机械臂释放
+
+        self.car.set_pwm_servo(2, pwm_circle)
+        self.car.set_pwm_servo(1, pwm_free)
+        # 预抓取
+        self.car.set_uart_servo_angle_array(arm_obj_pick_pre,500)
+        time.sleep(1)
+        # 抓取
+        self.car.set_uart_servo_angle_array(arm_obj_pick,500)
+        time.sleep(2)
+        self.car.set_pwm_servo(1, pwm_pick)
+        time.sleep(1)
+        # 放回
+        self.car.set_uart_servo_angle_array(arm_obj_pick_back,800)
+        time.sleep(2)
+        self.car.set_pwm_servo(1, pwm_free)
+        time.sleep(1)
+
+
+    # task4 : 识别靶心, 并放置物块
+    def task_bullplace(self, img):
+        self.car.set_uart_servo_angle_array(arm_obj_aim)
+        time.sleep(1)
+        arm_obj_aim = [133, 108, 98]    # 机械臂识别靶心的角度
+        pwm_circle = [8,88,168]
+        color_list = []
+        aim_coord = (150, 260)  # 靶心相对摄像头的偏移坐标
+        bull_index = 0
+        for i in range(3):
+            index = self.codeinfo[i]
+            if index == 1:
+                color_list.append("red")
+            elif index == 2:
+                color_list.append("green")
+            elif index == 3:
+                color_list.append("blue")
+            else:
+                pass
+        while bull_index != 3:
+            img = self.get_img()
+            color = color_list[bull_index]
+            res = self.get_bull_aim(img, color)
+            if res is not None:
+                flag = self.move_aim(res, aim_coord)
+            if flag:
+                self.place_to_bull(pwm_circle[bull_index])
+                bull_index += 1
+        return True
+
+    def get_bull_aim(self, img, color):  
+        hsv_img = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+        inRange_hsv = cv2.inRange(hsv_img,
+                                    bull_color_dist[color]["Lower"], 
+                                    bull_color_dist[color]["Upper"])
+        circles = cv2.HoughCircles(inRange_hsv, cv2.HOUGH_GRADIENT, 3, 60,
+                            param1=100, param2=75, minRadius=150, maxRadius=250)
+        if circles is None:
+            return None
+        cir_x = []
+        cir_y = []
+        num = 0
+        for circle in circles[0]:
+            num += 1
+            cir_x.append(circle[0])
+            cir_y.append(circle[1])
+        cir_x = sorted(cir_x)
+        cir_y = sorted(cir_y)
+        bull_x = int(np.mean(cir_x[int(num/4):int(num/4*3)]))
+        bull_y = int(np.mean(cir_y[int(num/4):int(num/4*3)]))
+        return (bull_x, bull_y)
+    
+    def place_to_bull(self, pwm_circle):
+        pwm_pick = 110  # 机械臂抓取
+        pwm_free = 50   # 机械臂释放
+        arm_obj_get_pre = [66, 269, 132]    # 预拿取物块
+        arm_obj_get = [99, 269, 132]    # 拿取物块
+        arm_obj_place = [133, 108, 98]  # 放置物块 (待测)
+        # 托盘转到指定颜色
+        self.car.set_pwm_servo(2, pwm_circle)
+        # 预拿取
+        self.car.set_uart_servo_angle_array(arm_obj_get_pre, 1000)
+        # 拿取物块
+        self.car.set_uart_servo_angle_array(arm_obj_get, 800)
+        time.sleep(1)
+        self.car.set_pwm_servo(1, pwm_pick)
+        time.sleep(1)
+        # 放置物块
+        self.car.set_uart_servo_angle_array(arm_obj_place, 1200)
+        time.sleep(1)
+        self.car.set_pwm_servo(1, pwm_free)
+        return True
         
-    # task3 : 识别并抓取物块
+    # task3 : 抓取物块
     def task_objpick(self, img):
-        arm_obj_aim = [133, 108, 98]
+        arm_obj_aim = [133, 108, 98]    # 识别物块颜色的角度
         pwm_circle = [8,88,168]
         self.car.set_uart_servo_angle_array(arm_obj_aim)
         time.sleep(1)
         #识别颜色
-        now_color = self.get_color(img)
+        now_color = self.get_color(img, obj_color_dist)
         self.get_logger().info("现在颜色:"+str(now_color))
         if len(self.color_list) == 0:
             self.color_list.append(now_color)
@@ -105,39 +227,49 @@ class Camera_Aim(Node):
             and now_color == aim_color):
                 time.sleep(2)
                 self.pick_from_plt(pwm_circle[self.obj_code])
+
                 self.obj_code += 1
                 self.color_list = []
             if self.obj_code == 3:
                 return True
         return False
+    
+    def pick_from_plt(self, pwm_circle):
+        # 死参数
+        arm_obj_pick_pre = [176, 7, 170]    # 预抓取机械臂
+        arm_obj_pick = [130, 7, 170]  # 抓取机械臂
+        arm_obj_pick_back = [99, 269, 132]  # 放回机械臂
+        pwm_pick = 110  # 机械臂抓取
+        pwm_free = 50   # 机械臂释放
 
-    def color_sum(self, color_list):
-        red = 0
-        green = 0
-        blue = 0
-        for color in color_list:
-            if color == "red":
-                red +=1
-            elif color == "green":
-                green += 1
-            elif color == "blue":
-                blue += 1
-            else:
-                pass
-        dict = {red:"red", green:"green", blue:"blue"}
-        return dict[sorted([red, green, blue])[2]]
+        self.car.set_pwm_servo(2, pwm_circle)
+        self.car.set_pwm_servo(1, pwm_free)
+        # 预抓取
+        self.car.set_uart_servo_angle_array(arm_obj_pick_pre,500)
+        time.sleep(1)
+        # 抓取
+        self.car.set_uart_servo_angle_array(arm_obj_pick,500)
+        time.sleep(2)
+        self.car.set_pwm_servo(1, pwm_pick)
+        time.sleep(1)
+        # 放回
+        self.car.set_uart_servo_angle_array(arm_obj_pick_back,800)
+        time.sleep(2)
+        self.car.set_pwm_servo(1, pwm_free)
+        time.sleep(1)
 
-
-    # task2 : 识别物块并瞄准
+    # task2 : 物块瞄准
     def task_objaim(self, img):
         arm_obj_aim = [133, 108, 98]
         self.car.set_uart_servo_angle_array(arm_obj_aim)
-        time.sleep(1)
+        if not self.aim_delay_flag:
+            time.sleep(2)
+            self.aim_delay_flag = True
         aim_coord = (150, 260)
         flag = False
         while not flag:
             img = self.get_img()
-            color = self.get_color(img)
+            color = self.get_color(img, obj_color_dist)
             res = self.get_obj_aim(img, color)
             if res is not None:
                 flag = self.move_aim(res, aim_coord)
@@ -169,7 +301,7 @@ class Camera_Aim(Node):
     def task_qrscan(self, img):
         # 设置机械臂
         self.car.set_pwm_servo(1, 110)
-        arm_scan = [226, 126, 35]
+        arm_scan = [226, 126, 35]   # 二维码机械臂
         self.car.set_uart_servo_angle_array(arm_scan)
         codeinfo = self.get_code(img)
         twist = Twist()
@@ -191,28 +323,6 @@ class Camera_Aim(Node):
                 twist.linear.x = 0.0
             self.twist_pub.publish(twist)
             return False
-
-
-    def pick_from_plt(self, pwm_circle):
-        # 死参数
-        arm_obj_pick_pre = [176, 7, 170]
-        arm_obj_pick =   [130, 7, 170]
-        arm_obj_pick_back = [99, 269, 132]
-        pwm_pick = 110
-        pwm_free = 50
-
-        self.car.set_pwm_servo(2, pwm_circle)
-        self.car.set_pwm_servo(1, pwm_free)
-        self.car.set_uart_servo_angle_array(arm_obj_pick_pre,500)
-        time.sleep(1)
-        self.car.set_uart_servo_angle_array(arm_obj_pick,500)
-        time.sleep(2)
-        self.car.set_pwm_servo(1, pwm_pick)
-        time.sleep(1)
-        self.car.set_uart_servo_angle_array(arm_obj_pick_back,800)
-        time.sleep(2)
-        self.car.set_pwm_servo(1, pwm_free)
-        time.sleep(1)
         
     def cam_callback(self,task_msg):
         # 检索请求
@@ -274,7 +384,7 @@ class Camera_Aim(Node):
         if abs(now_x - aim_x) < buffer:
             if abs(now_y - aim_y) < buffer:
                 self.twist_pub.publish(Twist())
-                self.get_logger().info("已校准物体!")
+                self.get_logger().info("已校准!")
                 return True
             elif now_y > aim_y + buffer:
                 twist.linear.y = speed
@@ -292,14 +402,14 @@ class Camera_Aim(Node):
         self.twist_pub.publish(twist)
         return False
 
-    def get_color(self, img):
+    def get_color(self, img, color_dist = obj_color_dist):
         tmp = 0
         hsv_img = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
         prb_color = "none"
         for color in ["red", "green", "blue"]:
             inRange_hsv = cv2.inRange(hsv_img,
-                                    obj_color_dist[color]["Lower"], 
-                                    obj_color_dist[color]["Upper"])
+                                    color_dist[color]["Lower"], 
+                                    color_dist[color]["Upper"])
             circle = cv2.HoughCircles(inRange_hsv, cv2.HOUGH_GRADIENT, 3, 60,
                                 param1=100, param2=75, minRadius=220, maxRadius=250)
             if circle is not None:
