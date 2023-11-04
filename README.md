@@ -1,7 +1,7 @@
 # Carbot
 基于 Ros2 Humble 的智能物流小车
 
-![carbot]("./Model/.img/carbot.jpg")
+![carbot](https://github.com/Henry-Sky/Carbot/blob/master/Model/img/carbot.jpg)
 
 ## 上位机:树莓派4B or 旭日x3派(地平线)
 - 对接下位机库: Carbot_lib
