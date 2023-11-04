@@ -1,6 +1,8 @@
 # Carbot
 基于 Ros2 Humble 的智能物流小车
 
+![carbot]("./Model/.img/carbot.jpg")
+
 ## 上位机:树莓派4B or 旭日x3派(地平线)
 - 对接下位机库: Carbot_lib
 - 改动: 对零号车型适配
@@ -60,12 +62,12 @@
 
 ### 开机启动 
 添加  
-        sudo cp carbot_start.sh /etc/init.d/
-        sudo chmod 777 carbot_start.sh
+        sudo cp carbot_start.sh /etc/init.d/  
+        sudo chmod 777 carbot_start.sh  
         sudo update-rc.d carbot_start.sh defaults (优先级)
 
-移除
-        cd /etc/init.d
+移除  
+        cd /etc/init.d  
         sudo update-rc.d -f carbot_start.sh remove
 
 
